@@ -10,3 +10,5 @@
 <p align="center">
     ia@equationcoffee.com
 </p>
+
+A continuación se presenta la documentación de los desarrollos generdos en el CRM Odoo (v.16 y v.18) por parte del equipo de trasnformacion digital de Equation
