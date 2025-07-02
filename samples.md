@@ -10,13 +10,7 @@
 
 ## 1. Flujo completo del proceso
 
-    ```mermaid
-    graph TD
-    Start[Inicio] --> Check{¿Es cliente de Países Bajos?}
-    Check -- Sí --> VAT[Aplicar impuesto VAT]
-    Check -- No --> NoVAT[Quitar impuesto]
-    VAT --> End[Fin]
-    NoVAT --> End
+
 
 
 ## 2. Modelos   

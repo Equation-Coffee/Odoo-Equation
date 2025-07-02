@@ -1,0 +1,131 @@
+@startuml offering
+
+' Mi orden de variables simepre seguira de ahora en adelante de esta formam
+' Codigo
+' Proyecto
+' Programa o Categoria
+' Variedad
+' Procesos o procesos 
+' Orgien
+' Categorias de Portafolio
+' Sca
+' macroperfil
+' sensory
+' disponibilidad
+' precios
+
+
+abstract class ResUsers{
+    - id : int
+}
+
+
+class OfferingPDF {
+    ----Relation Fields----
+
+    ~ state : Selection
+    ~ line_id : Selection
+    ~ sequence : Selection
+
+    --- Customer and Offering Info ---
+
+    ~ distribution_type : Selection
+    + partner_id : Many2one
+    + salesperson_header : Many2one
+    + salesperson :  Many2one
+    + expiration_date : Date 
+
+
+    ---- Booleans ----
+
+    + sku_boolean : Boolean
+    + variety_boolean : Boolean
+    + fprocess_boolean : Boolean
+    + origin_boolean : Boolean
+    + main_category : Boolean
+    + second_category_boolean : Boolean
+    + sca_boolean : Boolean
+    + macroprofile_boolean : Boolean
+    + sensory_profile_boolean : Boolean
+    + availability_35kg_boolean : Boolean
+    + availability_70kg_boolean : Boolean
+    + exw_boolean : Boolean
+    + exw_eu_boolean : Boolean
+    + spot_usa_boolean : Boolean 
+    + spot_usa_tariffs_boolean : Boolean
+    + spot_eu_boolean : Boolean
+    ~ fob_usa_boolean : Boolean 
+    ~ fob_eu_boolean : Boolean 
+    ~ fwb_usa_boolean  : Boolean
+    ~ fwb_eu_boolean : Boolean
+
+    ---     
+
+}
+
+OfferingPDF "*..salesperson_header" --> "1-id" ResUsers 
+OfferingPDF "*..salesperson" --> "1-id" ResUsers  
+
+
+class   PrductFather{
+    ---General Info---
+
+    + name : Char
+    - sku : Char
+    + lote : Char
+    - internal_code : Char
+    - code : Char
+    + project : Char 
+    + program : Char
+    - category : Char
+    + variety : Char
+    + process : Char
+    + fprocess : Char
+    + town : Char
+    + available : Selection
+
+    --- Equation Info---
+
+    + equation_project : Many2one
+    + equation_program : Many2one
+    + equation_varietal : Many2one
+    + equation_drying_process : Many2one
+    + equation_fermentation_process : Many2one
+    + equation_origin_town : Many2one
+    + equation_sca_score : Many2one
+    + equation_macroprofile : Many2one
+    + equation_process_offering : Many2one
+
+
+    ---Technical Info---
+
+    + score : Integer 
+    + sca_entrega : Float 
+    + sca_actual : Float 
+    + edition : Char 
+    + macroperfil : Char 
+    + mcp : Char
+    + freshness : Integer
+    + altitude : Float
+
+    ---Invetory---
+
+    + country_origin : Char
+    + location : Char
+    + warehouse : Char
+    + farm : Char
+    + producer : Char
+    + supplier : Char
+    + region : Char 
+    + quantity : Float
+    + uom : Selection 
+
+    ---Price---
+
+    + price_usd : Float  
+    + pricelb : Float 
+
+
+}
+
+@enduml

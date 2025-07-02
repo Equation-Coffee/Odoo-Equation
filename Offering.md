@@ -16,7 +16,17 @@
 
 ## 2. Esquema de Precios 
 
+<p align="center">
+  <img width="60%" align="center" src="Images/price_schema.png"/>
+ </p>
+<p align="center">
+  <em>Figura 2 : Esquema calculo de precios ofertable EQN</em>
+ </p>
+
+
 ## 2. Modelos   
+
+A continuación tienen 
 
 ## 3. Vistas
 
@@ -27,3 +37,5 @@
 ## 6. Oportunidades de mejora
 
 ## 7.Resumen Proyectos
+
+## 8. Resumen de Proyectos

@@ -1,0 +1,26 @@
+@startuml
+class Persona as "  
+<html>
+<table border='0' cellspacing='0' cellpadding='4' style='font-family:Segoe UI, sans-serif'>
+<tr><td bgcolor='#D0E9FF'><b>🧍 Datos Personales</b></td></tr>
+<tr><td>nombre : String</td></tr>
+<tr><td>edad : int</td></tr>
+<tr><td>genero : String</td></tr>
+
+<tr><td bgcolor='#FFE0B2'><b>📞 Contacto</b></td></tr>
+<tr><td>telefono : String</td></tr>
+<tr><td>email : String</td></tr>
+<tr><td>direccion : String</td></tr>
+
+<tr><td bgcolor='#E1BEE7'><b>⚙️ Configuración</b></td></tr>
+<tr><td>idioma : String</td></tr>
+<tr><td>zonaHoraria : String</td></tr>
+<tr><td>tema : String</td></tr>
+
+<tr><td bgcolor='#FFCDD2'><b>🔐 Seguridad</b></td></tr>
+<tr><td>contrasena : String</td></tr>
+<tr><td>ultimaConexion : DateTime</td></tr>
+<tr><td>verificacion2FA : boolean</td></tr>
+</table>
+</html>"
+@enduml
