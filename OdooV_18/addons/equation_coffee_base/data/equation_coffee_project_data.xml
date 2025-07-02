@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_project_la_palma_el_tucan" model="equation.coffee_project">
+            <field name="name">La Palma &amp; El Tucán</field>
+            <field name="code">PT</field>
+            <field name="sequence_id" ref='equation_coffee_base.seq_equation_coffee_project_la_palma_el_tucan'/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_project_equation_coffee" model="equation.coffee_project">
+            <field name="name">Equation Coffee</field>
+            <field name="code">EQ</field>
+            <field name="sequence_id" ref='equation_coffee_base.seq_equation_coffee_project_equation_coffee'/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_project_delagua_coffee_paradise" model="equation.coffee_project">
+            <field name="name">Delagua Coffee Paradise</field>
+            <field name="code">DCP</field>
+            <field name="sequence_id" ref='equation_coffee_base.seq_equation_coffee_project_delagua_coffee_paradise'/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_project_creativa_coffee_district" model="equation.coffee_project">
+            <field name="name">Creativa Coffee District</field>
+            <field name="code">CCD</field>
+            <field name="sequence_id" ref='equation_coffee_base.seq_equation_coffee_project_creativa_coffee_district'/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_project_flying_pumas" model="equation.coffee_project">
+            <field name="name">Flying Pumas</field>
+            <field name="code">FP</field>
+            <field name="sequence_id" ref='equation_coffee_base.seq_equation_coffee_project_flying_pumas'/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

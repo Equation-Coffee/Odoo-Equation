@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="equation_coffee_mrp_inherit_mrp_production_form_view" model="ir.ui.view">
+        <field name="name">equation.coffee.mrp.inherit.mrp.production.form.view</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_raw_ids']" position="after">
+                <group col="12" class="oe_invoice_lines_tab">
+                    <group colspan="8"/>
+                    <group colspan="4">
+                        <group class="oe_subtotal_footer oe_right" invisible="equation_bom_price == 0">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="equation_bom_price" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

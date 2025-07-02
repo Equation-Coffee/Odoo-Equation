@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_fermentation_process_extended_static_cherry" model="equation.coffee_fermentation_process">
+            <field name="name">Extended Static Cherry</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_coffee_dynamic_cherry" model="equation.coffee_fermentation_process">
+            <field name="name">Dynamic Cherry</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_static_cherry" model="equation.coffee_fermentation_process">
+            <field name="name">Static Cherry</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_intrinsic_cherry" model="equation.coffee_fermentation_process">
+            <field name="name">Intrinsic Cherry</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_splash" model="equation.coffee_fermentation_process">
+            <field name="name">Splash</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_chilled_cherry" model="equation.coffee_fermentation_process">
+            <field name="name">Chilled Cherry</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_lactic" model="equation.coffee_fermentation_process">
+            <field name="name">Lactic</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_bio_innovation" model="equation.coffee_fermentation_process">
+            <field name="name">Bio-innovation</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_acetic" model="equation.coffee_fermentation_process">
+            <field name="name">Acetic</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_fermentation_process_clear" model="equation.coffee_fermentation_process">
+            <field name="name">Clear</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

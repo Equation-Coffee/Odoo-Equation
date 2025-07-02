@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_profile_traditional_sweew_and_clean" model="equation.coffee_profile">
+            <field name="name">Traditional: sweet &amp; clean</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_profile_floral_aromatic_delicate" model="equation.coffee_profile">
+            <field name="name">Floral: aromatic, delicate</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_profile_fruity_and_tropical" model="equation.coffee_profile">
+            <field name="name">Fruity &amp; Tropical</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_profile_funky_clean_mild_moderate_and_funky" model="equation.coffee_profile">
+            <field name="name">Funky: clean, mild, moderate &amp; funky</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

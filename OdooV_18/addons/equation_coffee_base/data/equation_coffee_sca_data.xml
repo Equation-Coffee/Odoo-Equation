@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_sca_8400" model="equation.coffee_sca">
+            <field name="name">84.00</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8425" model="equation.coffee_sca">
+            <field name="name">84.25</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8450" model="equation.coffee_sca">
+            <field name="name">84.50</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8475" model="equation.coffee_sca">
+            <field name="name">84.75</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_pink_8500" model="equation.coffee_sca">
+            <field name="name">85.00</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_red_8525" model="equation.coffee_sca">
+            <field name="name">85.25</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8550" model="equation.coffee_sca">
+            <field name="name">85.50</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8575" model="equation.coffee_sca">
+            <field name="name">85.75</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8600" model="equation.coffee_sca">
+            <field name="name">86.00</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+                <record id="equation_coffee_sca_8625" model="equation.coffee_sca">
+            <field name="name">86.25</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+                <record id="equation_coffee_sca_8650" model="equation.coffee_sca">
+            <field name="name">86.50</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+                <record id="equation_coffee_sca_8675" model="equation.coffee_sca">
+            <field name="name">86.75</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8700" model="equation.coffee_sca">
+            <field name="name">87.00</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8725" model="equation.coffee_sca">
+            <field name="name">87.25</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8750" model="equation.coffee_sca">
+            <field name="name">87.50</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_sca_8775" model="equation.coffee_sca">
+            <field name="name">87.75</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

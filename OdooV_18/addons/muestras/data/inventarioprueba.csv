@@ -1,0 +1,33 @@
+project,category,variety,price_usd,quantity_kg
+La Palma y El Tucan,Nano-lot,Geisha,14.34,190
+La Palma y El Tucan,Nano-lot,Castillo,15.28,150
+La Palma y El Tucan,Nano-lot,Caturra,13.54,200
+La Palma y El Tucan,Nano-lot,Chiroso,16.78,175
+La Palma y El Tucan,Micro-lot,Geisha,12.34,220
+La Palma y El Tucan,Micro-lot,Castillo,14.55,250
+La Palma y El Tucan,Micro-lot,Caturra,13.75,270
+La Palma y El Tucan,Micro-lot,Chiroso,17.12,180
+Flying Pumas,Nano-lot,Geisha,14.5,160
+Flying Pumas,Nano-lot,Castillo,15.6,140
+Flying Pumas,Nano-lot,Caturra,13.44,155
+Flying Pumas,Nano-lot,Chiroso,16.95,190
+Flying Pumas,Micro-lot,Geisha,12.45,230
+Flying Pumas,Micro-lot,Castillo,14.65,245
+Flying Pumas,Micro-lot,Caturra,13.85,265
+Flying Pumas,Micro-lot,Chiroso,17.25,185
+Creativa,Nano-lot,Geisha,14.8,135
+Creativa,Nano-lot,Castillo,15.9,165
+Creativa,Nano-lot,Caturra,13.74,190
+Creativa,Nano-lot,Chiroso,17.18,175
+Creativa,Micro-lot,Geisha,12.55,240
+Creativa,Micro-lot,Castillo,14.75,250
+Creativa,Micro-lot,Caturra,13.95,260
+Creativa,Micro-lot,Chiroso,17.35,195
+Delagua,Nano-lot,Geisha,14.9,145
+Delagua,Nano-lot,Castillo,16.0,170
+Delagua,Nano-lot,Caturra,13.94,210
+Delagua,Nano-lot,Chiroso,17.38,200
+Delagua,Micro-lot,Geisha,12.65,250
+Delagua,Micro-lot,Castillo,14.85,260
+Delagua,Micro-lot,Caturra,14.05,275
+Delagua,Micro-lot,Chiroso,17.45,220

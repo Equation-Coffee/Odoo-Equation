@@ -1,0 +1,45 @@
+<odoo>
+
+        <record id="equation_coffee_productor_inherit_view_partner_search" model="ir.ui.view">
+            <field name="name">equation.coffee.productor.inherit.view.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='type_company']" position="after">
+                    <separator/>
+                    <filter string="Productors" name="productors" domain="[('is_it_a_producer','=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    <record id="equation_coffee_productor_inherit_view_partner_form" model="ir.ui.view">
+        <field name="name">equation.coffee.productor.inherit.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="3"/>
+        <field name="arch" type="xml">
+
+            <field name="category_id" position="after">
+                <field name="is_it_a_producer" invisible="company_type == 'company' or parent_id"/>
+            </field>
+
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="equation_coffe_productor_information" string="Equation Coffee Productor Information" invisible="company_type == 'company' or parent_id or not is_it_a_producer">
+                    <group name="productor_main_group">
+                        <group name="productor_left_group">
+                            <field name="equation_coffee_productor_farm" required="company_type == 'individual' and not parent_id and is_it_a_producer"/>
+                            <field name="equation_coffee_productor_project_ids" widget="many2many_tags" required="company_type == 'individual' and not parent_id and is_it_a_producer"/>
+                            <field name="equation_coffee_cropster_name" invisible="1"/>
+                            <field name="equation_coffee_cropster" widget="binary" filename="equation_coffee_cropster_name"/>
+                        </group>
+                        <group name="productor_right_group">
+                            <field name="equation_coffee_productor_elevation" required="company_type == 'individual' and not parent_id and is_it_a_producer"/>
+                            <field name="equation_coffee_productor_varietal_ids" widget="many2many_tags" required="company_type == 'individual' and not parent_id and is_it_a_producer"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

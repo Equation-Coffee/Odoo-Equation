@@ -1,0 +1,100 @@
+<odoo>
+
+    <record id="equation_coffee_partner_inherit_view_partner_filter" model="ir.ui.view">
+        <field name="name">equation.coffee.partner.inherit.view.partner.filter</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="priority" eval="3"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="equation_coffee_comercial_name"/>
+                <separator/>
+                <field name="equation_coffee_project_ids" string="Projects" filter_domain="[('equation_coffee_project_ids.name', 'ilike', self)]"/>
+                <field name="equation_coffee_customer_program_ids" string="Coffee Program" filter_domain="[('equation_coffee_customer_program_ids.name', 'ilike', self)]"/>
+                <field name="equation_coffee_customer_origin_id" string="How did they come to us? (Story &amp; Background)"/>
+                <field name="equation_coffee_region" string="Region"/>
+                <field name="equation_coffee_account_type_id" string="Account Type"/>
+                <field name="foreign_id_number" string="Foreign ID Number"/>
+            </xpath>
+            <xpath expr="//filter[@name='group_country']" position="after">
+                <filter string="Projects" name="group_by_equation_coffee_project_ids" domain="[]" context="{'group_by': 'equation_coffee_project_ids'}"/>
+                <filter string="Coffee Program" name="group_by_equation_coffee_customer_program_ids" domain="[]" context="{'group_by': 'equation_coffee_customer_program_ids'}"/>
+                <filter string="How did they come to us? (Story &amp; Background)" name="group_by_equation_coffee_customer_origin_id" domain="[]" context="{'group_by': 'equation_coffee_customer_origin_id'}"/>
+                <filter string="Region" name="group_by_equation_coffee_region" domain="[]" context="{'group_by': 'equation_coffee_region'}"/>
+                <filter string="Account Type" name="group_by_equation_coffee_account_type_id" domain="[]" context="{'group_by': 'equation_coffee_account_type_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="equation_coffee_partner_inherit_view_partner_property_form" model="ir.ui.view">
+        <field name="name">equation.coffee.partner.inherit.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="priority" eval="3"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//span[@name='address_name']" position="before">
+                <field name="equation_coffee_comercial_name" invisible="not is_company"/>
+            </xpath>
+
+            <xpath expr="//page[last()]" position="after">
+                <page name="equation_coffe_customer_information" string="Equation Coffee Customer Information" invisible="customer_rank == 0">
+                    <group name="main_group">
+                        <group name="left_group">
+                            <field name="customer_rank" invisible="1"/>
+                            <field name="equation_coffee_account_type_id" options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}" required="customer_rank == 1"/>
+                            <field name="equation_coffee_customer_origin_id" options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}" required="customer_rank == 1"/>
+                            <field name="equation_coffee_project_ids" widget="many2many_tags"/>
+                        </group>
+                        <group name="right_group">
+                            <field name="equation_coffee_region" required="customer_rank == 1"/>
+                            <field name="equation_coffee_customer_program_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    <group colspan="4" name="equation_coffee_customer_context" string="History/customer context (how much do we know about our customers?)">
+                        <field colspan="2" name="equation_coffee_customer_context" required="customer_rank == 1" nolabel="1" placeholder="Social media (Instagram, X, ....)"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4" name="equation_coffee_personal_information" string="Personal Information">
+                        <field colspan="2" name="equation_coffee_personal_information" nolabel="1" placeholder="Birthdays, participation in championships, children, preferences"/>
+                    </group>
+                </page>
+                <page name="history_purchase" string="Purchase History">
+                    <field name="purchase_history" widget="section_and_note_one2many" mode="list,kanban,form">
+                        <list string="Purchase History" class="specific_table_class">
+                            <field name="date"/>
+                            <field name="project"/>
+                            <field name="program"/>
+                            <field name="category"/>
+                            <field name="process"/>
+                            <field name="varietal"/>
+                        </list>
+                    </field>
+                </page>
+                <page name="offering_history" string="Offering History">
+                    <field name="offering_history" widget="section_and_note_one2many" mode="list,kanban,form">
+                        <list string="Offering History" class="specific_table_class">
+                            <field name="offering_seq"/>
+                            <field name="salesperson_header"/>
+                            <field name="date"/>
+                            <field name="expiration_date"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="equation_coffee_partner_inherit_view_partner_form_v18" model="ir.ui.view">
+        <field name="name">equation.coffee.partner.inherit.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base_vat.view_partner_base_vat_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='vat_vies_container']" position="after">
+                <field name="foreign_id_number" invisible="country_code== 'co'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

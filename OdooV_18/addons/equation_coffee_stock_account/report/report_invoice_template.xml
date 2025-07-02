@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="account.report_invoice_document" id="equation_coffee_report_invoice_document">
+        <!-- <xpath expr="//div[@name='incoterm_id']" position="after"> -->
+<!-- 
+            <table t-if="o.equation_coffee_qty or o.equation_coffee_reference" class="mb-3" style="margin-bottom: 10px;">
+                <tr>
+                    <td t-if="o.equation_coffee_qty" style="padding-right: 15px;">
+                        <strong>Quantity:</strong>
+                        <span t-field="o.equation_coffee_qty"/>
+                    </td>
+                    <td t-if="o.equation_coffee_reference">
+                        <strong>Reference:</strong>
+                        <span t-field="o.equation_coffee_reference"/>
+                    </td>
+                </tr>
+            </table> -->
+            <!-- <table t-if="o.equation_coffee_country_ori or o.equation_coffee_loading_port or o.equation_coffee_destination_port or o.equation_coffee_shipping_line or o.equation_coffee_bill_lading or o.equation_coffee_hs_code"
+                   class="table table-sm" style="border: 1px solid #ccc; border-collapse: collapse; width: 100%;"> -->
+                <thead>
+                    <tr style="background-color: #f2f2f2;">
+                        <th t-if="o.equation_coffee_country_ori" style="border: 1px solid #ccc;">Country of origin</th>
+                        <th t-if="o.equation_coffee_loading_port" style="border: 1px solid #ccc;">Loading Port</th>
+                        <th t-if="o.equation_coffee_destination_port" style="border: 1px solid #ccc;">Discharge Port</th>
+                        <th t-if="o.equation_coffee_shipping_line" style="border: 1px solid #ccc;">Shipping Line / Carrier</th>
+                        <th t-if="o.equation_coffee_bill_lading" style="border: 1px solid #ccc;">BL / AWB Number</th>
+                        <th t-if="o.equation_coffee_hs_code" style="border: 1px solid #ccc;">HS code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td t-if="o.equation_coffee_country_ori" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_country_ori"/>
+                        </td>
+                        <td t-if="o.equation_coffee_loading_port" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_loading_port"/>
+                        </td>
+                        <td t-if="o.equation_coffee_destination_port" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_destination_port"/>
+                        </td>
+                        <td t-if="o.equation_coffee_shipping_line" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_shipping_line"/>
+                        </td>
+                        <td t-if="o.equation_coffee_bill_lading" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_bill_lading"/>
+                        </td>
+                        <td t-if="o.equation_coffee_hs_code" style="border: 1px solid #ccc;">
+                            <span t-field="o.equation_coffee_hs_code"/>
+                        </td>
+                    </tr>
+                </tbody>
+            <!-- </table> -->
+<!-- 
+        </xpath> -->
+    </template>
+</odoo>

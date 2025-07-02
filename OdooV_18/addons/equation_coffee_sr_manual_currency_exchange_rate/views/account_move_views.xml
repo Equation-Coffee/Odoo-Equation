@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="equation_coffee_sr_manual_currency_exchange_rate_inherit_view_move_form_extends_add_manual_currency_exchange_rate" model="ir.ui.view">
+            <field name="name">equation.coffee.sr.manual.currency.exchange.rate.inherit.view.move.form.extends.add.manual.currency.exchange.rate</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="sr_manual_currency_exchange_rate.view_move_form_extends_add_manual_currency_exchange_rate"/>
+            <field name="arch" type="xml">
+
+                <field name="apply_manual_currency_exchange" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <field name="manual_currency_exchange_rate" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <field name="manual_currency_exchange_rate" position="after">
+                    <field name="fixing_date_manual_currency_exchange_rate" invisible="not apply_manual_currency_exchange or not active_manual_currency_rate" readonly="1"/>
+                </field>
+
+            </field>
+        </record>
+    </data>
+</odoo>

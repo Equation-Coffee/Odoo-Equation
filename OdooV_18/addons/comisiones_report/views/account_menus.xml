@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem
+        id="report_commission_ff_root"
+        parent="account.menu_finance_reports"
+        sequence="10"
+        name="Commissions">
+        <menuitem id="report_commission_ff" action="action_commission_report_ff" sequence="3"/>
+    </menuitem>   
+</odoo>

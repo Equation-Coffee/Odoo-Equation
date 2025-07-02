@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_macroprofile_red_fruits" model="equation.coffee_macroprofile">
+            <field name="name">Red Fruits, Sweet</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_aromatic_fruity" model="equation.coffee_macroprofile">
+            <field name="name">Aromatic, Fruity</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_citrus_fruity_sweet" model="equation.coffee_macroprofile">
+            <field name="name">Citrus, Fruity, Sweet</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_fruit_cocoa" model="equation.coffee_macroprofile">
+            <field name="name">Fruit-Forward-Cocoa</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_tropical_fruits" model="equation.coffee_macroprofile">
+            <field name="name">Tropical Fruits</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_tropical_spice_cocoa" model="equation.coffee_macroprofile">
+            <field name="name">Tropical, Spice, Cocoa</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_macroprofile_floral_citrus_aromatic" model="equation.coffee_macroprofile">
+            <field name="name">Floral, Citrus, Aromatic</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

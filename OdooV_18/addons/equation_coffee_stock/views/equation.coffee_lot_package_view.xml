@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="equation_coffee_lot_package_tree" model="ir.ui.view">
+            <field name="name">equation.coffee.lot_package.list</field>
+            <field name="model">equation.coffee_lot_package</field>
+            <field name="arch" type="xml">
+                <list create="true">
+                    <field name="package"/>
+                </list>
+            </field>
+        </record>
+    
+    
+        <record id="equation_coffee_lot_package_action" model="ir.actions.act_window">
+            <field name="name">Packages</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">equation.coffee_lot_package</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

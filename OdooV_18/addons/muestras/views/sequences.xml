@@ -1,0 +1,21 @@
+<odoo>
+    <data noupdate="1">  
+        <record model ="ir.sequence" id="muestras.orderSeq_list">
+            <field name="name">muestras.Sequence</field>
+            <field name="code">muestras.order</field>
+            <field name="prefix">M-</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record model="ir.sequence" id="muestras.offering_pdfSeq_list">
+            <field name="name">Consecutivo Offering List</field>
+            <field name="code">muestras.offering.wizard</field>
+            <field name="prefix">OF-</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

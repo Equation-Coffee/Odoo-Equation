@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="stock.warehouse0" model="stock.warehouse">
+            <field name="name">El Faro</field>
+            <field name="code">FARO</field>
+        </record>
+
+        <record id="warehouse_hacienda_santa_elisa" model="stock.warehouse">
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="name">Hacienda Santa Elisa</field>
+            <field name="code">HSE</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="warehouse_creativa" model="stock.warehouse">
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="name">Creativa</field>
+            <field name="code">CCD</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="warehouse_almacen_libertario_bogota" model="stock.warehouse">
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="name">Almacén Libertario Bogotá</field>
+            <field name="code">ALB</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="warehouse_almacen_libertario_bogota" model="stock.warehouse">
+            <field name="partner_id" ref="base.main_partner"/>
+            <field name="name">Oficina Equation Calle 98</field>
+            <field name="code">OQC98</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <!--Warehouse EEUU-->
+        <record id="warehouse_the_anex" model="stock.warehouse">
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_llc"/>
+            <field name="name">The Anex - Oakland</field>
+            <field name="code">ANEX</field>
+            <field name="company_id" ref="equation_coffee_base.res_company_equation_coffee_llc"/>
+        </record>
+
+        <record id="warehouse_dupuy" model="stock.warehouse">
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_llc"/>
+            <field name="name">Dupuy - Texas</field>
+            <field name="code">DUPUY</field>
+            <field name="company_id" ref="equation_coffee_base.res_company_equation_coffee_llc"/>
+        </record>
+
+        <record id="warehouse_continental" model="stock.warehouse">
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_llc"/>
+            <field name="name">Continental - New Jersey</field>
+            <field name="code">CONTI</field>
+            <field name="company_id" ref="equation_coffee_base.res_company_equation_coffee_llc"/>
+        </record>
+        <!--End warehouse-->
+
+        <!--Warehouse EEUU-->
+        <record id="warehouse_vollers" model="stock.warehouse">
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_europe_b_v"/>
+            <field name="name">Vollers (Holanda)</field>
+            <field name="code">VOLL</field>
+            <field name="company_id" ref="equation_coffee_base.res_company_equation_coffee_europe_b_v"/>
+        </record>
+        <!--End warehouse-->
+
+    </data>
+</odoo>

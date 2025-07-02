@@ -1,0 +1,7 @@
+id,name,quantity,price,description,category,region
+item1,Product 1,100,500,First Product,C1,EU
+item2,Product 2,150,1000,Second Product,C2,EU
+item3,Product 3,600,100,Third Product,C3,USA
+item4,Product 4,700,100,Four Product,C1,EU
+item5,Product 5,800,100,Fifth Product,C1,EU
+item6,Product 6,200,100,Sixth Product,C6,Asia

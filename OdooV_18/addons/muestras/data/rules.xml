@@ -1,0 +1,57 @@
+<odoo>
+    <!-- Regla para el Grupo de Asia -->
+    <record id="rule_region_asia_allproducts" model="ir.rule">
+        <field name="name">Restrict to Asia Region</field>
+        <field name="model_id" ref="model_muestras_allproducts"/>
+        <field name="domain_force">   
+        ['|', '|',
+            ('region', '=', 'Asia'),
+            ('region', '=', 'All Regions'),
+            ('region', '=', False)
+        ]
+        </field>
+        <field name="groups" eval="[(4, ref('muestras.group_Asia'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Regla para el Grupo de Europa -->
+    <record id="rule_region_europe_allproducts" model="ir.rule">
+        <field name="name">Restrict EU Records</field>
+        <field name="model_id" ref="model_muestras_allproducts"/>
+        <field name="domain_force">        
+        ['|', '|',
+            ('region', '=', 'Europe'),
+            ('region', '=', 'All Regions'),
+            ('region', '=', False)
+        ]
+        </field>
+        <field name="groups" eval="[(4, ref('muestras.group_EU'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Regla para el Grupo de USA -->
+    <record id="rule_region_usa_allproducts" model="ir.rule">
+        <field name="name">Restrict to USA Region</field>
+        <field name="model_id" ref="model_muestras_allproducts"/>
+        <field name="domain_force">        
+        ['|', '|',
+            ('region', '=', 'United States'),
+            ('region', '=', 'All Regions'),
+            ('region', '=', False)
+        ]
+        </field>
+        <field name="groups" eval="[(4, ref('muestras.group_USA'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+
+</odoo>

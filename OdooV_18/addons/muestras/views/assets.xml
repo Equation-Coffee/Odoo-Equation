@@ -1,0 +1,7 @@
+<odoo>
+    <template id="web.assets_backend" inherit_id="web.assets_backend" name="Incluir JS en Backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/muestras/static/src/js/pruebasConexion.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="account.report_invoice_document" id="equation_coffee_partner_report_invoice_document_v18">
+
+        <xpath expr="//div[@id='partner_vat_address_not_same_as_shipping']" position="after">
+            <div t-if="o.partner_id.foreign_id_number" id="partner_foreign_id_number_address_not_same_as_shipping">
+                Foreign ID Number: <span t-field="o.partner_id.foreign_id_number"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='partner_vat_address_same_as_shipping']" position="after">
+            <div t-if="o.partner_id.foreign_id_number" id="partner_foreign_id_number_address_same_as_shipping">
+                Foreign ID Number: <span t-field="o.partner_id.foreign_id_number"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='partner_vat_no_shipping']" position="after">
+            <div t-if="o.partner_id.foreign_id_number" id="partner_foreign_id_number_no_shipping">
+                Foreign ID Number: <span t-field="o.partner_id.foreign_id_number"/>
+            </div>
+        </xpath>
+        
+    </template>
+</odoo>

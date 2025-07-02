@@ -1,0 +1,22 @@
+<odoo>
+    <record id="cron_update_days_since_start" model="ir.cron">
+        <field name="name">Actualizar Días Desde Inicio</field>
+        <field name="model_id" ref="muestras.model_muestras_order"/>
+        <field name="state">code</field>
+        <field name="code">model._update_days()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="cron_trm" model="ir.cron">
+        <field name="name">TRM Update </field>
+        <field name="model_id" ref="model_muestras_price"/>
+        <field name="state">code</field>
+        <field name="code">env['muestras.price'].cron_trm()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,1468 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!-- MODELO INICIAL -->
+    <record model="ir.ui.view" id="muestras.tabla_list">
+      <field name="name">muestras.tabla.list</field>
+      <field name="model">muestras.tabla</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <!-- <field name="value"/>
+          <field name="value2"/>  -->
+        </list>
+      </field>
+    </record>
+
+    <!-- MODELO DE PRODUCTOS --> 
+    <record model="ir.ui.view" id="muestras.product_list">
+      <field name="name">muestras.product.list</field>
+      <field name="model">muestras.product</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name='code'/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name='category'/>
+          <field name="warehouse"/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="lote"/>
+          <field name="location"/>
+          <field name="internal_code"/>
+          <field name='variety'/>
+          <field name='quantity_kg'/>
+          <field name='price_usd'/>
+          <!-- <field name='region'/>  -->
+          <field name='quantityUSA'/>
+          <field name='quantityEU'/>
+          <field name='quantityAsia'/>
+        </list>
+      </field>
+      <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+
+    <record id="muestras.product_form" model="ir.ui.view">
+        <field name="name">Productos Form View</field>
+        <field name="model">muestras.product</field>
+        <field name="arch" type="xml">
+            <form string="Parámetros">
+                <sheet>
+                    <group>
+                        <field name='code'/>
+                        <field name="project"/>
+                        <field name="program"/>
+                        <field name='category'/>
+                        <field name="warehouse"/>
+                        <field name="process"/>
+                        <field name="country_origin"/>
+                        <field name="lote"/>
+                        <field name="location"/>
+                        <field name="internal_code"/>
+                        <field name='variety'/>
+                        <field name="edition"/>
+                        <field name="score"/>
+                        <field name="macroprofile"/>
+                        <field name='quantity_kg'/>
+                        <field name='price_usd'/>
+                    </group>
+                    <group>
+                        <field name="quantityUSA" />
+                        <field name="quantityEU" />
+                        <field name="quantityAsia" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- MODELO DE PRODUCTOS DESDE MUESTRAS.FATHER -->
+    <record model ="ir.ui.view" id="muestras.father_list">
+      <field name="name">muestras.father.list</field>
+      <field name="model">muestras.father</field>
+      <field name="arch" type="xml">
+        <list> 
+          <!-- <header>
+              <button name="mi_metodo" type="object" string="Mi Botón" class="btn-primary"/>
+          </header> -->
+          <!-- <control-panel>
+              <button name="mi_metodo" type="object" string="Mi Botón" class="btn-primary"/>
+          </control-panel> -->
+          <field name="lote"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name='variety'/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="location"/>
+          <field name="warehouse"/>
+          <field name="edition"/>
+          <field name="sca_actual"/>
+          <field name="macroprofile"/>
+        </list>
+        <!-- <control-panel>
+            <button name="mi_metodo" type="object" string="Mi Botón" class="btn-primary"/>
+        </control-panel> -->
+      </field>
+    </record>
+
+
+    <record id="muestras.father_form" model="ir.ui.view">
+        <field name="name">muestras.father.form</field>
+        <field name="model">muestras.father</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <!-- <header>
+                    <button string="Print Labels" type="object" name="action_open_label_layout" attrs="{'invisible': [('detailed_type', '==', 'service')]}"/>
+                </header> -->
+                <sheet name="product_form">
+                    <!-- <field name="product_variant_count" invisible="1"/>
+                    <field name="is_product_variant" invisible="1"/>
+                    <field name="attribute_line_ids" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="company_id" invisible="1"/> -->
+                    <div class="oe_button_box" name="button_box">
+                        <!-- <button class="oe_stat_button" name="open_pricelist_rules" icon="fa-list-ul" groups="product.group_product_pricelist" type="object">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="pricelist_item_count"/>
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                        Extra Prices
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                        Extra Price
+                                    </span>
+                                </div>
+                        </button> -->
+                    </div>
+                    <!-- <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/> -->
+                    <field name="id" invisible="True"/>
+                    <!-- <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/> -->
+                    <div class="oe_title">
+                        <label for="name" string="Product Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <!-- <field name="priority" widget="priority" class="me-3"/> -->
+                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <div name="options">
+                        <span class="d-inline-block">
+                            <!-- <field name="sale_ok"/> -->
+                            <!-- <label for="sale_ok"/> -->
+                        </span>
+                        <span class="d-inline-block">
+                            <!-- <field name="purchase_ok"/> -->
+                            <!-- <label for="purchase_ok"/> -->
+                        </span>
+                    </div>
+                    <notebook>
+                        <page string="Coffee Information" name="coffee_information">
+                            <group name="codification" string="Codification">
+                                <field name="sku"/>
+                                <field name="lote"/>
+                                <field name="available"/>
+                                <field name="date_create"/>
+                            </group>
+                            <group name="coffee_details" string="Coffee Details">
+                                <group name="group_general">
+                                      <field name="equation_project"/>
+                                      <field name="equation_varietal"/>
+                                      <field name="equation_program"/>
+                                      <field name="equation_fermentation_process"/>
+                                      <field name="equation_drying_process"/>
+                                      <field name="equation_process_offering"/>
+                                      
+                                      
+                                      
+                                    
+                                      <!-- <group name="second info">
+                                     
+                                      </group>   -->
+
+                                    <!-- <field name="product_tooltip" string="" class="fst-italic text-muted"/>
+                                    <field name="uom_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                    <field name="uom_po_id" groups="uom.group_uom" options="{'no_create': True}"/> -->
+                                </group>
+                                <group name="coffee_details_ii">
+                                    <field name="is_decaf"/>
+                                    <field name="equation_origin_town"/>
+                                    <field name="sca_actual"/>
+                                    <field name="freshness"/>
+                                    <field name="edition"/>
+                                    <field name="equation_macroprofile"/>
+                                    <field name="macroprofile"/>
+                                    <field name="price_usd"/>
+                                    <field name="condicion"/>
+                                    <!-- <label for="list_price"/> -->
+                                    <div name="pricing">
+                                      
+                                      <!-- <field name="list_price" class="oe_inline" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/> -->
+                                    </div>
+                                    <!-- <label for="standard_price" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                    <!-- <div name="standard_price_uom" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="standard_price" class="oe_inline" widget="monetary" options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/> -->
+                                        <span groups="uom.group_uom">
+                                            <!-- <field name="uom_name" class="oe_inline"/> -->
+                                        </span>
+                                    <!-- </div> -->
+                                    <!-- <field name="categ_id" string="Product Category"/>
+                                    <field name="product_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="cost_currency_id" invisible="1"/>
+                                    <field name="product_variant_id" invisible="1"/> -->
+                                </group>
+                            </group>
+                            <group string="Internal Notes">
+                                <!-- <field colspan="2" name="description" nolabel="1" placeholder="This note is only for internal purposes."/> -->
+                            </group>
+                        </page>
+                        <page string="Sales" name="sales" invisible="1">
+                            <group name="sale">
+                                <group string="Upsell &amp; Cross-Sell" name="upsell" invisible="1"/>
+                            </group>
+                            <group>
+                                <group string="Sales Description" name="description">
+                                    <!-- <field colspan="2" name="description_sale" nolabel="1" placeholder="This note is added to sales orders and invoices."/> -->
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Purchase" name="purchase" invisible="1">
+                            <group name="purchase">
+                                <group string="Vendor Bills" name="bill"/>
+                            </group>
+                        </page>
+                        <page string="Inventory" name="inventory">
+                            <group name="inventory">
+                                <group name="logistics" string="Logistics">
+                                    <field name="producer"/>
+                                    <field name="farm"/>
+                                    <field name="supplier"/>
+                                    <!-- <label for="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                    <!-- <div class="o_row" name="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="weight" class="oe_inline"/>
+                                        <field name="weight_uom_name"/> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="o_row" name="volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="volume" string="Volume" class="oe_inline"/>
+                                        <field name="volume_uom_name"/> -->
+                                    <!-- </div> -->
+                                </group>
+                                <group name="inventory_info" string="Inventory Details">
+                                    <field name="warehouse"/>
+                                    <field name="country_origin"/>
+                                    <field name="location"/>
+                                    <field name="quantity_kg"/>
+                                    <field name="uom"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <!-- <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/> -->
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+        <!-- MODULO DE SPOT EU-->
+
+    <record model="ir.ui.view" id="muestras.spoteu_list">
+      <field name="name">muestras.spoteu.list</field>
+      <field name="model">muestras.spoteu</field>
+      <field name="arch" type="xml">
+        <list > 
+          <field name="lote"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name='variety'/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="location"/>
+          <field name="warehouse"/>
+          <field name="edition"/>
+          <field name="sca_actual"/>
+          <field name="macroprofile"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="muestras.spoteu_form" model="ir.ui.view">
+      <field name="name">muestras.spoteu.form</field>
+      <field name="model">muestras.spoteu</field>
+      <field name="inherit_id" ref="muestras.father_form"/>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='group_general']" position="inside">
+            <field name="offeringCat" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <!-- MODULO DE INVETARIO EQUATION -->
+
+    <record model ="ir.ui.view" id="muestras.inventario_list">
+      <field name="name">muestras.inventario.list</field>
+      <field name="model">muestras.inventario</field>
+      <field name="arch" type="xml">
+        <list>
+          <header>
+              <button name="button_inventory"
+                          string="Update"
+                          type="object"
+                          class="oe_highlight"
+                          icon="fa-check" />
+            </header>
+          <field name="lote"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name='variety'/>
+          <field name="process"/>
+          <field name="fprocess"/>
+          <field name="country_origin"/>
+          <field name="warehouse"/>
+          <!-- <field name="region"/>   -->
+          <field name="edition"/>
+          <field name="sca_actual"/>
+          <field name="macroprofile"/>
+          <field name="offeringCat" widget="many2many_tags"/>
+        </list>
+      </field>
+    </record>
+
+
+    <record id="muestras.inventario_form" model="ir.ui.view">
+      <field name="name">muestras.inventario.form</field>
+      <field name="model">muestras.inventario</field>
+      <field name="inherit_id" ref="muestras.father_form"/>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='coffee_details_ii']" position="inside">
+            <field name="offeringCat" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+
+
+<!-- 
+    <record model ="ir.ui.view" id="muestras.inventario_form">
+      <field name="name">muestras.inventario.form</field>
+      <field name="model">muestras.inventario</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div>
+              <field name="offeringCat" widget="many2many_tags"/>
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record> -->
+
+
+
+
+    <!-- MODULO DE PRODCUTO DISPONIBLE  -->
+
+    <record model ="ir.ui.view" id="muestras.disponible_list">
+      <field name="name">muestras.disponible.list</field>
+      <field name="model">muestras.disponible</field>
+      <field name="arch" type="xml">
+        <list default_group_by="available" expand="0">       
+          <field name="lote"/>
+          <!-- <field name="project"/> -->
+          <field name="program"/>
+          <field name='variety'/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="location"/>
+          <field name="warehouse"/>
+          <field name="edition"/>
+          <field name="sca_actual"/>
+          <field name="price_usd"/>
+          <field name="macroprofile"/>
+          <field name="offeringCat" widget="many2many_tags"/>
+        </list>
+      </field>
+    </record>
+
+
+    <record id="muestras.disponible_form" model="ir.ui.view">
+      <field name="name">muestras.disponible.form</field>
+      <field name="model">muestras.disponible</field>
+      <field name="inherit_id" ref="muestras.father_form"/>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='coffee_details_ii']/field[@name='condicion']" position="replace"> 
+          <!-- Campo eliminado -->
+        </xpath>
+        <xpath expr="//group[@name='coffee_details_ii']/field[@name='edition']" position="replace">
+          <!-- campo elimiando -->
+        </xpath>
+        <xpath expr="//group[@name='coffee_details_ii']/field[@name='price_usd']" position="replace">
+          <!-- campo elimiando -->
+        </xpath>
+        <!-- <xpath expr="//group[@name='coffee_details_ii']/field[@name='quantity_kg']" position="attributes">
+          <attribute name="string">Disponibilidad en kg</attribute>
+        </xpath> -->
+        <xpath expr="//group[@name='coffee_details_ii']/field[@name='freshness']" position="replace">
+          <!-- campo eliminado -->
+        </xpath>
+        <xpath expr="//group[@name='inventory_info']/field[@name='uom']" position="after">
+          <field name="sample_availability"/>
+          <field name="availability_70kg"/>
+          <field name="availability_35kg"/>  
+        </xpath>
+
+        <!-- <xpath expr="//group[@name='coffee_details_ii']/field[@name='country_origin']" position="attributes">
+          <attribute name="string">País de Origen</attribute>
+
+        </xpath> -->
+        <xpath expr="//page[@name='inventory']" position="after">
+          <page string="Equation Price" name="equation_price">
+            <group name="price_previous_data">
+                <group name="excelso/cost_variance">
+                  <field name="price_selector" widget="radio"/>
+                  <field name="excelso_kg" invisible ="price_selector not in ['exc']"/>
+                  <field name="cost_variance" invisible = "price_selector not in ['dfc']"/>
+                  <field name="load_price" invisible = "price_selector  not in ['pxc']"/>
+                  <field name="factor"/>
+                </group>
+                <group name="load_price">
+                  <field name="main_category"/>
+                  <field name="price_category_adjustment"/>
+                  <field name="is_premium"/>
+                  <field name="extra_charge_premium" invisible="not is_premium"/>
+                </group>
+            </group>
+            <group name="price_Calculator">
+                <group name="groupfob" string="Ex Works">
+                    <field name="trm" invisible ='1'/>
+                    <field name="price_c" invisible ='1'/>
+                    <field name="eu_us" invisible ='1'/>
+                    <field name="uml" invisible='1'/>
+                    <field name="ur" invisible ='1'/>
+                    <field name="c_fob" invisible ='1'/>
+                    <field name="coffee_load" invisible ='1'/>
+                    <field name="us_tariffs" />
+                    <!-- <field name="price_fob_usa"/>
+                    <field name="price_fob_eu"/> -->
+                    <field name="price_exw"/>
+                    <field name="price_exw_eu"/>
+                </group>
+                <group name="group_spot" string="Spot Price">
+                  <field name="price_spot_usa"/>
+                  <field name="price_spot_usa_tariffs"/>
+                  <field name="price_spot_eu"/>
+                </group>
+                <group name='group_fwv' string="FWB Price">
+                  <field name='price_fwb_usa'/>
+                  <field name='price_fwb_eu'/>
+                </group>
+            </group>
+          </page>
+        </xpath>
+
+        <xpath expr="//group[@name='group_general']" position="inside">
+          <field name="offeringCat" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record model ="ir.ui.view" id="muestras.disponibles_price">
+      <field name="name">muestras.disponible.list_price</field>
+      <field name="model">muestras.disponible</field>
+      <field name="arch" type="xml">
+        <list js_class="button_in_list" default_group_by="available" expand="0"> 
+          <field name="sku"/>
+          <field name="code"/>
+          <field name="equation_process_offering"/>
+          <field name="variety"/>
+          <field name="main_category"/>
+          <!-- <field name="second_category" invisible='1'/> -->
+          <field name="town"/>
+          <field name="sca_actual"/>
+          <field name="availability_70kg"/>
+          <field name="mcp"/>
+          <field name="macroprofile"/>
+          <field name="price_exw"/>
+          <field name="price_exw_eu"/>
+          <field name="price_spot_usa"/>
+          <field name="price_spot_usa_tariffs"/>
+          <field name="price_spot_eu"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- <record model ="ir.ui.view" id="base.view_partner_form_inherit">
+      <field name="name">res_partner_inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='']">
+        </xpath>
+      </field>
+    </record> -->
+    
+    
+
+
+
+
+
+    <!-- MODELO DE PARAMETROS -->
+
+    <record model ="ir.ui.view" id="muestras.parametros_list">
+      <field name="name">muestras.parametros.list</field>
+      <field name="model">muestras.parametros</field>
+      <field name="arch" type="xml">
+        <list> 
+          <field name="code"/>
+          <field name="project"/>
+          <field name="category"/>
+          <field name="program"/>
+          <field name="percentUSA"/>
+          <field name="percentEU"/>
+          <field name="percentAsia"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- Modelo Offering Categorias -->
+
+    <record model ="ir.ui.view" id="muestras.offeringcat_list">
+      <field name="name">muestras.offeringcat.list</field>
+      <field name="model">muestras.offeringcat</field>
+      <field name="arch" type="xml">
+        <list> 
+          <field name="name"/>
+          <field name="category_margin"/>
+          <field name="category_margin_spot"/>
+        </list>
+      </field>
+    </record>
+
+        <!-- Modelo Feedback Categories  -->
+
+    <record model ="ir.ui.view" id="muestras.feedback_list">
+      <field name="name">muestras.feedback.list</field>
+      <field name="model">muestras.feedback</field>
+      <field name="arch" type="xml">
+        <list> 
+          <field name="name"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- Modelo de Pruebas  -->
+
+
+        <!-- Registros de Pruebas  -->
+
+    <record model ="ir.ui.view" id="muestras.pruebalog_list">
+      <field name="name">muestras.pruebalog.list</field>
+      <field name="model">muestras.testmodel</field>
+      <field name="arch" type="xml">
+        <list> 
+          <field name="name"/>
+          <field name="value"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- Modulo de resumne de productos -->
+
+
+    <record model ="ir.ui.view" id="muestras.allproducts_list">
+      <field name="name">muestras.allproducts.list</field>
+      <field name="model">muestras.allproducts</field>
+      <field name="arch" type="xml">
+        <list>
+          <header>
+              <button name="spotEU_button"
+                          string="Update SPOT EU"
+                          type="object"
+                          class="oe_highlight"
+                          icon="fa-check" 
+                          groups="muestras.muestras_admin"/>
+                            
+              <button name="disponible_button"
+                          string="Update Disponibles"
+                          type="object"
+                          class="oe_highlight"
+                          icon="fa-check"
+                          groups="muestras.muestras_admin"/>
+
+              <button name="inventary_button"
+                          string="Update Inventary"
+                          type="object"
+                          class="oe_highlight"
+                          icon="fa-check"
+                          groups="muestras.muestras_admin"/>
+            
+            </header>
+          <field name="lote"/>
+          <field name="farm"/>
+          <field name="date_create"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name='variety'/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="location"/>
+          <field name="warehouse"/>
+          <field name="region"/>
+          <!-- <field name="quantity"/> -->
+          <field name="uom"/>
+          <field name="total_quantity"/>
+          <field name="disponible"/>
+          <field name="booking"/>
+          <field name="sale"/>
+          <field name="price"/>
+          <field name="pricelb"/>       
+          <field name="sca_actual"/>
+          <field name="macroprofile"/>
+          <field name="offeringCat" widget="many2many_tags"/>
+        </list>
+      </field>
+      <!-- <field name="domain">[('disp_inventario','=','dis')]</field> -->
+    </record>
+
+
+    <record id="view_muestras_allproducts_search" model="ir.ui.view">
+      <field name="name">muestras.allproducts.search</field>
+      <field name="model">muestras.allproducts</field>
+      <field name="arch" type="xml">
+          <search>
+              <filter name="available_status_dis" string="Disponible (DIS)" domain="[('available_status', '=', 'dis')]" />
+          </search>
+      </field>
+  </record>
+
+
+    <record id="muestras.allproducts_form" model="ir.ui.view">
+        <field name="name">muestras.allproducts.form</field>
+        <field name="model">muestras.allproducts</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <!-- <header>
+                    <button string="Print Labels" type="object" name="action_open_label_layout" attrs="{'invisible': [('detailed_type', '==', 'service')]}"/>
+                </header> -->
+                <sheet name="product_form">
+                    <!-- <field name="product_variant_count" invisible="1"/>
+                    <field name="is_product_variant" invisible="1"/>
+                    <field name="attribute_line_ids" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="company_id" invisible="1"/> -->
+                    <div class="oe_button_box" name="button_box">
+                        <!-- <button class="oe_stat_button" name="open_pricelist_rules" icon="fa-list-ul" groups="product.group_product_pricelist" type="object">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="pricelist_item_count"/>
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                        Extra Prices
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                        Extra Price
+                                    </span>
+                                </div>
+                        </button> -->
+                    </div>
+                    <!-- <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/> -->
+                    <field name="id" invisible="True"/>
+                    <!-- <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/> -->
+                    <div class="oe_title">
+                        <label for="name" string="Product Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <!-- <field name="priority" widget="priority" class="me-3"/> -->
+                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <div name="options">
+                        <span class="d-inline-block">
+                            <!-- <field name="sale_ok"/> -->
+                            <!-- <label for="sale_ok"/> -->
+                        </span>
+                        <span class="d-inline-block">
+                            <!-- <field name="purchase_ok"/> -->
+                            <!-- <label for="purchase_ok"/> -->
+                        </span>
+                    </div>
+                    <notebook>
+                        <page string="General Information" name="general_information">
+                            <group>
+                                <group name="group_general" string="General Information">
+                                      <!-- <field name="active" invisible="1"/> -->
+                                      <field name="sku"/>
+                                      <field name="project"/>
+                                      <field name="program"/>
+                                      <field name="variety"/>
+                                      <field name="process"/>
+                                      <field name="fprocess"/>
+                                      <field name="sca_actual"/>
+                                      <field name="freshness"/>
+                                      <field name="farm"/>
+                                      
+                                    
+                                      <!-- <group name="second info">
+                                     
+                                      </group>   -->
+
+                                    <!-- <field name="product_tooltip" string="" class="fst-italic text-muted"/>
+                                    <field name="uom_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                    <field name="uom_po_id" groups="uom.group_uom" options="{'no_create': True}"/> -->
+                                </group>
+                                <group name="coffee_details_ii">
+                                    <field name="lote"/>
+                                    <!-- <field name="price_usd"/> -->
+                                    <field name="edition"/>
+                                    <field name="warehouse"/>
+                                    <field name="location"/>
+                                    <field name="country_origin"/>
+                                    <field name="macroprofile"/>
+                                    <field name="mcp"/>
+                                    <field name="condicion"/>
+                                    <field name="uom"/>
+                                    <field name="disp_inventario"/>
+                                    <!-- <field name="quantity_kg"/> -->
+                                    <!-- <label for="list_price"/> -->
+                                    <div name="pricing">
+                                      
+                                      <!-- <field name="list_price" class="oe_inline" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/> -->
+                                    </div>
+                                    <!-- <label for="standard_price" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                    <!-- <div name="standard_price_uom" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="standard_price" class="oe_inline" widget="monetary" options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/> -->
+                                        <span groups="uom.group_uom">
+                                            <!-- <field name="uom_name" class="oe_inline"/> -->
+                                        </span>
+                                    <!-- </div> -->
+                                    <!-- <field name="categ_id" string="Product Category"/>
+                                    <field name="product_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="cost_currency_id" invisible="1"/>
+                                    <field name="product_variant_id" invisible="1"/> -->
+                                </group>
+                            </group>
+                            <group string="Internal Notes">
+                                <!-- <field colspan="2" name="description" nolabel="1" placeholder="This note is only for internal purposes."/> -->
+                            </group>
+                        </page>
+                        <page string="Sales" name="sales" invisible="1">
+                            <group name="sale">
+                                <group string="Upsell &amp; Cross-Sell" name="upsell" invisible="1"/>
+                            </group>
+                            <group>
+                                <group string="Sales Description" name="description">
+                                    <!-- <field colspan="2" name="description_sale" nolabel="1" placeholder="This note is added to sales orders and invoices."/> -->
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Purchase" name="purchase" invisible="1">
+                            <group name="purchase">
+                                <group string="Vendor Bills" name="bill"/>
+                            </group>
+                        </page>
+                        <page string="Inventory" name="inventory">
+                            <group name="inventory">
+                                <group name="logistics" string="Logistics">
+                                    <!-- <field name="quantity_kg"/> -->
+                                    <field name="uom"/>
+                                    <field name="producer"/>
+                                    <!-- <field name="available"/>  -->
+                                    <!-- <label for="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                    <!-- <div class="o_row" name="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="weight" class="oe_inline"/>
+                                        <field name="weight_uom_name"/> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="o_row" name="volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                        <!-- <field name="volume" string="Volume" class="oe_inline"/>
+                                        <field name="volume_uom_name"/> -->
+                                    <!-- </div> -->
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <!-- <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/> -->
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="muestras.alldisponiblesk_list" model="ir.ui.view">
+            <field name="name">muestras.alldisponibles.list</field>
+            <field name="model">muestras.alldisponibles</field>
+            <field name="arch" type="xml">
+              <list> 
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="region"/>
+                <field name="quantity"/>
+                <field name="avalible"/>
+                <field name="booking"/>
+                <field name="sale"/>
+                <field name="price"/>
+                <field name="project"/>
+                <field name="program"/>
+                <field name='category'/>
+                <field name="warehouse"/>
+                <field name="process"/>
+                <field name="country_origin"/>
+                <field name="lote"/>
+                <field name="internal_code"/>
+                <field name="variety"/>
+                <field name="edition"/>
+                <field name="score"/>
+                <field name="macroprofile"/>
+                <field name="referencia_origen"/>
+
+              </list>
+            </field>
+            
+    </record>
+
+    <!-- <record id="muestras_allproducts_search" model="ir.ui.view">
+      <field name="name">muestras.allproducts.search</field>
+      <field name="model">muestras.allproducts</field>
+      <field name="arch" type="xml">
+          <search>
+              <filter string="Disponible > 0" domain="[('disponible', '=', '0')]"/>
+          </search>
+      </field>
+    </record>
+ -->
+
+
+
+
+    <!-- Modelo de ordenes -->
+
+    <record model ="ir.ui.view" id="muestras.order_list">
+      <field name="name">muestras.order.list</field>
+      <field name="model">muestras.order</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="create_date"/>
+          <field name="partner_id"/>
+          <field name="salesperson_header"/>
+          <!-- <field name="project"/>
+          <field name="category"/>
+          <field name="edition"/>                   -->
+          <field name="booking"/>
+          <field name="country"/>
+          <field name="location"/>
+          <field name="release_date"/>
+          <field name="lote_quantity"/> 
+          <field name="days"/>   
+          <field name="state" decoration-success="state == 'sale'" 
+            decoration-info="state == 'draft' or state == 'sent'"
+            decoration-danger="state == 'cancels'"
+            decoration-warning="state == 'cancelb' or state=='cancelba' or state=='expiring'"  widget="badge"/>
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="muestras.orderform_list">
+      <field name="name">muestras.order.form</field>
+      <field name="model">muestras.order</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <!--TODO: Result from converting "states='draft'" attribute into an 'invisible' attribute
+                 Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+            <button name="open_wizard_crm" string="Send Sample" type="object" invisible="state not in ['draft']" class="btn-primary" data-hotkey="g" context="{'validate_analytic':True}"/>
+            <!--TODO: Result from converting "states='sent'" attribute into an 'invisible' attribute
+                 Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+            <button name="cancel_book" string="Release Sample" type="object" invisible="state not in ['sent']" context="{'validate_analytic': True}"/>
+            <!-- <button name="cancel_shipment" string="Cancel Shipment" type="object" states="sent"
+              context="{'validate_analytic': True}"/> -->
+            <!--TODO: Result from converting "states='sent'" attribute into an 'invisible' attribute
+                 Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+            <button name="sale_order" string="Create Sales Order" type="object" invisible="state not in ['sent']" class="btn-primary" context="{'validate_analytic': True}"/>
+            <!--TODO: Result from converting "states='draft'" attribute into an 'invisible' attribute
+                 Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+            <button name="sale_order_without_shipment" string="Create Sales Order Without Sample Shipment" type="object" invisible="state not in ['draft']" class="btn-primary" context="{'validate_analytic': True}"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+          </header>
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <field name="name" readonly="1"/>
+              </h1>
+            </div>
+            <group name="sale_header">
+              <group name="partner_details">
+              <!-- context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" -->
+                <field name="partner_id" widget="res_partner_many2one" options="{'always_reload': True}"/>
+                <!-- <field name="country_customer" attrs="{'readonly':[('state','!=','draft')]}"/> -->
+                <field name="partner_contact" readonly="state != 'draft'"/> 
+                <field name="partner_country" readonly="state != 'draft'"/>
+                <field name="partner_address" readonly="state != 'draft'"/>
+                <field name="partner_city" readonly="state != 'draft'"/>
+                <field name="partner_state" readonly="state != 'draft'"/>
+                <field name="partner_phone" readonly="state != 'draft'"/>
+                <field name="partner_email" readonly="state != 'draft'"/>
+                <field name="partner_zip" readonly="state != 'draft'"/>
+                <field name="boolean_customs_info" readonly="state != 'draft'"/>
+                <field name="customs_info" invisible="not boolean_customs_info" required="boolean_customs_info" readonly="state != 'draft'"/>
+                <field name="custom_location"/>
+                
+              </group>
+              <group name="sample_details">
+                <field name="create_date" invisible="state == 'draft'"/>
+                <field name="deadline" invisible="state == 'draft'"/>
+                <field name="release_date" invisible="state != 'cancelb'"/>
+                <field name="typesample" widget="res_partner_may2one"/>
+                <field name="coffee_sample" widget="res_partner_may2one"/> 
+                <field name="booking"/>
+                <field name="location"/>
+                <field name="region"/>
+                <field name="state" invisible="1"/>
+                <field name="salesperson" widget="res_partner_many2one" readonly="1"/>
+                <field name="salesperson_header" widget="res_partner_many2one"/>
+                <field name="crm_team"/>
+                <field name="lote_quantity"/>
+                <field name="company" widget="many2many_tags"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Order Lines" name="order_lines">
+                <field name="order_lines" widget="section_and_note_one2many" mode="list,kanban,form" readonly="state != 'draft'">
+                  <form>
+                    <field name="display_type" invisible="1"/>
+                    <field name="sequence" invisible="1"/>
+                    <field name="order_id" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                    <field name="product_id"/>
+
+                    
+                    <!-- <field name="product_uom_category_id" invisible="1"/> -->
+                    <group>
+                    </group>
+                  </form>
+                  <list string="Sales Order Lines" editable="bottom" class="specific_table_class">
+                    <field name="state" invisible="1"/>
+                    <control>
+                      <create name="add_product_control" string="Add a product" invisible="state != 'draft'"/>
+                      <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                    </control>
+                    <!-- <field name="order_id"/>  -->
+                    <field name="product_id" style="white-space:normal"/>
+                    <field name="lote"/>
+                    <field name="farm"/>
+                    <field name="project"/>
+                    <field name="program"/>
+                    <field name="variety" style="font-size: 5px;"/>
+                    <field name="location"/>
+                    <field name="process"/>
+                    <field name="country_origin"/>
+                    <field name="region"/>
+                    <field name="uom"/>
+                    <field name="edition"/>
+                    <field name="score" style="font-size: 5px;"/>
+                    <field name="macroprofile"/>
+                    <field name="quantity"/>
+                    <field name="boolean_booking"/>
+                    <field name="booking" invisible="not boolean_booking"/>
+                    <field name="price"/>
+                    <field name="sale_check"/>
+                    <field name="feedback_selection"/>
+                    <field name="subtotal"/>
+                    <!-- <field name="sale_check" attrs="{'invisible': [('state', '=', 'draft')]}"/> -->
+                  </list>
+                </field>
+                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total" style="margin-top: 20px; padding-top: 10px; border-top: 2px solid #dedede;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                        <div style="flex: 1; text-align: left;">
+                            <label for="total" string="Total Amount:" style="font-size: 16px; font-weight: bold; color: #555555;"/>
+                        </div>
+                        <div style="flex: 1; text-align: right;">
+                            <field name="total" readonly="1" widget="monetary" options="{'currency_field': 'currency_id'}" style="font-size: 18px; font-weight: bold; color: #1D8FEB;"/>
+                        </div>
+                    </div>
+                </group>
+              </page>   
+              <page string="Other Info" name="other_information">
+              </page>
+              <page string="Customer Signature" name="customer_signature">
+              </page>
+              <page string="Customer Information" name="customer_signature">
+              </page>
+            </notebook>
+              <group>
+                <field name="notes" placeholder="Escribe tus notas aquí..." readonly="state != 'draft'"/>  
+              </group>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Modelo vista de order lines  -->
+    <record model="ir.ui.view" id="order_line_list_view">
+      <field name="name">muestras.order.line.list</field>
+      <field name="model">muestras.order.line</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="product_id"/>
+          <field name="project"/>
+          <field name="farm"/>
+          <field name="program"/>
+          <field name="variety"/>
+          <field name="process"/>
+          <field name="order_name"/>
+          <field name="order_create_date"/>
+          <field name="salesperson_name"/>
+          <field name="feedback_selection" widget="many2many_tags"/>
+          <field name="sale_check"/>
+          <field name="partner_name"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Modde form de la order line -->
+    <record model="ir.ui.view" id="order_line_form_view">
+      <field name="name">order.line.form</field>
+      <field name="model">muestras.order.line</field>
+      <field name="arch" type="xml">
+          <form string="Order Line Details">
+              <sheet>
+                  <group>
+                      <!-- <field name="name"/> -->
+                      <field name="product_id"/>
+                      <field name="quantity"/>
+                      <!-- <field name="price_unit"/>
+                      <field name="subtotal"/> -->
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
+
+
+
+    <!-- Modelo Wizaed Create Sale -->
+
+      <record id="view_order_line_wizard_form" model="ir.ui.view">
+      <field name="name">muestras.wizard_sale.form</field>
+      <field name="model">muestras.wizard_sale</field>
+      <field name="arch" type="xml">
+          <form string="Editar Líneas de la Orden">
+              <group>
+                  <field name="order_id" readonly="1"/>
+                  <field name="line_id">
+                      <list editable="bottom" delete="false">  
+                          <field name="product_id" readonly="1"/>
+                          <field name="booking" readonly="1"/>
+                          <field name="booking_change"/>
+                          <field name="sale_check"/>
+                          <field name="feedback_selection" widget="many2many_tags"/>
+                          <field name="feedback_notes"/>
+                          <field name="line_id" invisible="1"/>
+                          <!-- <field name="line_id"/> -->
+                      </list>
+                  </field>
+              </group>
+              <footer>
+                  <button string="Aplicar Cambios" type="object" name="apply_changes_l" class="btn-primary"/>
+                  <button string="Cancelar" class="btn-secondary" special="cancel"/>
+              </footer>
+          </form>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="price_view">
+      <field name="name">muestras.price.list</field>
+      <field name="model">muestras.price</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="date"/>
+        </list>
+      </field>
+    </record>
+
+
+    <record id="view_offering_pdf_wizard_form" model="ir.ui.view">
+      <field name="name">muestras.offering_pdf_wizard.form</field>
+      <field name="model">muestras.offering_pdf_wizard</field>
+      <field name="arch" type="xml">
+          <form string="Campos">
+            <div class="alert alert-info" style="margin-bottom: 10px;">
+                Please select and configure the fields for your offering.
+            </div>
+              <group name="partner_info" string="Select your customer">
+                <field name="distribution_type" widget="radio" options="{'horizontal':true}"/>
+                <field name="partner_id"/>
+                <field name="salesperson_header"/>
+                <field name="salesperson"/>
+                <field name="expiration_date"/>
+                <field name="trm"/>
+                <field name="price_c"/>
+                <field name="diff_price"/>
+              </group>
+              <group name="fields_for_offering" string="Select the fields for your offering">
+                <group name="fields_for_offering_1">
+                  <field name="sku_boolean"/>
+                  <field name="main_category_boolean"/>
+                  <field name="second_category_boolean"/>
+                  <field name="origin_boolean"/>
+                  <field name="fprocess_boolean"/>
+                  <field name="variety_boolean"/>
+                  <field name="sca_boolean"/>
+                  <!-- <field name="fob_usa_boolean"/> -->
+                  <field name="exw_boolean"/>
+                  <field name="exw_eu_boolean"/>
+                  <field name="exw_kg_boolean"/>
+                </group>
+                <group name="fields_for_offering_2">
+                  <!-- <field name="fob_eu_boolean"/> -->
+                  <field name="spot_usa_boolean"/>
+                  <field name="spot_eu_boolean"/>
+                  <field name="spot_usa_tariffs_boolean"/>
+                  <!-- <field name="fwb_usa_boolean"/>
+                  <field name="fwb_eu_boolean"/> -->
+                  <field name="sensory_profile_boolean"/>
+                  <field name="macroprofile_boolean"/>
+                  <field name="availability_70kg_boolean"/>
+                  <field name="availability_35kg_boolean"/>
+                </group>
+              </group>
+              <group name="filters" string="Select the filters for your Offering">
+                <group name="filters_1">
+                  <field name="main_category_selection" widget="many2many_tags" invisible="not main_category_boolean"/>
+                  <field name="second_category_selection" invisible="not second_category_boolean"/>
+                  <field name="origin_selection" widget="many2many_tags" invisible="not origin_boolean"/>
+                  <field name="fprocess_selection" widget="many2many_tags" invisible="not fprocess_boolean"/>
+                </group>
+                <group name="filters_2">
+                  <field name="variety_selection" widget="many2many_tags" invisible="not variety_boolean"/>
+                  <field name="macp_selection" widget="many2many_tags" invisible="not macroprofile_boolean"/>
+                  <field name="pdf_filename"/>
+                  <field name="pdf_file" filename="pdf_filename"/>
+                </group>
+              </group>
+              <group name="lines_selected" string="Coffees selected">
+                <field name="number_registers"/>
+                <field name="boton_prueba"/>
+                  <field name="line_id">
+                      <list editable="bottom" delete="false">
+                        <field name="register_id" invisible="not show_line"/> 
+                        <field name="equation_main_category" column_invisible="1"/>
+                        <field name="equation_main_category_name" column_invisible="1"/>
+                        <field name="equation_origin" column_invisible="not parent.origin_boolean" invisible="not show_line"/>
+                        <field name="equation_process_offering"  column_invisible="not parent.fprocess_boolean" invisible="not show_line"/>
+                        <field name="equation_varietal"  column_invisible="not parent.variety_boolean" invisible="not show_line"/>
+                        <field name="sca" column_invisible="not parent.sca_boolean" invisible="not show_line"/>
+                        <field name="equation_macroprofile" invisible="not show_line" column_invisible="not parent.macroprofile_boolean"/>
+                        <field name="price_fob_usa" invisible="not show_line" column_invisible="not parent.fob_usa_boolean"/>
+                        <field name="price_spot_usa" invisible="not show_line" column_invisible="not parent.spot_usa_boolean"/>
+                        <field name="price_spot_usa_tariffs" invisible="not show_line" column_invisible="not parent.spot_usa_tariffs_boolean"/>
+                        <field name="price_fwb_usa" invisible="not show_line" column_invisible="not parent.fwb_usa_boolean"/>
+                        <field name="price_fob_eu" invisible="not show_line" column_invisible="not parent.fob_eu_boolean"/>
+                        <field name="price_spot_eu" invisible="not show_line" column_invisible="not parent.spot_eu_boolean"/>
+                        <field name="price_fwb_eu" invisible="not show_line" column_invisible="not parent.fwb_eu_boolean"/>
+                        <field name="price_exw" invisible="not show_line" column_invisible="not parent.exw_boolean"/>
+                        <field name="price_exw_eu" invisible="not show_line" column_invisible="not parent.exw_eu_boolean"/>
+                        <field name="price_exw_kg" inviisble="not show_line" column_invisible="not parent.exw_kg_boolean"/>
+                        <field name="show_line"  column_invisible="1"/>
+
+
+                          <!-- <list modifiers="{'invisible': [('show_line', '=', False)]}"/> -->
+                          <!-- <field name="booking" readonly="1"/>
+                          <field name="booking_change"/>
+                          <field name="sale_check"/>
+                          <field name="feedback_selection" widget="many2many_tags"/>
+                          <field name="feedback_notes"/>
+                          <field name="line_id" invisible="1"/> -->
+                          <!-- <field name="line_id"/> -->
+                      </list>
+                  </field>
+              </group>
+              <!-- <group>
+                <field name="coffee_registers">
+                  <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="lote"/>
+                    <field name="variety"/>
+                    <field name="catgory"/>
+                  </list>
+                </field> 
+              </grpup>   -->
+              <footer>
+                  <button string="Generate PDF" type="object" name="pdf" class="btn-primary" invisible="state not in ['draft']"/>
+                  <button string="Cancel" class="btn-secondary" special="cancel"/>
+                  <button string="Download PDF" type="object" name="download" class="btn-primary"/>
+              </footer>
+          </form>
+      </field>
+    </record>
+    
+    <record id="view_offering_pdf_wizard_form_pdf" model="ir.ui.view">
+        <field name="name">offering.pdf.wizard.form.pdf</field>
+        <field name="model">muestras.offering_pdf_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Descargar PDF">
+                <group>
+                    <field name="pdf_file" filename="pdf_filename"/>
+                </group>
+                <footer>
+                    <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wirzard_order_crm" model="ir.ui.view">
+        <field name="name">wizard_sample_order_crm</field>
+        <field name="model">muestras.wizard_order_crm_selection</field>
+        <field name="arch" type="xml">
+            <form string="Link to Lead Confirmation">
+                <group>
+                  <div colspan="2">
+                    <p class="o_form_label">Do you want to link the sample request to an existing lead?</p>
+                    <p class="o_form_label">If you choose to link an existing lead, its stage will automatically change to 'Sample Request'.</p>
+                  </div>
+                  <field name="crm_option" widget='radio'/>
+                  <field name="lead_id" invisible="crm_option not in ['select']" domain="[('partner_id', '=', partner_id)]"/>
+                  <field name="partner_id" invisible="1"/>
+                  <field name="order_id" invisible="1"/>
+                </group>
+                <footer>
+                  <button name="confirm_link_to_lead" type="object" string="Confirm" class="btn-primary"/>
+                  <button string="Back to Order" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+
+
+    <record model="ir.actions.act_window" id="muestras.tabla_action_window">
+      <field name="name">Prueba_Inventario tabla window</field>
+      <field name="res_model">muestras.tabla</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.product_action_window">
+      <field name="name">Muestras</field>
+      <field name="res_model">muestras.product</field>
+      <field name="view_mode">list,form</field>
+    </record> 
+
+    <record model="ir.actions.act_window" id="muestras.k_action_window">
+      <field name="name">Parametros de Lotes</field>
+      <field name="res_model">muestras.parametros</field>
+      <field name="view_mode">list,form</field>
+      <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="muestras.parametros_action_window">
+      <field name="name">Parametos de Lotes por Región</field>
+      <field name="res_model">muestras.parametros</field>
+      <field name="view_mode">list,form</field>
+      <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+    
+    <record model="ir.actions.act_window" id="muestras.order_action_window">
+      <field name="name">Solicitudes de Muestras</field>
+      <field name="res_model">muestras.order</field>
+      <field name="view_mode">list,form,graph,pivot,kanban</field>
+    </record>
+
+
+
+    <!-- <record id="custom_model_button_action" model="ir.actions.server">
+      <field name="name">Custom Button</field>
+      <field name="model_id" ref="muestras.prueba"/>
+      <field name="state">code</field>
+      <field name="code">
+          action = env['muestras.prueba'].update()
+      </field>
+    </record> -->
+
+    <record model="ir.actions.act_window" id="muestras.pruebalog_action_window">
+      <field name="name">Prueba</field>
+      <field name="res_model">muestras.testmodel</field>
+      <field name="view_mode">list,form,graph,pivot,kanban</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.offeringcat_action_window">
+      <field name="name">Offering Categories</field>
+      <field name="res_model">muestras.offeringcat</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.feedback_action_window">
+      <field name="name">Feedbak Categories</field>
+      <field name="res_model">muestras.feedback</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.price_action_window">
+      <field name="name">Price</field>
+      <field name="res_model">muestras.price</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.disponibles_price_action_window">
+      <field name="name">Offering List Equation</field>
+      <field name="res_model">muestras.disponible</field>
+      <field name="view_mode">list,form</field>
+      <field name="view_id" ref="muestras.disponibles_price"/>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="muestras.allproducts_action_window">
+      <field name="name">Todos los productos</field>
+      <field name="res_model">muestras.allproducts</field>
+      <field name="view_mode">list,form,search</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="context">{'trigger_sync':True}</field>
+      <field name="domain">[('available_status','=','dis')]</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.inventario_action_window">
+      <field name="name">Inventario Equation</field>
+      <field name="res_model">muestras.inventario</field>
+      <field name="view_mode">list,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="context">{'trigger_sync':True}</field>
+      <field name="domain">[('available','=','dis')]</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.disponible_action_window">
+      <field name="name">Productos Disponibles</field>
+      <field name="res_model">muestras.disponible</field>
+      <field name="view_mode">list,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="context">{'trigger_sync':True}</field>
+      <field name="domain">[('available','=','dis')]</field>
+      <field name="views" eval="[
+        [ref('muestras.disponible_list'), 'list'],
+        [ref('muestras.disponible_form'), 'form']
+      ]"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.spoteu_action_window">
+      <field name="name">SPOT Europe</field>
+      <field name="res_model">muestras.spoteu</field>
+      <field name="view_mode">list,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="context">{'trigger_sync':True}</field>
+      <field name="domain">[('available','=','dis')]</field>
+
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.alldisponibles_action_window">
+      <field name="name">Productos Disponibles Prubeba</field>
+      <field name="res_model">muestras.alldisponibles</field>
+      <field name="view_mode">list,form</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="context">{'trigger_sync':True}</field>
+    </record>
+
+  <record model="ir.actions.act_window" id="action_order_line_list">
+    <field name="name">Order Lines Description</field>
+    <field name="res_model">muestras.order.line</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="order_line_list_view"/>
+    <field name="type">ir.actions.act_window</field>  
+    <field name="context">{'trigger_sync':True}</field>
+    <field name="target">main</field>
+  </record>
+
+
+
+    <record model="ir.actions.act_window" id="action_order_line_form">
+      <field name="name">Order Line</field>
+      <field name="res_model">muestras.order.line</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+  </record>
+
+  <record id="action_open_wizard" model="ir.actions.act_window">
+    <field name="name">Generar PDF</field>
+    <field name="res_model">muestras.offering_pdf_wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <record id="muestras.offering_history_window" model="ir.actions.act_window">
+    <field name="name">Offering List History</field>
+    <field name="res_model">muestras.offering_history</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="muestras.order_crm_window" model="ir.actions.act_window">
+    <field name="name">Link to Lead Confirmation</field>
+    <field name="res_model">muestras.wizard_order_crm_selection</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+
+    
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="muestras.action_server">
+      <field name="name">Prueba_Inventario server</field>
+      <field name="model_id" ref="model_muestras_muestras"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+
+              <!-- action=""/> -->
+  </data>
+</odoo>
+
+
+
+

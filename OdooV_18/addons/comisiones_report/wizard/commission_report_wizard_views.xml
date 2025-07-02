@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_commission_report_wizard" model="ir.ui.view">
+        <field name="name">commission.report.wizard.form</field>
+        <field name="model">commission.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generar Informe de Comisiones">
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="end_date"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="journal_ids" widget="many2many_tags" required="1" domain ="[('type', '=', 'sale')]"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Generate" type="object" name="action_generate_report" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_commission_report_ff" model="ir.actions.act_window">
+        <field name="name">Commission report</field>
+        <field name="res_model">commission.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

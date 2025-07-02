@@ -15,6 +15,10 @@
 
 ## 2. Modelos   
 
+### 2.1 Modelo Product Father
+
+Ya que se parten de varios orgienes para definir lotes de productos muestreables, se define el modelo Product Father como una plantilla que heredaran todos los modelos de productos restantes. La estructura de atributos del modelo se segrega en 5 campos inciales. En cada modelo hijo se generarn atributos unicos en el modelo para cada una de estas secciones 
+
 ## 3. Vistas
 
 ## 4. Grupos y Permisos

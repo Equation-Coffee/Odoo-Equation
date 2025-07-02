@@ -1,0 +1,75 @@
+<odoo>
+    <record model="ir.ui.view" id="muestras_offering_history_list">
+      <field name="name">muestras.offering.history.list</field>
+      <field name="model">muestras.offering_history</field>
+      <field name="arch" type="xml">
+        <list > 
+          <field name="offering_seq"/>
+          <field name="salesperson_header"/>
+          <field name="salesperson"/>
+          <field name="partner"/>
+          <field name='date'/>
+          <field name="expiration_date"/>
+        </list>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="muestras_offering_history_form">
+      <field name="name">muestras.offering.history.form</field>
+      <field name="model">muestras.offering_history</field>
+      <field name="arch" type="xml">
+        <form>
+            <div class="row" style="min_height :500px;">
+                <div class="col-6">
+                    <sheet>
+                        <div class="oe_title">
+                        <h1>
+                            <field name="offering_seq" readonly="1"/>
+                        </h1>
+                        </div>
+                        <group name="offering_info">
+                        <group name="partner_details">
+                            <field name='partner'/>
+                            <field name='salesperson_header'/>
+                            <field name='salesperson'/> 
+                        </group>
+                        <group name="other_infomation">
+                            <field name="date"/>
+                            <field name="expiration_date"/>
+                            <field name="trm"/>
+                            <field name="price_c"/>
+                        </group>
+                        </group>
+                        <notebook>
+                        <page string="Lines" name="offering_lines">
+                            <field name="lines" widget="section_and_note_one2many" mode="list,kanban,form">
+                            <list string="Offering Lines" editable="bottom" class="specific_table_class">
+                                <field name="code"/>
+                                <field name="equation_main_category"/>
+                                <field name="equation_origin"/>
+                                <field name="equation_varietal"/>
+                                <field name="sca"/>
+                                <field name="equation_macroprofile"/>
+                                <field name="price_fob_usa"/>
+                                <field name="price_spot_usa"/>
+                                <field name="price_fwb_usa"/>
+                                <field name="price_fob_eu"/>
+                                <field name="price_spot_eu"/>
+                                <field name="price_fwb_eu"/>
+                                <field name="aval_35"/>
+                            </list>
+                            </field>
+                        </page>
+                        </notebook>
+                    </sheet>
+                </div>
+                <div class="col-6">
+                    <field name="pdf_file" widget="pdf_viewer" filename="pdf_filename"/>
+                </div>
+            </div>
+        </form>
+      </field>
+    </record>
+</odoo>
+

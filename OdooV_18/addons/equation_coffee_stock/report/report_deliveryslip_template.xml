@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="stock.report_delivery_document" id="equation_coffee_stock_report_delivery_document">
+        <xpath expr="//table[@name='stock_move_line_table']/thead" position="before">
+            <t t-set="has_product_packagings" t-value="False"/>
+            <t t-set="has_product_packagings" t-value="o.move_line_ids.mapped('move_id').mapped('product_packaging_id')"/>
+            <t t-set="has_lot_container" t-value="False"/>
+            <t t-set="has_lot_container" t-value="any(o.move_line_ids.mapped('lot_container'))"/>
+            <t t-set="has_description_warehouse" t-value="False"/>
+            <t t-set="has_description_warehouse" t-value="any(o.move_line_ids.mapped('description_warehouse'))"/>
+            <t t-set="has_equation_coffee_llc_position_lot" t-value="false"/>
+            <t t-set="has_equation_coffee_llc_position_lot" t-value="any(o.move_line_ids.mapped('equation_coffee_llc_position_lot'))"/>
+            <t t-set="has_equation_coffee_llc_project_lot" t-value="false"/>
+            <t t-set="has_equation_coffee_llc_project_lot" t-value="any(o.move_line_ids.mapped('equation_coffee_llc_project_lot'))"/>
+        </xpath>
+        <xpath expr="//th[@name='lot_serial']" position="replace">
+            <th name="lot_serial" t-if="False"/> 
+        </xpath>
+       
+        <xpath expr="//thead/tr/th[@name='lot_serial']" position="after">
+
+            <th name="th_sml_kg_per_bag" t-if="o.is_colombian_company">Kg X Bag</th>
+            <th name="th_sml_quantity" t-if="o.is_colombian_company">Delivered</th>
+        </xpath>
+        
+        <xpath expr="//th[@name='th_sml_qty_ordered']" position="before">
+            <th  name="lot_serial" class="text-center" ><strong>Lot/Serial Number</strong></th>
+            <th  name="th_lot_container" class="text-center" t-if="has_lot_container"><strong>Lot Containner</strong></th>
+            <th  name="th_description_warehouse" class="text-center" t-if="has_description_warehouse" ><strong>Descripcion Warehouse</strong></th>
+            <th  name="th_equation_coffee_llc_position_lot" class="text-center" t-if="has_equation_coffee_llc_position_lot"><strong>Position lot </strong></th>
+            <t >
+                <th name="th_sml_product_packaging_id" class="text-center" ><strong>Contract Qty/Unit</strong></th>
+            </t>
+            <t t-if="o.company_id.country_id.code == 'US'">
+                <th name="th_sml_lb_per_bag" class="text-center"><strong>Lb X Bag</strong></th>
+            </t>
+            <t t-elif="o.company_id.country_id.code in ['NL']">
+                <th name="th_sml_kg_per_bag" class="text-center"><strong>Kg X Bag</strong></th>
+            </t>
+                      
+        </xpath>
+        <xpath expr="//div[@name='div_sched_date']/strong" position="replace">
+            <strong>Date:</strong>
+        </xpath>
+   
+        <xpath expr="//div[@class='page']/h2" position="replace"> 
+            <br/>
+            <br/>
+            
+            <div class="float-start company_address" t-if="not o.is_colombian_company">
+                <ul class="list-unstyled" name='company_address_list'>
+                    <li t-if="o.company_id.is_company_details_empty">
+                        <span t-esc="o.location_id.warehouse_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'>
+                            <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 w-100 opacity-75 text-muted text-center">
+                                <strong>Company address block</strong>
+                                <div>Contains the company address.</div>
+                            </div>
+                        </span>
+                    </li>
+                    <li t-else="">
+                        
+                    </li>
+                    <li t-if="not forced_vat"/>
+                    <li t-else="">
+                        <t t-esc="o.company_id.country_id.vat_label or 'Tax ID'">Tax ID</t>:
+                        <span t-esc="forced_vat">US12345671</span>
+                    </li>
+                </ul>
+            </div>
+          
+            <h2>
+                <t t-if="o.is_colombian_company">
+                    <strong>Packing List</strong>
+                </t>
+                <t t-else="">
+                    <strong>Delivery Order</strong>
+                </t>          
+            </h2>
+        </xpath>
+        <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+    
+    </template>
+</odoo>

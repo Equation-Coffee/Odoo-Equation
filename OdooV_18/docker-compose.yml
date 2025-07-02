@@ -1,0 +1,31 @@
+version: "3.1"
+
+services:
+  web:
+    image: odoo:18
+    depends_on:
+      - db
+    ports:
+      - "8070:8069"
+    volumes:
+      - ./addons:/mnt/extra-addons # Carpeta para los módulos personalizados
+      - ./odoo.conf:/etc/odoo/odoo.conf # Archivo de configuración de Odoo
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data # Guarda los datos de la base de datos
+      - ./odoo-data:/var/lib/odoo  # <--- ESTA ES LA NUEVA LÍNEA
+
+volumes:
+  pg_data:

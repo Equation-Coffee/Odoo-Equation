@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="l10n_co_exogenous_format_field_view_search" model="ir.ui.view">
+        <field name="name">l10n.co.exogenous.format.field.view.search</field>
+        <field name="model">l10n_co.exogenous_format_field</field>
+        <field name="arch" type="xml">
+            <search string="Search Exogenous information format field">
+                <field name="name"/>
+                <field name="format_ids" string="Format" filter_domain="[('format_ids.name', 'ilike', self)]"/>
+                <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Company" name="company_id" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                    <filter string="Format" name="format_ids" context="{'group_by': 'format_ids'}"/>
+                    <filter string="Source" name="source" context="{'group_by': 'source'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_co_exogenous_format_field_view_form" model="ir.ui.view">
+        <field name="name">l10n.co.exogenous.format.field.view.form</field>
+        <field name="model">l10n_co.exogenous_format_field</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Exogenous information format field" create="false" delete="false">
+                <sheet>
+                    <div name="button_box" class="oe_button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title" name="l10n_co_exogenous_format_field_title">
+                        <label for="name" id="l10n_co_exogenous_format_field_title"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Website" class="d-block" required="1"/>
+                            <field name="active" invisible="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="info_left">
+                            <field name="max_length" required="1"/>
+                            <field name="format_ids" widget="many2many_tags" required="1"/>
+                        </group>
+                        <group name="info_right">
+                            <field name="attribute" required="1"/>
+                            <field name="source" required="1"/>
+                            <field name="is_unique_key" invisible="source == 'journal_items'"/>
+                            <field name="applies_to_company" invisible="source != 'contact'"/>
+                            <field name="applies_to_contact" invisible="source != 'contact'"/>
+                            <field name="format_applies_concepts" invisible="source != 'journal_items'"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="info_left">
+                            <field name="field_odoo_id" options="{'no_create': True}" required="source == 'contact'" invisible="source != 'contact'"/>
+                            <field name="ttype" invisible="1"/>
+                            <field name="relation" invisible="1"/>
+                        </group>
+                        <group name="info_right">
+                            <field name="field_odoo_internal_id" options="{'no_create': True}" required="ttype == 'many2one'" invisible="ttype != 'many2one'"/>
+                        </group>
+                    </group>
+                    <group name="field_account_ids" string="Settings" colspan="4">
+                        <field colspan="2" name="field_account_ids" nolabel="1" required="1" context="{'format_ids': format_ids}">
+                            <list editable="bottom">
+                                <field name="concept_id" domain="[('format_id', 'in', context.get('format_ids'))]" options="{'no_create': True}" invisible="not format_applies_concepts" required="format_applies_concepts"/>
+                                <field name="account_ids" required="1" widget="many2many_tags"/>
+                                <field name="name" required="1"/>
+                                <field name="format_applies_concepts" invisible="1"/>
+                                <field name="format_field_id" invisible="1"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+<chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_co_exogenous_format_field_view_tree" model="ir.ui.view">
+        <field name="name">l10n.co.exogenous.format.field.view.tree</field>
+        <field name="model">l10n_co.exogenous_format_field</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list string="Exogenous information format fields" create="false" delete="false" edit="false">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="is_unique_key"/>
+                <field name="attribute"/>
+                <field name="max_length"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_co_exogenous_format_field_action" model="ir.actions.act_window">
+        <field name="name">Exogenous information format fields</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_co.exogenous_format_field</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <template id="equation_coffee_reports_edi_account_invoice_report" inherit_id="l10n_co_account_edi.co_edi_report_invoice">
+            <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+                <td name="account_invoice_line_description">
+                    <t t-if="line.description_name">
+                        <span t-field="line.description_name" t-options="{'widget': 'text'}"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                    </t>
+                </td>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem action="equation_coffee_sca_score_action" id="report_equation_coffee_sca_score" parent="stock.menu_warehouse_report" sequence="300" groups="equation_coffee_base.group_equation_coffee_user"/>
+    <menuitem id="equation_coffee_lot_package_menu"
+                  name="Packages"
+                  action="equation_coffee_lot_package_action"
+                  parent="stock.menu_warehouse_report"/>
+</odoo>

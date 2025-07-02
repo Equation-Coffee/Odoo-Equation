@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model ="ir.ui.view" id="muestras.prueba_list">
+      <field name="name">muestras.prueba.list</field>
+      <field name="model">muestras.prueba</field>
+      <field name="arch" type="xml">
+        <list>
+          <header>
+            <button name="update"
+                        string="Update"
+                        type="object"
+                        class="oe_highlight"
+                        icon="fa-check" />
+          </header>
+          <field name="lote"/>
+          <field name="farm"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name="variety"/>
+          <field name="process"/>
+          <field name="country_origin"/>
+          <field name="location"/>
+          <field name="warehouse"/>
+          <field name="peso_neto"/>
+          <field name="quantity_kg"/>
+          <field name="peso_salida"/>
+          <field name="price_usd"/>
+          <field name="quantityUSA" />
+          <field name="quantityEU" />
+          <field name="quantityAsia" />
+        </list>
+      </field>
+    </record>
+
+
+
+    <record id="muestras.prueba_form" model="ir.ui.view">
+            <field name="name">muestras.prueba.form</field>
+            <field name="model">muestras.prueba</field>
+            <field name="arch" type="xml">
+                <form string="Product">
+                    <sheet name="product_form">
+                        <div class="oe_button_box" name="button_box">
+                            <!-- <button class="oe_stat_button" name="open_pricelist_rules" icon="fa-list-ul" groups="product.group_product_pricelist" type="object">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="pricelist_item_count"/>
+                                        </span>
+                                        <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                            Extra Prices
+                                        </span>
+                                        <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                            Extra Price
+                                        </span>
+                                    </div>
+                            </button> -->
+                        </div>
+                        <field name="id" invisible="True"/>
+                        <div class="oe_title">
+                            <label for="name" string="Product Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                                </div>
+                            </h1>
+                        </div>
+                        <div name="options">
+                            <span class="d-inline-block">
+                            </span>
+                            <span class="d-inline-block">
+                            </span>
+                        </div>
+                        <notebook>
+                            <page string="Coffee Information" name="coffee_information">
+                                <group name="codification" string="Codification">
+                                    <field name="sku"/>
+                                    <field name="lote"/>
+                                    <field name="available"/>
+                                    <field name="date_create"/>
+                                </group>
+                                <group name="coffee_details" string="Coffee Details">
+                                    <group name="group_general">
+                                        <field name="equation_project"/>
+                                        <field name="equation_varietal"/>
+                                        <field name="equation_program"/>
+                                        <field name="equation_fermentation_process"/>
+                                        <field name="equation_drying_process"/>
+                                        <field name="equation_process_offering"/>
+                                    </group>
+                                    <group name="coffee_details_ii">
+                                        <field name="is_decaf"/>
+                                        <field name="equation_origin_town"/>
+                                        <field name="sca_actual"/>
+                                        <field name="freshness"/>
+                                        <field name="edition"/>
+                                        <field name="equation_macroprofile"/>
+                                        <field name="macroprofile"/>
+                                        <field name="price_usd"/>
+                                        <field name="condicion"/>
+                                        <!-- <label for="list_price"/> -->
+                                        <div name="pricing">
+                                        
+                                        <!-- <field name="list_price" class="oe_inline" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/> -->
+                                        </div>
+                                        <!-- <label for="standard_price" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                        <!-- <div name="standard_price_uom" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                            <!-- <field name="standard_price" class="oe_inline" widget="monetary" options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/> -->
+                                            <span groups="uom.group_uom">
+                                                <!-- <field name="uom_name" class="oe_inline"/> -->
+                                            </span>
+                                        <!-- </div> -->
+                                        <!-- <field name="categ_id" string="Product Category"/>
+                                        <field name="product_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="cost_currency_id" invisible="1"/>
+                                        <field name="product_variant_id" invisible="1"/> -->
+                                    </group>
+                                </group>
+                                <group string="Internal Notes">
+                                    <!-- <field colspan="2" name="description" nolabel="1" placeholder="This note is only for internal purposes."/> -->
+                                </group>
+                            </page>
+                            <page string="Sales" name="sales" invisible="1">
+                                <group name="sale">
+                                    <group string="Upsell &amp; Cross-Sell" name="upsell" invisible="1"/>
+                                </group>
+                                <group>
+                                    <group string="Sales Description" name="description">
+                                        <!-- <field colspan="2" name="description_sale" nolabel="1" placeholder="This note is added to sales orders and invoices."/> -->
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Purchase" name="purchase" invisible="1">
+                                <group name="purchase">
+                                    <group string="Vendor Bills" name="bill"/>
+                                </group>
+                            </page>
+                            <page string="Inventory" name="inventory">
+                                <group name="inventory">
+                                    <group name="logistics" string="Logistics">
+                                        <field name="producer"/>
+                                        <field name="farm"/>
+                                        <field name="supplier"/>
+                                        <!-- <label for="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
+                                        <!-- <div class="o_row" name="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                            <!-- <field name="weight" class="oe_inline"/>
+                                            <field name="weight_uom_name"/> -->
+                                        <!-- </div> -->
+                                        <!-- <div class="o_row" name="volume" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
+                                            <!-- <field name="volume" string="Volume" class="oe_inline"/>
+                                            <field name="volume_uom_name"/> -->
+                                        <!-- </div> -->
+                                    </group>
+                                    <group name="inventory_info" string="Inventory Details">
+                                        <field name="warehouse"/>
+                                        <field name="country_origin"/>
+                                        <field name="location"/>
+                                        <field name="quantity_kg"/>
+                                        <field name="uom"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <!-- <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/> -->
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+    <record model="ir.actions.act_window" id="muestras.prueba_action_window">
+      <field name="name">Atlas</field>
+      <field name="res_model">muestras.prueba</field>
+      <field name="view_mode">list,form,graph,pivot,kanban</field>
+    </record>
+</odoo>

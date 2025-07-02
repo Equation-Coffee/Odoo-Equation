@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-10 22:02+0000\n"
+"PO-Revision-Date: 2023-11-10 22:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_account_type_id
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_account_type_id
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "Account Type"
+msgstr "Tipo de cuenta"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__south_america
+msgid "South America"
+msgstr "Sudamérica"
+
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__asia
+msgid "Asia"
+msgstr "Asia"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__australia
+msgid "Australia"
+msgstr "Australia"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_property_form
+msgid "Birthdays, participation in championships, children, preferences"
+msgstr "Cumpleaños, participación en campeonatos, hijos, preferencias"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "Coffee Program"
+msgstr "Programa de café"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_customer_program_ids
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_customer_program_ids
+msgid "Coffee Programs"
+msgstr "Programas de café"
+
+#. module: equation_coffee_partner
+#: model:ir.model,name:equation_coffee_partner.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_property_form
+msgid "Equation Coffee Customer Information"
+msgstr "Equation Coffee Información del cliente"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__europe
+msgid "Europe"
+msgstr "Europa"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_customer_context
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_customer_context
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_property_form
+msgid "History/customer context (how much do we know about our customers?)"
+msgstr "Historia/contexto del cliente (¿cuánto sabemos de nuestros clientes?)"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_customer_origin_id
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_customer_origin_id
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "How did they come to us? (Story & Background)"
+msgstr "¿Cómo llegaron hasta nosotros? (Historia y antecedentes)"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__middle_east
+msgid "Middle East"
+msgstr "Oriente Medio"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields.selection,name:equation_coffee_partner.selection__res_partner__equation_coffee_region__north_america
+msgid "North America"
+msgstr "Norteamérica"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_property_form
+msgid "Personal Information"
+msgstr "Información Personal"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_personal_information
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_personal_information
+msgid "Personal information"
+msgstr "Información personal"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_region
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_region
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "Region"
+msgstr "Región"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_property_form
+msgid "Social media (Instagram, X, ....)"
+msgstr "Redes sociales (Instagram, X, ....)"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_project_ids
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_project_ids
+msgid "What projects do they buy?"
+msgstr "¿Qué proyectos compran?"
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__equation_coffee_comercial_name
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__equation_coffee_comercial_name
+msgid "Comercial name"
+msgstr "Nombre comercial"
+
+
+#. module: equation_coffee_partner
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_partner__foreign_id_number
+#: model:ir.model.fields,field_description:equation_coffee_partner.field_res_users__foreign_id_number
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_inherit_view_partner_filter
+msgid "Foreign ID Number"
+msgstr "Número de documento de extranjería"
+
+#. module: equation_coffee_partner
+#: model_terms:ir.ui.view,arch_db:equation_coffee_partner.equation_coffee_partner_report_invoice_document_v18
+msgid "Foreign ID Number:"
+msgstr "Número de documento de extranjería:"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_pricelist_equation_usd" model="product.pricelist">
+            <field name="name">Price list USD</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.USD"/>
+        </record>
+        <record id="product_pricelist_equation_cop" model="product.pricelist">
+            <field name="name">Price list COP</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="currency_id" ref="base.COP"/>
+        </record>
+    </data>
+</odoo>

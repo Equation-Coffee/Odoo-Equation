@@ -1,0 +1,65 @@
+id,name,zipcode,state_id:id,country_id:id
+city_pa_1,Bocas del Toro,00001,equation_coffee_base.state_pa_1,base.pa
+city_pa_2,Changuinola,01012,equation_coffee_base.state_pa_1,base.pa
+city_pa_3,Chiriquí Grande,01013,equation_coffee_base.state_pa_1,base.pa
+city_pa_4,Anton,02001,equation_coffee_base.state_pa_2,base.pa
+city_pa_5,Penonome,02011,equation_coffee_base.state_pa_2,base.pa
+city_pa_6,La Pintada,02021,equation_coffee_base.state_pa_2,base.pa
+city_pa_7,Nata,02027,equation_coffee_base.state_pa_2,base.pa
+city_pa_8,Ola,02033,equation_coffee_base.state_pa_2,base.pa
+city_pa_9,Aguadulce,02038,equation_coffee_base.state_pa_2,base.pa
+city_pa_10,Colon,03001,equation_coffee_base.state_pa_3,base.pa
+city_pa_11,Chagres,03015,equation_coffee_base.state_pa_3,base.pa
+city_pa_12,Donoso,03022,equation_coffee_base.state_pa_3,base.pa
+city_pa_13,Portobelo,03028,equation_coffee_base.state_pa_3,base.pa
+city_pa_14,San Isabel,03033,equation_coffee_base.state_pa_3,base.pa
+city_pa_15,David,04002,equation_coffee_base.state_pa_4,base.pa
+city_pa_16,Baru,04011,equation_coffee_base.state_pa_4,base.pa
+city_pa_17,Bugaba,04016,equation_coffee_base.state_pa_4,base.pa
+city_pa_18,Alanje,04029,equation_coffee_base.state_pa_4,base.pa
+city_pa_19,Boqueron,04037,equation_coffee_base.state_pa_4,base.pa
+city_pa_20,Renacimiento,04045,equation_coffee_base.state_pa_4,base.pa
+city_pa_21,Dolega,04059,equation_coffee_base.state_pa_4,base.pa
+city_pa_22,Gualaca,04067,equation_coffee_base.state_pa_4,base.pa
+city_pa_23,Remedios,04073,equation_coffee_base.state_pa_4,base.pa
+city_pa_24,San Lorenzo,04077,equation_coffee_base.state_pa_4,base.pa
+city_pa_25,Tole,04077,equation_coffee_base.state_pa_4,base.pa
+city_pa_26,San Felix,04091,equation_coffee_base.state_pa_4,base.pa
+city_pa_27,Chitre,05001,equation_coffee_base.state_pa_6,base.pa
+city_pa_28,Los Pozos,05006,equation_coffee_base.state_pa_6,base.pa
+city_pa_29,Parita,05015,equation_coffee_base.state_pa_6,base.pa
+city_pa_30,Pese,05022,equation_coffee_base.state_pa_6,base.pa
+city_pa_31,Las Minas,05030,equation_coffee_base.state_pa_6,base.pa
+city_pa_32,Ocu,05037,equation_coffee_base.state_pa_6,base.pa
+city_pa_33,Santa Maria,05045,equation_coffee_base.state_pa_6,base.pa
+city_pa_34,Las Tablas,06001,equation_coffee_base.state_pa_7,base.pa
+city_pa_35,Pocri,06025,equation_coffee_base.state_pa_7,base.pa
+city_pa_36,Guarare,06030,equation_coffee_base.state_pa_7,base.pa
+city_pa_37,Los Santos,06040,equation_coffee_base.state_pa_7,base.pa
+city_pa_38,Macaracas,06054,equation_coffee_base.state_pa_7,base.pa
+city_pa_39,Pedasi,06065,equation_coffee_base.state_pa_7,base.pa
+city_pa_40,Tonosi,06070,equation_coffee_base.state_pa_7,base.pa
+city_pa_41,Arraijan,07001,equation_coffee_base.state_pa_8,base.pa
+city_pa_42,Capira,07009,equation_coffee_base.state_pa_8,base.pa
+city_pa_43,Chame,07022,equation_coffee_base.state_pa_8,base.pa
+city_pa_44,San Carlos,07033,equation_coffee_base.state_pa_8,base.pa
+city_pa_45,Balboa,07044,equation_coffee_base.state_pa_8,base.pa
+city_pa_46,Chepo,07048,equation_coffee_base.state_pa_8,base.pa
+city_pa_47,Chiman,07055,equation_coffee_base.state_pa_8,base.pa
+city_pa_48,Taboga,07060,equation_coffee_base.state_pa_8,base.pa
+city_pa_49,Panama,07063,equation_coffee_base.state_pa_8,base.pa
+city_pa_50,La Chorrera,07064,equation_coffee_base.state_pa_8,base.pa
+city_pa_51,San Miguelito,07081,equation_coffee_base.state_pa_8,base.pa
+city_pa_52,Tocumen,07215,equation_coffee_base.state_pa_8,base.pa
+city_pa_53,Santiago,08001,equation_coffee_base.state_pa_10,base.pa
+city_pa_54,La Mesa,08013,equation_coffee_base.state_pa_10,base.pa
+city_pa_55,Sonia,08019,equation_coffee_base.state_pa_10,base.pa
+city_pa_56,Calobre,08029,equation_coffee_base.state_pa_10,base.pa
+city_pa_57,San Francisco,08041,equation_coffee_base.state_pa_10,base.pa
+city_pa_58,Santa Fe,08047,equation_coffee_base.state_pa_10,base.pa
+city_pa_59,Atalaya,08054,equation_coffee_base.state_pa_10,base.pa
+city_pa_60,Montijo,08059,equation_coffee_base.state_pa_10,base.pa
+city_pa_61,Riio de Jesus,08067,equation_coffee_base.state_pa_10,base.pa
+city_pa_62,Mariato,08072,equation_coffee_base.state_pa_10,base.pa
+city_pa_63,Cadazas,08077,equation_coffee_base.state_pa_10,base.pa
+city_pa_64,Las Palmas,08084,equation_coffee_base.state_pa_10,base.pa

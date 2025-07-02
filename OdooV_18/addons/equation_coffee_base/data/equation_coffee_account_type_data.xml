@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_account_type_roaster" model="equation.coffee_account_type">
+            <field name="name">Roaster</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_account_type_importer" model="equation.coffee_account_type">
+            <field name="name">Importer</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_account_type_coffee_suppliers" model="equation.coffee_account_type">
+            <field name="name">Coffee Suppliers</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_account_type_co_roasting_facilities" model="equation.coffee_account_type">
+            <field name="name">Co-roasting Facilities</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

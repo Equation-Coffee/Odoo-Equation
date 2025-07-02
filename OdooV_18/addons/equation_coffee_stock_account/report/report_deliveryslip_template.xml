@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="stock.report_delivery_document" id="equation_coffee_report_delivery_document">
+        <xpath expr="//div[@t-if='not o.signature']" position="before">
+            <div class="row mt32 mb32" name="equation_coffee_qty">
+                <div t-if="o.equation_coffee_qty" class="col-auto" name="div_equation_coffee_qty">
+                    <strong>Quantity:</strong>
+                    <p t-field="o.equation_coffee_qty"/>
+                </div>
+                <div t-if="o.equation_coffee_reference" class="col-auto" name="div_equation_coffee_reference">
+                    <strong>Reference:</strong>
+                    <p t-field="o.equation_coffee_reference"/>
+                </div>
+            </div>
+
+            <table class="table table-sm" name="equation_coffee_export_information">
+                <thead>
+                    <tr>
+                        <th name="th_sm_eq_gross_weight" t-if="o.equation_coffee_gross_weight"><strong>Gross Weight</strong></th>
+                        <th name="th_sm_eq_net_weight" t-if="o.equation_coffee_net_weight"><strong>Net Weight</strong></th>
+                        <th name="th_sm_eq_hs_code" t-if="o.equation_coffee_hs_code"><strong>HS Code</strong></th>
+                        <th name="th_sm_eq_vessel" t-if="o.equation_coffee_vessel"><strong>Vessel</strong></th>
+                        <th name="th_sm_eq_aditional_instructions" t-if="o.additional_instructions"><strong>Additional Instructions</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td t-if="o.equation_coffee_gross_weight">
+                            <span t-field="o.equation_coffee_gross_weight"/>
+                            <span t-field="o.equation_coffee_gross_weight_uom_id"/>
+                        </td>
+                        <td t-if="o.equation_coffee_net_weight">
+                            <span t-field="o.equation_coffee_net_weight"/>
+                            <span t-field="o.equation_coffee_net_weight_uom_id"/>
+                        </td>
+                        <td t-if="o.equation_coffee_hs_code">
+                            <span t-field="o.equation_coffee_hs_code"/>
+                        </td>
+                        <td t-if="o.equation_coffee_vessel">
+                            <span t-field="o.equation_coffee_vessel"/>
+                        </td>
+                        <td t-if="o.additional_instructions">
+                            <span t-field="o.additional_instructions"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="table table-sm" name="equation_coffee_export_information_two">
+                <thead>
+                    <tr>
+                        <th name="th_sm_eq_bl_number" t-if="o.equation_coffee_bl_number"><strong>BL / AWB Number</strong></th>
+                        <th name="th_sm_eq_shipping_line" t-if="o.equation_coffee_shipping_line"><strong>Shipping Line /  Carrier</strong></th>
+                        <th name="th_sm_eq_loading_port" t-if="o.equation_coffee_loading_port"><strong>Origin</strong></th>
+                        <th name="th_sm_eq_discharge_port" t-if="o.equation_coffee_destination_port"><strong>Destination</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td t-if="o.equation_coffee_bl_number">
+                            <span t-field="o.equation_coffee_bl_number"/>
+                        </td>
+                        <td t-if="o.equation_coffee_shipping_line">
+                            <span t-field="o.equation_coffee_shipping_line"/>
+                        </td>
+                        <td t-if="o.equation_coffee_loading_port">
+                            <span t-field="o.equation_coffee_loading_port"/>
+                        </td>
+                        <td t-if="o.equation_coffee_destination_port">
+                            <span t-field="o.equation_coffee_destination_port"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>

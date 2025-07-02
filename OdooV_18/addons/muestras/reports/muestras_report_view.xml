@@ -1,0 +1,14 @@
+<odoo>
+    <record id="action_muestras_report" model="ir.actions.report">
+        <field name="name">Sample Order Report </field>
+        <field name="model">muestras.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">muestras.report_saleorder</field>
+        <field name="binding_model_id" ref="model_muestras_order"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Sample Order #' +  object.name</field>
+        <field name="attachment">'Sample Order #' + (object.name or '') + '.pdf'</field>
+        
+    </record>
+
+</odoo>

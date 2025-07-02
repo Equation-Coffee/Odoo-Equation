@@ -1,0 +1,43 @@
+<odoo>
+    <menuitem name="Samples" id="muestras.menu_root" web_icon='muestras,static/description/icon.png'/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Products" id="muestras.tabla_menu_1" parent="muestras.menu_root"/>
+    <menuitem name="Atlas Grano" id="muestras.product_menu_1" parent="muestras.menu_root"/>
+    <menuitem name="Orders" id="muestras.order_menu_1" parent="muestras.menu_root"/> 
+    <menuitem name="Prueba" id="muestras.prueba_menu_1" parent="muestras.menu_root"/> 
+    <menuitem name="Pruebalog" id="muestras.pruebalog_menu_1" parent="muestras.menu_root"/> 
+    <menuitem name="Categories" id="muestras.cat_menu_1" parent="muestras.menu_root"/> 
+    <menuitem name="Prices" id="muestras.price_menu" parent="muestras.menu_root"/> 
+    <menuitem name="Offering" id="muestras.offering_menu" parent="muestras.menu_root"/>
+
+
+
+    <!-- actions -->
+    <menuitem name ="All Products" id="muestras_allproducts_menu_1_list" parent="muestras.tabla_menu_1"
+              action="muestras.allproducts_action_window"/>
+    <menuitem name ="Atlas - Projects" id="muestras_allproducts_menu_3_list" parent="muestras.tabla_menu_1"
+              action="muestras.prueba_action_window"
+              groups="base.group_system"/>
+    <menuitem name="Productos Disponibles" id="muestras.tabla_menu_1_list" parent="muestras.tabla_menu_1"
+              action="muestras.disponible_action_window"/>
+    <menuitem name="SPOT EU" id="muestras.tabla_menu_3_list" parent="muestras.tabla_menu_1"
+              action="muestras.spoteu_action_window"/>
+    <menuitem name="Inventario" id="muestras.product_menu_1_listk" parent="muestras.tabla_menu_1"
+              action="muestras.inventario_action_window"/> 
+    <menuitem name ="Orders" id="muestras_order_menu_1_list" parent="muestras.order_menu_1"
+              action="muestras.order_action_window"/> 
+    <menuitem name="Order Lines" id="muestras_order_menu_2_list" parent="muestras.order_menu_1"
+              action="action_order_line_list"/>
+    <menuitem name ="Categorias Portafolio" id="muestras_cat_menu_1_list" parent="muestras.cat_menu_1"
+              action="muestras.offeringcat_action_window"/>
+    <menuitem name ="Categorias Feedback" id="muestras_cat_menu_2_list" parent="muestras.cat_menu_1"
+              action="muestras.feedback_action_window"/>
+    <menuitem name ="Prices" id="muestras_price_1" parent="muestras.price_menu"
+              action="muestras.price_action_window"/>
+    <menuitem name ="Disponible Prices" id="muestras_price_2" parent="muestras.tabla_menu_1"
+              action="muestras.disponibles_price_action_window"/>
+    <menuitem name="Offering History" id="muestras_offering_history_view_list" parent="muestras.offering_menu"
+              action="muestras.offering_history_window"/> 
+</odoo>

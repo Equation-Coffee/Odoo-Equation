@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template inherit_id="l10n_co_account_edi.co_edi_report_invoice_document_custom" id="equation_coffee_fe_co_edi_report_invoice_document_custom">
+            <xpath expr="//t[@t-if='o.partner_id.phone']" position="before">
+                <t t-if="o.partner_id.foreign_id_number">
+                    <strong>Foreign ID Number: </strong>
+                    <span t-field="o.partner_id.foreign_id_number" />
+                    <br />
+                </t>
+            </xpath>
+            <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+                <td>
+                    <t t-if="line.description_sale">
+                        <sapn t-field="line.description_sale"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="line.name"/>
+                    </t>
+                </td>
+            </xpath>
+           <xpath expr="//div[@class='col-6']" position="replace">
+                <div class="col-6" style="border: 2px solid #DCDCDC; border-radius: 20px; margin-right: 2px;">
+                    <strong>Customer: </strong>
+                    <span t-field="o.partner_id.name"/>
+                    <br/>
+                    <t  t-if="o.is_colombian_company">
+                        <strong>Tax ID: </strong>
+                        <span t-field="o.partner_id.vat"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.partner_id.foreign_id_number">
+                        <strong>Foreign ID Number: </strong>
+                        <span t-field="o.partner_id.foreign_id_number" />
+                        <br />
+                    </t>
+                    <t t-if="o.partner_id.phone">
+                        <strong>Phone: </strong>
+                        <span t-field="o.partner_id.phone"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.partner_id.email">
+                        <strong>Mail: </strong>
+                        <span t-field="o.partner_id.email"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.invoice_origin">
+                        <strong>Order number: </strong>
+                        <span t-field="o.invoice_origin"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.partner_id.street">
+                        <strong>Street: </strong>
+                        <span t-field="o.partner_id.street"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.partner_id.city_id and not o.partner_id.city">
+                        <strong>City: </strong>
+                        <span t-esc="o.partner_id.city_id.name"/>
+                        <br/>
+                    </t>
+                    <t t-if="not o.partner_id.city_id and o.partner_id.city">
+                        <strong>City: </strong>
+                        <span t-esc="o.partner_id.city"/>
+                        <br/>
+                    </t>
+                    <t t-if="o.partner_id.country_id">
+                        <strong>Country: </strong>
+                        <span t-esc="o.partner_id.country_id.name"/>
+                        <br/>
+                    </t>
+                </div>
+            </xpath>
+                  
+
+            <xpath expr="//p[@name='incoterm']" position="after">
+                <p t-if="o.equation_coffee_qty" name="equation_coffee_qty">
+                    <strong>Quantity: </strong><span t-field="o.equation_coffee_qty"/>
+                </p>
+                <p t-if="o.equation_coffee_reference" name="equation_coffee_reference">
+                    <strong>Reference: </strong><span t-field="o.equation_coffee_reference"/>
+                </p>
+                <table class="table table-sm" name="equation_coffee_export_information">
+                    <thead>
+                        <tr>
+                            <th name="th_sm_equation_coffee_country_ori" t-if="o.equation_coffee_country_ori"><strong>Country of origin</strong></th>
+                            <th name="th_sm_equation_coffee_loading_port" t-if="o.equation_coffee_loading_port"><strong>Loading Port</strong></th>
+                            <th name="th_sm_equation_coffee_destination_port" t-if="o.equation_coffee_destination_port"><strong>Discharge Port</strong></th>
+                            <th name="th_sm_equation_coffee_shipping_line" t-if="o.equation_coffee_shipping_line"><strong>Shipping Line /  Carrier</strong></th>
+                            <th name="th_sm_equation_coffee_bill_lading" t-if="o.equation_coffee_bill_lading"><strong>BL / AWB Number</strong></th>
+                            <th name="th_sm_equation_coffee_hs_code" t-if="o.equation_coffee_hs_code"><strong>HS code</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td t-if="o.equation_coffee_country_ori">
+                                <span t-field="o.equation_coffee_country_ori"/>
+                            </td>
+                            <td t-if="o.equation_coffee_loading_port">
+                                <span t-field="o.equation_coffee_loading_port"/>
+                            </td>
+                            <td t-if="o.equation_coffee_destination_port">
+                                <span t-field="o.equation_coffee_destination_port"/>
+                            </td>
+                            <td t-if="o.equation_coffee_shipping_line">
+                                <span t-field="o.equation_coffee_shipping_line"/>
+                            </td>
+                            <td t-if="o.equation_coffee_bill_lading">
+                                <span t-field="o.equation_coffee_bill_lading"/>
+                            </td>
+                            <td t-if="o.equation_coffee_hs_code">
+                                <span t-field="o.equation_coffee_hs_code"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </xpath>
+
+
+        </template>
+    </data>
+</odoo>

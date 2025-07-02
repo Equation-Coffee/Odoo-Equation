@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_productor
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-08 02:45+0000\n"
+"PO-Revision-Date: 2023-11-08 02:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_productor
+#: model:ir.model,name:equation_coffee_productor.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_productor_elevation
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_users__equation_coffee_productor_elevation
+msgid "Elevation (meters above sea level)"
+msgstr "Elevación (metros sobre el nivel del mar)"
+
+#. module: equation_coffee_productor
+#: model_terms:ir.ui.view,arch_db:equation_coffee_productor.equation_coffee_productor_inherit_view_partner_form
+msgid "Equation Coffee Productor Information"
+msgstr "Equation Coffee Información del productor"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_productor_farm
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_users__equation_coffee_productor_farm
+msgid "Farm"
+msgstr "Finca"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__is_it_a_producer
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_users__is_it_a_producer
+msgid "Is productor?"
+msgstr "¿Es productor?"
+
+#. module: equation_coffee_productor
+#: model_terms:ir.ui.view,arch_db:equation_coffee_productor.equation_coffee_productor_inherit_view_partner_search
+msgid "Productors"
+msgstr "Productores"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_productor_project_ids
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_users__equation_coffee_productor_project_ids
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_productor_varietal_ids
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_users__equation_coffee_productor_varietal_ids
+msgid "Varietals"
+msgstr "Varietales"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_cropster
+msgid "Cropster"
+msgstr "Ficha Productor"
+
+#. module: equation_coffee_productor
+#: model:ir.model.fields,field_description:equation_coffee_productor.field_res_partner__equation_coffee_cropster_name
+msgid "Cropster Name"
+msgstr "Nombre Ficha Productor"

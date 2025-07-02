@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_category_farm_select_microlots" model="equation.coffee_category">
+            <field name="name">Farm Select Microlots</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_category_avant_grade_experimentals" model="equation.coffee_category">
+            <field name="name">Avant-Garde Experimentals</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_category_rare_exotics" model="equation.coffee_category">
+            <field name="name">Rare Exotics</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_category_everyday_blends" model="equation.coffee_category">
+            <field name="name">Everyday Blends</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_category_decaf_collection" model="equation.coffee_category">
+            <field name="name">Decaf Collection</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

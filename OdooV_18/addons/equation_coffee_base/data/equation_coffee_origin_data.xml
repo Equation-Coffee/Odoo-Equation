@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_origin_colombia" model="equation.coffee_origin">
+            <field name="name">Colombia</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_huila" model="equation.coffee_origin">
+            <field name="name">Huila</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_nariño" model="equation.coffee_origin">
+            <field name="name">Nariño</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_caldas" model="equation.coffee_origin">
+            <field name="name">Caldas</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_pink_tolima" model="equation.coffee_origin">
+            <field name="name">Tolima</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_red_risaralda" model="equation.coffee_origin">
+            <field name="name">Risaralda</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_origin_quindio" model="equation.coffee_origin">
+            <field name="name">Quindio</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

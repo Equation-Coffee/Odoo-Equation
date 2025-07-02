@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-23 18:42+0000\n"
+"PO-Revision-Date: 2023-11-23 18:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_mrp
+#: model:ir.model,name:equation_coffee_mrp.model_mrp_bom_line
+msgid "Bill of Material Line"
+msgstr "Línea de Lista de Materiales"
+
+#. module: equation_coffee_mrp
+#: model:ir.model,name:equation_coffee_mrp.model_mrp_bom_byproduct
+msgid "Byproduct"
+msgstr "Subproducto"
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,field_description:equation_coffee_mrp.field_mrp_bom_byproduct__cost_share
+#: model:ir.model.fields,field_description:equation_coffee_mrp.field_mrp_bom_line__cost_share
+#: model:ir.model.fields,field_description:equation_coffee_mrp.field_stock_move__cost_share
+msgid "Cost Share (%)"
+msgstr "Reparto de costos (%)"
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,field_description:equation_coffee_mrp.field_mrp_production__equation_bom_price
+msgid "Component costs"
+msgstr "Costo de componentes"
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,field_description:equation_coffee_mrp.field_mrp_production__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: equation_coffee_mrp
+#: model:ir.model,name:equation_coffee_mrp.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de producción"
+
+#. module: equation_coffee_mrp
+#: model:ir.model,name:equation_coffee_mrp.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de Existencias"
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,help:equation_coffee_mrp.field_mrp_bom_line__cost_share
+msgid ""
+"The percentage of the component repartition cost when purchasing a kit.The "
+"total of all components' cost have to be equal to 100."
+msgstr ""
+"El porcentaje del coste de repartición de los componentes al comprar un kit.El"
+"coste total de todos los componentes debe ser igual a 100."
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,help:equation_coffee_mrp.field_mrp_bom_byproduct__cost_share
+msgid ""
+"The percentage of the final production cost for this by-product line "
+"(divided between the quantity produced).The total of all by-products' cost "
+"share must be less than or equal to 100."
+msgstr ""
+"El porcentaje del costo de producción final para esta línea de subproducto "
+"(dividido entre la cantidad producida). El total de reparto de costos de "
+"subproductos debe ser menor o igual a 100."
+
+#. module: equation_coffee_mrp
+#: model:ir.model.fields,help:equation_coffee_mrp.field_stock_move__cost_share
+msgid ""
+"The percentage of the final production cost for this by-product. The total "
+"of all by-products' cost share must be smaller or equal to 100."
+msgstr ""
+"El porcentaje del costo de producción final para este subproducto. El total "
+"de reparto de costos de subproductos debe ser menor o igual a 100."
+
+#. module: equation_coffee_mrp
+#: model:product.pricelist,name:equation_coffee_mrp.equation_coffee_cost_share
+msgid "Equation Coffee Cost Share"
+msgstr "Reparto de costes"

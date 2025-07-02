@@ -1,0 +1,59 @@
+table, th, td {
+    white-space: normal !important; /* Permite el ajuste de texto */
+    word-wrap: break-word !important; /* Rompe palabras largas */
+    overflow-wrap: break-word !important; /* Maneja palabras largas */
+    height: auto !important; /* Ajusta la altura automáticamente */
+    vertical-align: top; /* Alinea el texto al inicio */
+    font-size: 12px; /* Tamaño de fuente */
+    border-collapse: collapse; /* Elimina espacios entre bordes */
+}
+
+/* Configuración general para tablas específicas */
+table.specific_table_class {
+    table-layout: auto !important; /* Ajuste dinámico de las celdas */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Elimina los espacios entre bordes */
+    font-size: 12px; /* Tamaño de la fuente */
+    overflow-x: auto; /* Activa scroll horizontal si es necesario */
+    display: block; /* Asegura que funcione el scroll horizontal */
+    max-width: 100%; /* Evita que la tabla desborde el contenedor */
+}
+
+/* Estilo para celdas (th y td) */
+table.specific_table_class th,
+table.specific_table_class td {
+    white-space: normal !important; /* Permite ajuste automático de texto */
+    overflow-wrap: break-word !important; /* Rompe palabras largas */
+    min-width: 150px; /* Ancho mínimo para celdas */
+    max-width: 400px; /* Ancho máximo para evitar desbordes */
+    height: auto !important; /* Ajusta automáticamente la altura */
+    vertical-align: top; /* Alinea el texto al inicio de la celda */
+    padding: 10px !important; /* Espaciado interno */
+    text-overflow: ellipsis; /* Puntos suspensivos en caso de desbordamiento */
+    border-bottom: 1px solid #ddd; /* Borde inferior para separar filas */
+}
+
+/* Configuración de los encabezados */
+table.specific_table_class th {
+    font-weight: bold; /* Negrita */
+    background-color: #f8f9fa; /* Fondo claro */
+    text-align: left; /* Alineación a la izquierda */
+    white-space: normal !important; /* Permite el ajuste de texto */
+    word-wrap: break-word !important; /* Rompe palabras largas */
+    overflow-wrap: break-word !important; /* Maneja palabras largas */
+    height: auto !important; /* Ajusta la altura automáticamente */
+}
+
+/* Resaltado en filas al pasar el ratón */
+table.specific_table_class tr:hover {
+    background-color: #f2f2f2; /* Fondo claro en hover */
+}
+
+/* Estilo para contenedor de tabla (si es necesario agregar scroll) */
+
+.o_list_view th {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 1;
+}

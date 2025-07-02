@@ -1,0 +1,70 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_sr_manual_currency_exchange_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-05 01:05+0000\n"
+"PO-Revision-Date: 2023-12-05 01:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_purchase_order_template_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_quotation_document_template_currency_exchange_rate
+msgid "<span class=\"text-danger\">Pending</span>"
+msgstr "<span class=\"text-danger\">Pendiente</span>"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_purchase_order_template_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_quotation_document_template_currency_exchange_rate
+msgid "<strong>Exchange rate</strong>"
+msgstr "<strong>Tasa de cambio</strong>"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_purchase_order_template_currency_exchange_rate
+#: model_terms:ir.ui.view,arch_db:equation_coffee_sr_manual_currency_exchange_rate.equation_coffee_quotation_document_template_currency_exchange_rate
+msgid "<strong>Fixing Date</strong>"
+msgstr "<strong>Fecha fijación</strong>"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_sale_order__manual_currency_exchange_rate
+msgid "Exchange Rate"
+msgstr "Tasa de Cambio"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_account_bank_statement_line__manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_account_move__manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_purchase_order__manual_currency_exchange_rate
+msgid "Exchange rate"
+msgstr "Tasa de Cambio"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_account_bank_statement_line__fixing_date_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_account_move__fixing_date_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_account_payment__fixing_date_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_purchase_order__fixing_date_manual_currency_exchange_rate
+#: model:ir.model.fields,field_description:equation_coffee_sr_manual_currency_exchange_rate.field_sale_order__fixing_date_manual_currency_exchange_rate
+msgid "Fixing Date"
+msgstr "Fecha fijación"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model,name:equation_coffee_sr_manual_currency_exchange_rate.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model,name:equation_coffee_sr_manual_currency_exchange_rate.model_purchase_order
+msgid "Purchase Order"
+msgstr "Orden de Compra"
+
+#. module: equation_coffee_sr_manual_currency_exchange_rate
+#: model:ir.model,name:equation_coffee_sr_manual_currency_exchange_rate.model_sale_order
+msgid "Sales Order"
+msgstr "Orden de Venta"

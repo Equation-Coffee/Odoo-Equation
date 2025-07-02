@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="equation_coffee_inherit_view_stock_move_line_operation_tree" model="ir.ui.view">
+        <field name="name">equation.coffee.inherit.view.stock.move.line.operation.list</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_id']" position="before">
+                <field name="is_it_coffee" column_invisible="1"/>
+                <field name="is_it_export_coffee" column_invisible="1"/>
+                <field name="is_colombian_company" column_invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='lot_id']" position="after">
+                <field name="lot_container" groups="stock.group_production_lot" readonly="False"/>
+                <field name="description_warehouse" groups="stock.group_production_lot" readonly="False"/>
+                <field name="equation_coffee_llc_project_lot" groups="stock.group_production_lot" readonly="False"/>
+                <field name="equation_coffee_llc_position_lot" groups="stock.group_production_lot" readonly="False"/>
+            </xpath>
+            
+
+            <xpath expr="//field[@name='lot_name']" position="attributes">
+                <attribute name="column_invisible">parent.is_it_coffee and not parent.is_it_export_coffee and parent.is_colombian_company</attribute>
+                <!--TODO: Result from converting 'attrs' attribute override without options for ['invisible', 'required', 'readonly'] to separate attributes
+                     Remove redundant empty tags below for any of those attributes that are not present in the field tag in any of the parent views
+                     If someone later adds one of these attributes in the parent views, they would likely be unaware it's still overridden in this view, resulting in unexpected behaviour, which should be avoided-->
+                <!--TODO: Result from 'attrs' -> 'invisible' conversion without also overriding 'states' attribute
+                     Check if this field tag contained a states attribute in any of the parent views, that should be combined into this 'invisible' attribute
+                     (If any states attributes existed in parent views, they'll also be marked with a TODO)-->
+                <attribute name="invisible"/>
+                <attribute name="required"/>
+                <attribute name="readonly"/>
+            </xpath>
+
+            <xpath expr="//field[@name='lot_name']" position="after">
+
+                <field name="lot_name" string="Lot/Serial Number" widget="text" groups="stock.group_production_lot" placeholder="Write your SN/LN one by one or copy paste a list." column_invisible="not parent.is_it_coffee or parent.picking_code != 'incoming' or (parent.is_it_export_coffee or not parent.is_colombian_company)" readonly="is_it_coffee and not is_it_export_coffee and is_colombian_company"/>
+
+                <field name="equation_coffee_partner_id" column_invisible="not parent.is_it_coffee or parent.picking_code != 'incoming'" required="is_it_coffee and picking_code == 'incoming'" domain="[('is_it_a_producer', '=', True)]"/>
+
+
+                <field name="equation_coffee_date_production" column_invisible="not parent.is_it_coffee or parent.picking_code != 'incoming'"/>
+
+                <field name="equation_coffee_profile_id" column_invisible="not parent.is_it_coffee or parent.picking_code != 'incoming'"/>
+
+                <field name="equation_coffee_llc_project_lot" readonly="False" column_invisible="not parent.is_it_coffee or parent.is_colombian_company or parent.picking_code != 'incoming'"/>
+
+                <field name="equation_coffee_llc_position_lot" readonly="False" column_invisible="not parent.is_it_coffee or parent.is_colombian_company or parent.picking_code != 'incoming'"/>
+
+                 <field name="lot_container" readonly="False" column_invisible="not parent.is_it_coffee or parent.is_colombian_company or parent.picking_code != 'incoming'"/>
+
+                <field name="description_warehouse" readonly="False" column_invisible="not parent.is_it_coffee or parent.is_colombian_company or parent.picking_code != 'incoming'"/>
+            </xpath>
+            
+        </field>
+    </record>
+    <record id="equation_coffee_inherit_view_stock_move_line_detailed_operation_tree" model="ir.ui.view">
+        <field name="name">equation.coffee.inherit.view.stock.move.line.detailed.operation.list</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_id']" position="before">
+                <field name="is_it_coffee" column_invisible="1"/>
+                <field name="is_it_export_coffee" column_invisible="1"/>
+                <field name="is_colombian_company" column_invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='lot_name']" position="after">
+
+                <field name="equation_coffee_llc_project_lot" readonly="False" invisible="not is_it_coffee or is_colombian_company"/>
+                <field name="equation_coffee_llc_position_lot" readonly="False" invisible="not is_it_coffee or is_colombian_company"/>
+                <field name="lot_container" readonly="False" invisible="not is_it_coffee or is_colombian_company"/>
+                <field name="description_warehouse" readonly="False" invisible="not is_it_coffee or is_colombian_company"/>
+            
+
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

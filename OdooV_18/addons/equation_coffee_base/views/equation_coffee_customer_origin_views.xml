@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="equation_coffee_customer_origin_view_search" model="ir.ui.view">
+        <field name="name">equation.coffee.customer.origin.view.search</field>
+        <field name="model">equation.coffee_customer_origin</field>
+        <field name="arch" type="xml">
+            <search string="Search Customer Origin">
+                <field name="name"/>
+                <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Company" name="company_id" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="equation_coffee_customer_origin_view_form" model="ir.ui.view">
+        <field name="name">equation.coffee.customer.origin.view.form</field>
+        <field name="model">equation.coffee_customer_origin</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Customer Origin">
+                <sheet>
+                    <div name="button_box" class="oe_button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title" name="equation_coffee_customer_origin_title">
+                        <label for="name" id="equation_coffee_customer_origin_title"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Website" class="d-block" required="1"/>
+                            <field name="active" invisible="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="info_left">
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+<chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="equation_coffee_customer_origin_view_tree" model="ir.ui.view">
+        <field name="name">equation.coffee.customer.origin.view.list</field>
+        <field name="model">equation.coffee_customer_origin</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list string="Customers origin">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="equation_coffee_customer_origin_action" model="ir.actions.act_window">
+        <field name="name">Customers origin</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">equation.coffee_customer_origin</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your customer origin
+            </p>
+        </field>
+    </record>
+
+</odoo>

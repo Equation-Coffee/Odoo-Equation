@@ -1,0 +1,3410 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muestras
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250415\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-01 17:58+0000\n"
+"PO-Revision-Date: 2025-07-01 17:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: muestras
+#: model:mail.template,body_html:muestras.muestras_email_template_order
+msgid ""
+"\n"
+"                \n"
+"                    \n"
+"                    \n"
+"                \n"
+"                <body style=\"margin: 0; padding: 0; background-color: #ffffff; font-family: Arial, sans-serif;\">\n"
+"                    <div style=\"max-width: 600px; margin: 20px auto; background-color: #f0f0f0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;\">\n"
+"                        <div style=\"background-color: #000000; padding: 20px; text-align: center;\">\n"
+"                            <img src=\"https://media.licdn.com/dms/image/v2/C560BAQHEOTQKzHP5Sg/company-logo_200_200/company-logo_200_200/0/1630611378852?e=2147483647&amp;v=beta&amp;t=-BchrHUJAwGA3Kh77EZb4KxtgjSDS1GlrPuBqnS7F7w\" alt=\"Logo\" style=\"max-width: 150px; height: auto;\"/>\n"
+"                        </div>\n"
+"                        <div style=\"padding: 20px; color: #333333;\">\n"
+"                            <h1>Solicitud de Envío de Muestras</h1>\n"
+"                            <h3>Solicitante:</h3> <t t-out=\"object.salesperson_header.name\"/> <t t-out=\"object.crm_team\"/>\n"
+"\n"
+"                            <h3>Cafés:</h3>\n"
+"                            <table style=\"width: 100%; border-collapse: collapse; margin: 20px 0;\">\n"
+"                                <thead>\n"
+"                                    <tr style=\"background-color: #f0f0f0;\">\n"
+"                                        <!-- <th>Producto</th> -->\n"
+"                                        <th>Lote</th>\n"
+"                                        <th>Código Interno</th>\n"
+"                                        <th>Proyecto</th>\n"
+"                                        <th>Categoría</th>\n"
+"                                        <th>Proceso</th>\n"
+"                                        <th>Variedad</th>\n"
+"                                        <th>Muestra (g)</th>\n"
+"                                        <th>Edición</th>\n"
+"                                    </tr>\n"
+"                                </thead>\n"
+"                                <tbody>\n"
+"                                    <t t-if=\"object.order_lines\">\n"
+"                                        <t t-foreach=\"object.order_lines\" t-as=\"line\">\n"
+"                                            <tr>\n"
+"                                                <!-- <td><t t-esc=\"line.product_id.name\"/></td> -->\n"
+"                                                <td>\n"
+"                                                    <t t-if=\"line.farm\" and=\"\" line.project=\"=&quot;Flying\" pumas=\"\">\n"
+"                                                        <t t-esc=\"line.lote + ' - ' + line.farm\"/>\n"
+"                                                    </t>\n"
+"                                                    <t t-else=\"\">\n"
+"                                                        <t t-esc=\"line.lote\"/>\n"
+"                                                    </t>\n"
+"                                                </td>\n"
+"                                                <td><t t-esc=\"line.internal_code\"/></td>\n"
+"                                                <td><t t-esc=\"line.project\"/></td>\n"
+"                                                <td><t t-esc=\"line.program\"/></td>\n"
+"                                                <td><t t-esc=\"line.process\"/></td>\n"
+"                                                <td><t t-esc=\"line.variety\"/></td>\n"
+"                                                <td><t t-esc=\"line.quantity\"/></td>\n"
+"                                                <td><t t-esc=\"line.edition\"/></td>\n"
+"\n"
+"                                            </tr>\n"
+"                                        </t>\n"
+"                                    </t>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"\n"
+"                            <p><b>Tipo de Muestra:</b> <span t-field=\"object.typesample\"/>\n"
+"                            </p><p><b>Tipo de Muestra Comercial:</b> <span t-field=\"object.coffee_sample\"/>\n"
+"                            </p><p><b>Número de Lotes:</b> <span t-field=\"object.lote_quantity\"/>\n"
+"                            </p><p><b>Cantidad Total de la Muestra:</b> <span t-field=\"object.sample_quantity\"/>\n"
+"\n"
+"\n"
+"                            </p><h3> Cliente:</h3>\n"
+"                            <t t-out=\"object.partner_invoice_id.name\"/>\n"
+"\n"
+"                            <h3> Notas Adicionales: </h3>\n"
+"                            <t t-out=\"object.notes\"/>\n"
+"                            \n"
+"                           \n"
+"\n"
+"                            <h3> Indicaciones:</h3>\n"
+"                            <!-- <p><b>Nombre:</b> <t t-out=\"object.partner_invoice_id.country_id.name\"/></p> -->\n"
+"                            <p><b>Contacto:</b> <t t-out=\"object.partner_contact\"/></p>\n"
+"                            <p><b>Pais:</b> <t t-out=\"object.partner_country\"/></p>\n"
+"                            <p><b>Estado:</b> <t t-out=\"object.partner_state\"/></p>\n"
+"                            <p><b>Ciudad:</b> <t t-out=\"object.partner_city\"/></p>\n"
+"                            <p><b>Dirección:</b> <t t-out=\"object.partner_address\"/></p>\n"
+"                            <p><b>Teléfono:</b> <t t-out=\"object.partner_phone\"/></p>\n"
+"                            <p><b>E-mail:</b> <t t-out=\"object.partner_email\"/></p>\n"
+"                            <p><b>Zip:</b> <t t-out=\"object.partner_zip\"/></p>\n"
+"                            <t t-if=\"object.customs_info\"><b>Información Aduanera: </b> <t t-out=\"object.partner_invoice_id.country_id.name\"/>\n"
+"\n"
+"\n"
+"                        </t></div>\n"
+"                        <div style=\"background-color: #f0f0f0; padding: 10px; text-align: center; font-size: 12px; color: #777777;\">\n"
+"                            <p>© 2024 Equation Coffee. Todos los derechos reservados.</p>\n"
+"                        </div>\n"
+"                    </div>\n"
+"                </body>\n"
+"                "
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.report,print_report_name:muestras.reporte_muestra_pdf_wizard_action
+msgid "'Reporte_' + time.strftime(\"%Y%m%d_%H%M%S\")"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.report,print_report_name:muestras.action_muestras_report
+msgid "'Sample Order #' +  object.name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__packing_weight__3k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__packing_weight__3k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__packing_weight__3k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__packing_weight__3k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__packing_weight__3k
+msgid "3 Kilos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__packing_weight__5k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__packing_weight__5k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__packing_weight__5k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__packing_weight__5k
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__packing_weight__5k
+msgid "5 Kilos"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<span>Disc.%</span>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<span>TBC</span>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<span>kg</span>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<span>lb</span>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<strong>Creation Date:</strong>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<strong>Expiration Date:</strong>"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "<strong>Salesperson:</strong>"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_needaction
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_needaction
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_needaction
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_exception_decoration
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_exception_decoration
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_state
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_state
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_type_icon
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_type_icon
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.server,name:muestras.cron_update_days_since_start_ir_actions_server
+msgid "Actualizar Días Desde Inicio"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Add a product"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Add a section"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_address
+msgid "Address"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_allproducts_menu_1_list
+msgid "All Products"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_alldisponibles
+#: model:ir.model,name:muestras.model_muestras_allproducts
+msgid "All Products by Region"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__allproducts
+msgid "All products"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__altitude
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__altitude
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__altitude
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__altitude
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__altitude
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__altitude
+msgid "Altitud"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__booking
+msgid "Amount of Booking"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__quantity
+msgid "Amount of kg reserved"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_order_line_wizard_form
+msgid "Aplicar Cambios"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__pdf_prueba
+msgid "Archivo PDF"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.prueba_action_window
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__atlas
+msgid "Atlas"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_allproducts_menu_3_list
+msgid "Atlas - Proyectos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.product_menu_1
+msgid "Atlas Grano"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_attachment_count
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_attachment_count
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_attachment_count
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__availability_35kg_boolean
+msgid "Availability in 35 kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__aval_35
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__aval_35
+msgid "Availability in 35 kg "
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__availability_70kg_boolean
+msgid "Availability in 70 kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__avalible
+msgid "Avalible Quantity"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
+msgid "Back to Order"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__warehouse
+msgid "Bodega"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__packing_type__bg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__packing_type__bg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__packing_type__bg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__packing_type__bg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__packing_type__bg
+msgid "Bolsa"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__cancelb
+msgid "Booking Cancelled"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__cancelba
+msgid "Booking Cancelled (Auto)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__booking
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Booking Quantity"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_order_line
+msgid "Cada uno de los registros de venta"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__booking_change
+msgid "Cambios en la Reserva"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__fuente
+msgid "Campo"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Campos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__field_ids
+msgid "Campos a Incluir"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_order_line_wizard_form
+msgid "Cancelar"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__quantity
+msgid "Cantidad"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityAsia
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityAsia
+msgid "Cantidad Asia"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__avalible
+msgid "Cantidad Disponible"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityEU
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityEU
+msgid "Cantidad EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_neto
+msgid "Cantidad Inicial"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__quantity
+msgid "Cantidad Total"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__total_quantity
+msgid "Cantidad Total Lote"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__sample_quantity
+msgid "Cantidad Total de muestra"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityUSA
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityUSA
+msgid "Cantidad USA"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__coffee_load
+msgid "Carga Estandar"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__disp_inventario
+msgid "Cat. Iventario"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__program
+msgid "Categoria"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__main_category
+msgid "Categoria Principal"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__second_category
+msgid "Categoria Secundaria"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_feedback
+#: model:ir.ui.menu,name:muestras.muestras_cat_menu_2_list
+msgid "Categorias Feedback"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_offeringcat
+msgid "Categorias Offering"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__offeringCat
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__offeringCat
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__offeringCat
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__offeringCat
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__offeringCat
+#: model:ir.ui.menu,name:muestras.muestras_cat_menu_1_list
+msgid "Categorias Portafolio"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.cat_menu_1
+msgid "Categories"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__category
+msgid "Category"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__category_margin
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__category_margin
+msgid "Category Margin"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__category_margin_spot
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__category_margin_spot
+msgid "Category Margin SPOT"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__name
+msgid "Category Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__category
+msgid "Categoría"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form_pdf
+msgid "Cerrar"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_city
+msgid "City"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__internal_code
+msgid "Cod Int"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__code
+msgid "Code"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Codification"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__code
+msgid "Codigo del Producto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__price_c
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__price_c
+msgid "Coffee C Price"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Coffee Details"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Coffee Information"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__coffee_sample
+msgid "Coffee Sample Type"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Coffees selected"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__custom_location__col
+msgid "Colombia"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__coffee_sample__cs
+msgid "Comercial Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__company
+msgid "Company"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__condicion
+msgid "Condición"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
+msgid "Confirm"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__sequence
+msgid "Consecutivo"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_contact
+msgid "Contact"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__c_fob
+msgid "Costos FOB"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_id
+msgid "Costumer"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__country_customer
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__country_partner
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_country
+msgid "Country"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__country_origin
+msgid "Country of Origin"
+msgstr ""
+
+#. module: muestras
+#. odoo-javascript
+#: code:addons/muestras/static/src/xml/wizard_button_offering.xml:0
+msgid "Create Offering Document"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Create Sales Order"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Create Sales Order Without Sample Shipment"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_wizard_order_crm_selection__crm_option__create
+msgid "Create a new lead"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__create_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__create_date
+msgid "Creation Date"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_order__date_order
+msgid ""
+"Creation date of draft/sent orders,\n"
+"Confirmation date of confirmed orders."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__customs_info
+msgid "Custom Info"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__partner
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__partner_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__partner_name
+msgid "Customer"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Customer Information"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Customer Signature"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__internal_code
+msgid "Código Interno"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__code
+msgid "Código Producto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__code
+msgid "Código del Producto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__date
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__date
+msgid "Date"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__days
+msgid "Days"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__decaf_cost
+msgid "Decaf Cost"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_offering_pdf_wizard__second_category_selection__default
+msgid "Default"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__delivery_address
+msgid "Delivery Address"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form_pdf
+msgid "Descargar PDF"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Description"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__details
+msgid "Detalles"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__price_selector__dfc
+msgid "Diferencial de Compra"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__cost_variance
+msgid "Diferncial de Compra (USD/LB)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__diff_price
+msgid "Differencial Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__display_name
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__display_type
+msgid "Display Type"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__available_status
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__available
+msgid "Disponibilidad"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sample_availability
+msgid "Disponibilidad de Gramos de muestras"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__availability_35kg
+msgid "Disponibilidad en sacos de 35 kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__availability_70kg
+msgid "Disponibilidad en sacos de 70 kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__disponible
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__available_status__dis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__available__dis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__available__dis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__available__dis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__available__dis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__available__dis
+msgid "Disponible"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_muestras_allproducts_search
+msgid "Disponible (DIS)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__register_id
+msgid "Disponible Original"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_price_2
+msgid "Disponible Prices"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__dis_temporarly_button
+msgid "Disponible_temporary_Value"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
+msgid "Do you want to link the sample request to an existing lead?"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Download PDF"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_offering_pdf_wizard__state__draft
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_drying_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_drying_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_drying_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_drying_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_drying_process
+msgid "Drying Process Equation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_email
+msgid "E-mail"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_exw_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_exw_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_exw_eu
+msgid "EXW EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__exw_eu_boolean
+msgid "EXW Price EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__exw_kg_boolean
+msgid "EXW Price US/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__exw_boolean
+msgid "EXW Price US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_exw_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_exw_kg
+msgid "EXW US/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_exw
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_exw
+msgid "EXW US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_exw_kg
+msgid "EXW USD/KG"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_exw
+msgid "EXW USD/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__edition
+msgid "Edicion"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_order_line_wizard_form
+msgid "Editar Líneas de la Orden"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__edition
+msgid "Edition"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__email_content
+msgid "Email Content"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__email_sent
+msgid "Email Send"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__entry_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__entry_id
+msgid "Entry ID"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_macroprofile
+msgid "Equation Macroprofile"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_process_offering
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_process_offering
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_process_offering
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_process_offering
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_process_offering
+msgid "Equation Offering Process"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.disponible_form
+msgid "Equation Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_process_offering
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_process_offering
+msgid "Equation Process Offering"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_process_offering_name
+msgid "Equation Process Offering Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_program
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_program
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_program
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_program
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_program
+msgid "Equation Program"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_project
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_project
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_project
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_project
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_project
+msgid "Equation Project"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_varietal
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_varietal
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_varietal
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_varietal
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_varietal
+msgid "Equation Varietal"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__custom_location
+msgid "Equipo de Calidades"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__crm_team
+msgid "Equipo de Ventas"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_pruebalog__status__error
+msgid "Error"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Escribe tus notas aquí..."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__status
+msgid "Estado"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.disponible_form
+msgid "Ex Works"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_pruebalog__status__exception
+msgid "Exception"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__lead_id
+msgid "Existing Lead"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__price_selector__exc
+msgid "Exlceso"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__expiration_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__expiration_date
+msgid "Expiration Date"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__extra_charge_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__extra_charge_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__extra_charge_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__extra_charge_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__extra_charge_premium
+msgid "Extra Charge Premium"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_fob_eu
+msgid "FOB EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_fob_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_fob_eu
+msgid "FOB EUxkg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fob_eu_boolean
+msgid "FOB Price EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fob_usa_boolean
+msgid "FOB Price US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_fob_usa
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_fob_usa
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_fob_usa
+msgid "FOB US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_fwb_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_fwb_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_fwb_eu
+msgid "FWB EUxkg"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.disponible_form
+msgid "FWB Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fwb_eu_boolean
+msgid "FWB Price EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fwb_usa_boolean
+msgid "FWB Price US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_fwb_usa
+msgid "FWB US/Lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_fwb_usa
+msgid "FWB USD/Lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_fwb_usa
+msgid "FWB USDxlb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__factor
+msgid "Factor de Rendimiento"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__date
+msgid "Fecha"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__date_create
+msgid "Fecha de Creación"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__execution_date
+msgid "Fecha de Ejecución"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__feedback_selection
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__feedback_selection
+msgid "Feedback"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__name
+msgid "Feedback Option"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.feedback_action_window
+msgid "Feedbak Categories"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_fermentation_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_fermentation_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_fermentation_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_fermentation_process
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_fermentation_process
+msgid "Fermentation Process Equation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fprocess_selection
+msgid "Filters for Fermentation Process"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__macp_selection
+msgid "Filters for Macroprofile"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__main_category_selection
+msgid "Filters for Main Category"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__origin_selection
+msgid "Filters for Origin"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__process_offering_selection
+msgid "Filters for Process"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__second_category_selection
+msgid "Filters for Second Category"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__variety_selection
+msgid "Filters for Varietal"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__farm
+msgid "Finca"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__fob_usa_show
+msgid "Fob Usa Show"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_follower_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_follower_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_follower_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_partner_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_partner_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_partner_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__activity_type_icon
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__activity_type_icon
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__freshness
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__freshness
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__freshness
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__freshness
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__freshness
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__freshness
+msgid "Frescura"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__fuente
+msgid "Fuente de datos"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+msgid "General Information"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.action_open_wizard
+msgid "Generar PDF"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Generate PDF"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__has_message
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__has_message
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__has_message
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_offering_history
+msgid "Historico de envios de Ofertable por cliente"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.reporte_muestra_pdf_wizard
+msgid "Hpña"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__id
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__id
+msgid "ID"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__m
+msgid "ID new"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_exception_icon
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_exception_icon
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__activity_exception_icon
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__activity_exception_icon
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__message_needaction
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__message_needaction
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__message_needaction
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__message_has_error
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__message_has_sms_error
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__message_has_error
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__message_has_sms_error
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__message_has_error
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__message_has_sms_error
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_has_error
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
+msgid ""
+"If you choose to link an existing lead, its stage will automatically change "
+"to 'Sample Request'."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_offering_pdf_wizard__distribution_type__ind
+msgid "Individual"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__boolean_customs_info
+msgid "Información Adicional Requerida"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__internal_code
+msgid "Interal Code"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__internal_code
+msgid "Internal Code"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Internal Notes"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_inventario
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__inventario
+#: model:ir.ui.menu,name:muestras.product_menu_1_listk
+msgid "Inventario"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.inventario_action_window
+msgid "Inventario Equation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_prueba
+msgid "Inventario Proyectos ATLAS"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.spoteu_list
+msgid "Inventario SPOT EU"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Inventory"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Inventory Details"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_invoice_id
+msgid "Invoice Adress"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__is_decaf
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__is_decaf
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__is_decaf
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__is_decaf
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__is_decaf
+msgid "Is Decaffeinated?"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_is_follower
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_is_follower
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_is_follower
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__is_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__is_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__is_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__is_premium
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__is_premium
+msgid "Is Premium?"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__uom__kg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__uom__kg
+msgid "Kilogramos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_crm_lead__sample_order_id
+msgid "La solicitud de muestra asociada a este lead."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__write_uid
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_generate_pdf__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_pruebalog__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__write_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/oportunidad"
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__uom__lb
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__uom__lb
+msgid "Libras"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__line_id
+msgid "Linea Original"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__line_id
+msgid "Lineas"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_offering_pdf_wizard_line
+msgid "Lineas a incluir dentro del Offering List"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.muestras_offering_history_form
+msgid "Lines"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.order_crm_window
+#: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
+msgid "Link to Lead Confirmation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_wizard_order_crm_selection__crm_option__select
+msgid "Link to an existing lead"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__location
+msgid "Location"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_pruebalog
+msgid "Log de ejecuciones de la función de conexión con Atlas"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Logistics"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Número de serie/lote"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__lote
+msgid "Lote"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__macroprofile
+msgid "Macro Pr."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__mcp
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__mcp
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__mcp
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__mcp
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__mcp
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__mcp
+msgid "Macro-Perfil"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__macroprofile
+msgid "Macro-profile"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__macroprofile_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_macroprofile
+msgid "Macroprofile"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_macroprofile_name
+msgid "Macroprofile Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_main_category
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__main_category_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_main_category
+msgid "Main Category"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_main_category_name
+msgid "Main Category Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__salesperson_header
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__salesperson_header
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__salesperson_header
+msgid "Main Salesperson"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_offering_pdf_wizard__distribution_type__mas
+msgid "Masive"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_has_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_has_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_has_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_alldisponibles__referencia_origen__modelo_productos_region_a
+msgid "Modelo Región A"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_alldisponibles__referencia_origen__modelo_productos_region_b
+msgid "Modelo Región B"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_alldisponibles__referencia_origen__modelo_productos_region_c
+msgid "Modelo Región C"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_father
+msgid "Modelo padre menú de muestras"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__disponible
+msgid "Modelos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__show_line
+msgid "Mostrar"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.product_action_window
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__line_id
+msgid "Muestras"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.muestras_admin
+msgid "Muestras/Administrador"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.group_Asia
+msgid "Muestras/Comercial Asia"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.group_EU
+msgid "Muestras/Comercial Europa"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.group_USA
+msgid "Muestras/Comercial USA"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.muestras_spotUSA
+msgid "Muestras/Inventario SPOT USA"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.muestras_commercial_team_leaders
+msgid "Muestras/Lideres Equipos Comerciales"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.muestras_disp
+msgid "Muestras/Productos Disponibles"
+msgstr ""
+
+#. module: muestras
+#: model:res.groups,name:muestras.muestras_spoteu
+msgid "Muestras/Productos SPOT EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__my_activity_date_deadline
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__my_activity_date_deadline
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_tabla__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__name
+msgid "Name"
+msgstr ""
+
+#. module: muestras
+#. odoo-python
+#: code:addons/muestras/models/order.py:0
+msgid "New"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_calendar_event_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_calendar_event_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_date_deadline
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_date_deadline
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_summary
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_summary
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_type_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_type_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__available_status__nodis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__available__nodis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__available__nodis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__available__nodis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__available__nodis
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__available__nodis
+msgid "No Disponible"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__sale_check__ns
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_wizard_sale_line__sale_check__ns
+msgid "No venta"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__name
+msgid "Nombre"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__pdf_filename
+msgid "Nombre del PDF"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__project
+msgid "Nombre del Proyecto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__notes
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__notes
+msgid "Notas Adicionales"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__feedback_notes
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__feedback_notes
+msgid "Notas Feedback"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__display_type__line0_note
+msgid "Note"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_needaction_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_needaction_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_needaction_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__number_registers
+msgid "Number of Coffees"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_has_error_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_has_error_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_has_error_counter
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__message_needaction_counter
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__message_needaction_counter
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__message_needaction_counter
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__message_has_error_counter
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__message_has_error_counter
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__message_has_error_counter
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__lote
+msgid "Número de Lote"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__lote_quantity
+msgid "Número de Lotes"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__distribution_type
+msgid "Offer Type"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__offering_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__wizard_offering
+#: model:ir.ui.menu,name:muestras.offering_menu
+msgid "Offering"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.offeringcat_action_window
+msgid "Offering Categories"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__offering_seq
+msgid "Offering Code"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_offering_history_view_list
+msgid "Offering History"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__lines
+#: model_terms:ir.ui.view,arch_db:muestras.muestras_offering_history_form
+msgid "Offering Lines"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_offering_history_line
+msgid "Offering Lines History"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.disponibles_price_action_window
+msgid "Offering List Equation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.offering_history_window
+msgid "Offering List History"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__order_id
+msgid "Orden"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__order_lines
+msgid "Ordenes de compra"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__date_order
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__order_create_date
+msgid "Order Date"
+msgstr ""
+
+#. module: muestras
+#: model:mail.template,name:muestras.muestras_email_template_order
+msgid "Order Email Template"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__order_id
+msgid "Order ID"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.action_order_line_form
+msgid "Order Line"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.order_line_form_view
+msgid "Order Line Details"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_order_menu_2_list
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Order Lines"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.action_order_line_list
+msgid "Order Lines Description"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__order_name
+msgid "Order Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__order_id
+msgid "Order Reference"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__sale
+msgid "Order Sale"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__state
+msgid "Order State "
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__order_line
+msgid "Order_line"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_order_menu_1_list
+#: model:ir.ui.menu,name:muestras.order_menu_1
+msgid "Orders"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__country_origin
+msgid "Origen"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_origin_town
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_origin_town
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_origin_town
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__origin_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_origin_town
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_origin_town
+msgid "Origin"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_origin_name
+msgid "Origin Name"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Other Info"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__pdf_file
+msgid "PDF"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_offering_pdf_wizard__state__pdf
+msgid "PDF Generated"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__pdf_filename
+msgid "PDF Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.report,name:muestras.reporte_muestra_pdf_wizard_action
+msgid "PDF desde Wizard"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__boton_prueba
+msgid "PRUEBA"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.parametros_action_window
+msgid "Parametos de Lotes por Región"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.k_action_window
+msgid "Parametros de Lotes"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__disponible_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__disponible_id
+msgid "Parent Disponible"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__inventary_id
+msgid "Parent Inventario"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__product_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__product_id
+msgid "Parent Product"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__spotEU_id
+msgid "Parent SpotEU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.product_form
+msgid "Parámetros"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_parametros
+msgid "Parámetros de muestras"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__pdf_file
+msgid "Pdf File"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__macroprofile
+msgid "Perfil Sensorial"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_salida
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_salida
+msgid "Peso  salida"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_disponible
+msgid "Peso Disponible"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_neto
+msgid "Peso Neto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_weight
+msgid "Peso del empaque"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_offering_pdf_wizard
+msgid "Pestaña Emergente para revisar generar el pdf"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_phone
+msgid "Phone"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Please select and configure the fields for your offering."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__custom_location__pd
+msgid "Por Defecto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__percentAsia
+msgid "Porcentaje Asia"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__percentEU
+msgid "Porcentaje EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__percentUSA
+msgid "Porcentaje USA"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__coffee_sample__pss
+msgid "Pre Shipment Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__price_spot_adjustment
+msgid "Precio Adicional SPOT"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_category_adjustment
+msgid "Precio Adicional Spot por categoria"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_c
+msgid "Precio C"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_c_dif
+msgid "Precio C + Dif"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__price_usd
+msgid "Precio USD/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__pricelb
+msgid "Precio USD/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__price_selector__pxc
+msgid "Precio por Carga"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__price_usd
+msgid "Precio por Kilo"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__load_price
+msgid "Precio por carga"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_price
+msgid "Precios Productos Disponibles"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Preview Sample Order #"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.price_action_window
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__price
+msgid "Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_selector
+msgid "Price Selector"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.constraint,message:muestras.constraint_muestras_price_unique_name
+msgid "Price Type must be unique!"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.muestras_price_1
+#: model:ir.ui.menu,name:muestras.price_menu
+msgid "Prices"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Pro-Forma Invoice #"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__process
+msgid "Proceso"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__fprocess
+msgid "Proceso de Fermentación"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__fprocess
+msgid "Proceso de Fermentado"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__process
+msgid "Proceso de Lavado"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fprocess_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__process
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Process"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__product_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__product_id
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Product"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__name
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Product Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__disp_inventario__dis
+msgid "Producto Disponible"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__disp_inventario__inv
+msgid "Producto en Inventario"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__producer
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__producer
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__producer
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__producer
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__producer
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__producer
+msgid "Productor"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.disponible_action_window
+#: model:ir.model,name:muestras.model_muestras_product
+#: model:ir.ui.menu,name:muestras.tabla_menu_1_list
+msgid "Productos Disponibles"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.alldisponibles_action_window
+msgid "Productos Disponibles Prubeba"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_disponible
+msgid "Productos disponibles"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.tabla_menu_1
+msgid "Products"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__program
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Program"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__programa
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__program
+msgid "Programa"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__project
+msgid "Project"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_project__name
+msgid "Proyect Name"
+msgstr ""
+
+#. module: muestras
+#. odoo-python
+#: code:addons/muestras/models/productFather.py:0
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__proyecto
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_parametros__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__project
+msgid "Proyecto"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_project
+msgid "Prpyectos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.pruebalog_action_window
+#: model:ir.ui.menu,name:muestras.prueba_menu_1
+msgid "Prueba"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.tabla_action_window
+msgid "Prueba_Inventario tabla window"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.pruebalog_menu_1
+msgid "Pruebalog"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Purchase"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__email_to
+msgid "Recipient"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__default_code
+msgid "Reference"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__referencia_origen
+msgid "Referencia al Producto Original"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__region
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__region
+msgid "Region"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__town
+msgid "Region de Origen"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__country
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__region
+msgid "Región Comercial"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__release_date
+msgid "Release Date"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Release Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__coffee_sample__rp
+msgid "Replicable Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__booking
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__booking
+msgid "Reserva"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__booking
+msgid "Reservado"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__expering
+msgid "Reserve to Expire"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__activity_user_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__activity_user_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__sca
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__sca_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__sca
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__score
+msgid "SCA"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_actual
+msgid "SCA Actual"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_entrega
+msgid "SCA Entrega"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_sca_score
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_sca_score
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_sca_score
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_sca_score
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_sca_score
+msgid "SCA Score"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__sku_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sku
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sku
+msgid "SKU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_has_sms_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__message_has_sms_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_has_sms_error
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__spot_cost_eu
+msgid "SPOR Cost EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__spot_cost_us
+msgid "SPOT Cost US"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.tabla_menu_3_list
+msgid "SPOT EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_spoteu
+msgid "SPOT EU Temporary"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_spot_eu
+msgid "SPOT EUxKG"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__spot_eu_boolean
+msgid "SPOT Price EU/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__spot_usa_tariffs_boolean
+msgid "SPOT Price US/lb (Tariffs)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__spot_usa_boolean
+msgid "SPOT Price USD/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.spoteu_action_window
+msgid "SPOT X Europe"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__spot_eu
+msgid "SPOT_EU"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_disponible__packing_type__sg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_father__packing_type__sg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_inventario__packing_type__sg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_prueba__packing_type__sg
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_spoteu__packing_type__sg
+msgid "Saco"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Sales"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Sales Description"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Sales Order Lines"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__salesperson_name
+msgid "Salesperson"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__salesperson
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__salesperson
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__salesperson
+msgid "Salesperson "
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_crm_lead_form_sample_order
+msgid "Sample Order"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Sample Order #"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.report,name:muestras.action_muestras_report
+msgid "Sample Order Report "
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Sample Quantity(g)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_wizard_order_crm_selection
+msgid "Sample Request - Link to Lead Confirmation"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__sent
+msgid "Sample Shipment"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__typesample
+msgid "Sample Type"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__quantity
+msgid "Sample(g)"
+msgstr ""
+
+#. module: muestras
+#: model:ir.ui.menu,name:muestras.menu_root
+msgid "Samples"
+msgstr "Muestras"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__score
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__score
+msgid "Score"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__second_category_boolean
+msgid "Second Category"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__display_type__line_section
+msgid "Section"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_offering_pdf_wizard__field_ids
+msgid "Selecciona los campos a mostrar en el informe."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_order_crm_selection__crm_option
+msgid "Select an option"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Select the fields for your offering"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Select the filters for your Offering"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.view_offering_pdf_wizard_form
+msgid "Select your customer"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Send Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_wizard_order_crm_selection__crm_option__none
+msgid "Send Sample Without Linking a Lead"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__sensory_profile_boolean
+msgid "Sensory Profile"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__state__cancels
+msgid "Shipment Cancelled"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__coffee_sample__ss
+msgid "Shipment Sample"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__sale
+msgid "Sold Quantity"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_crm_lead__sample_order_id
+msgid "Solicitud de Muestra"
+msgstr ""
+
+#. module: muestras
+#: model:mail.template,subject:muestras.muestras_email_template_order
+msgid "Solicitud {{object.name}}"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.order_action_window
+msgid "Solicitudes de Muestras"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_spot_eu
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_spot_eu
+msgid "Spot EUxkg"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.disponible_form
+msgid "Spot Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_spot_usa_tariffs
+msgid "Spot US/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_spot_usa_tariffs
+msgid "Spot US/lb with Tariffs"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_spot_usa_tariffs
+msgid "Spot US/lb with Tarrifs"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_spot_usa
+msgid "Spot USDxlb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__price_spot_usa
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__price_spot_usa
+msgid "Spot USxlb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_state
+msgid "State"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__state
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__state
+msgid "Status"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__activity_state
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__activity_state
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__stock_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__stock_id
+msgid "Stock Lot ID"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__subtotal
+msgid "Subtotal"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_order_line__subtotal
+msgid "Subtotal Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_pruebalog__status__success
+msgid "Success"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__supplier
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__supplier
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__supplier
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__supplier
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__supplier
+msgid "Supplier"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__trm
+msgid "TRM"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.server,name:muestras.cron_trm_ir_actions_server
+msgid "TRM Update "
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__eu_us
+msgid "Tasa de Conversion Euro-Dolar"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_testmodel
+msgid "Test Model"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_order_line__price
+msgid "The price per unit of the product"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_type
+msgid "Tipo de Empaque"
+msgstr ""
+
+#. module: muestras
+#: model:ir.actions.act_window,name:muestras.allproducts_action_window
+msgid "Todos los productos"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__typesample__tos
+msgid "Tostado"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__total
+msgid "Total Amount"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.orderform_list
+msgid "Total Amount:"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__activity_exception_decoration
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__activity_exception_decoration
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__us_tariffs
+msgid "US Tariffs"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__trm
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__trm
+msgid "USD/COP Exchange Rate"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__price
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_usd
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__price_usd
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__price_usd
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__price_usd
+msgid "USD/kg"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__pricelb
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__pricelb
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__pricelb
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__pricelb
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__pricelb
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__pricelb
+msgid "USD/lb"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__location
+msgid "Ubicación"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__uom
+msgid "Unidad de Medida"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__price
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Unit Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__custom_location__usa
+msgid "United States"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.inventario_list
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_list
+msgid "Update"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_list
+msgid "Update Disponibles"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_list
+msgid "Update Inventary"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_list
+msgid "Update SPOT EU"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Upsell & Cross-Sell"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__uml
+msgid "Utilidad Microlote"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__ur
+msgid "Utilidad Regional"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_price__value
+msgid "Valor"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__excelso_kg
+msgid "Valor Kilogramo de Excelso"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__value
+msgid "Value"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__variedad
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__variety
+msgid "Variedad"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_varietal
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_varietal
+msgid "Varietal"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_varietal_name
+msgid "Varietal Name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__variety_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__variety_show
+#: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
+msgid "Variety"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sale
+msgid "Vendido"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "Vendor Bills"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__booking_change
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__sale_check
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__sale_check
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__sale_quantity
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order_line__sale_check__sl
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_wizard_sale_line__sale_check__sl
+msgid "Venta"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields.selection,name:muestras.selection__muestras_order__typesample__gre
+msgid "Verde"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__verification
+msgid "Verificacion"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_order
+msgid "Vista de order de muestars"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_order_line__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__warehouse
+msgid "Warehouse"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__website_message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__website_message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__website_message_ids
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,help:muestras.field_muestras_allproducts__website_message_ids
+#: model:ir.model.fields,help:muestras.field_muestras_disponible__website_message_ids
+#: model:ir.model.fields,help:muestras.field_muestras_inventario__website_message_ids
+#: model:ir.model.fields,help:muestras.field_muestras_spoteu__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__wizard_line
+#: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_wizard_sale
+#: model:ir.model,name:muestras.model_muestras_wizard_sale_line
+msgid "Wizard de Compra"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_zip
+msgid "Zip"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__category
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__category
+msgid "__"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__category
+msgid "___"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_feedback__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__code
+msgid "code"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_conexion
+msgid "conexion triple hpta"
+msgstr ""
+
+#. module: muestras
+#: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
+#: model_terms:ir.ui.view,arch_db:muestras.father_form
+msgid "e.g. Cheese Burger"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__edition
+msgid "edition"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__lote
+msgid "lote"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_generate_pdf
+msgid "muestras.generate_pdf"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__name
+msgid "name"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model,name:muestras.model_muestras_tabla
+msgid "tabla"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__last_execution_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__last_execution_date
+msgid "Última Ejecución"
+msgstr ""

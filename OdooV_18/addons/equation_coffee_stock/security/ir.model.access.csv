@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_equation_coffee_sca_score_user,equation_coffee_sca_score_user,equation_coffee_stock.model_equation_coffee_sca_score,equation_coffee_base.group_equation_coffee_user,1,1,1,1
+
+
+

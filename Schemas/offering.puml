@@ -82,6 +82,7 @@ class   PrductFather{
     + process : Char
     + fprocess : Char
     + town : Char
+    + date_create : Date
     + available : Selection
 
     --- Equation Info---
@@ -107,6 +108,12 @@ class   PrductFather{
     + mcp : Char
     + freshness : Integer
     + altitude : Float
+    + condition : Char 
+    + is_decaf : Boolean 
+    + is_premium : Boolean
+    + extra_charge_premium : Boolean
+    + packaging_type : Selection
+    + packaging_weight : Selection 
 
     ---Invetory---
 

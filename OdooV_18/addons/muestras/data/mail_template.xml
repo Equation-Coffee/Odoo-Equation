@@ -1,0 +1,111 @@
+<odoo>
+    <record id="muestras_email_template_order" model="mail.template">
+        <field name="name">Order Email Template</field>
+        <field name="model_id" ref="model_muestras_order"/>
+        <field name="subject">Solicitud {{object.name}}</field>
+        <field name="email_from">'noreply@tudominio.com'</field>
+        <field name="email_to">{{object.email_to}}</field>
+        <field name="body_html">
+            <![CDATA[
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body style="margin: 0; padding: 0; background-color: #ffffff; font-family: Arial, sans-serif;">
+                    <div style="max-width: 600px; margin: 20px auto; background-color: #f0f0f0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+                        <div style="background-color: #000000; padding: 20px; text-align: center;">
+                            <img src="https://media.licdn.com/dms/image/v2/C560BAQHEOTQKzHP5Sg/company-logo_200_200/company-logo_200_200/0/1630611378852?e=2147483647&v=beta&t=-BchrHUJAwGA3Kh77EZb4KxtgjSDS1GlrPuBqnS7F7w" alt="Logo" style="max-width: 150px; height: auto;">
+                        </div>
+                        <div style="padding: 20px; color: #333333;">
+                            <h1>Solicitud de Envío de Muestras</h1>
+                            <h3>Solicitante:</h3> <t t-out="object.salesperson_header.name"/> <t t-out="object.crm_team"/>
+
+                            <h3>Cafés:</h3>
+                            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                                <thead>
+                                    <tr style="background-color: #f0f0f0;">
+                                        <!-- <th>Producto</th> -->
+                                        <th>Lote</th>
+                                        <th>Código Interno</th>
+                                        <th>Proyecto</th>
+                                        <th>Categoría</th>
+                                        <th>Proceso</th>
+                                        <th>Variedad</th>
+                                        <th>Muestra (g)</th>
+                                        <th>Edición</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-if="object.order_lines">
+                                        <t t-foreach="object.order_lines" t-as="line">
+                                            <tr>
+                                                <!-- <td><t t-esc="line.product_id.name"/></td> -->
+                                                <td>
+                                                    <t t-if="line.farm" and line.project=="Flying Pumas>
+                                                        <t t-esc="line.lote + ' - ' + line.farm"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-esc="line.lote"/>
+                                                    </t>
+                                                </td>
+                                                <td><t t-esc="line.internal_code"/></td>
+                                                <td><t t-esc="line.project"/></td>
+                                                <td><t t-esc="line.program"/></td>
+                                                <td><t t-esc="line.process"/></td>
+                                                <td><t t-esc="line.variety"/></td>
+                                                <td><t t-esc="line.quantity"/></td>
+                                                <td><t t-esc="line.edition"/></td>
+
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <p><b>Tipo de Muestra:</b> <span t-field="object.typesample"/>
+                            <p><b>Tipo de Muestra Comercial:</b> <span t-field="object.coffee_sample"/>
+                            <p><b>Número de Lotes:</b> <span t-field="object.lote_quantity"/>
+                            <p><b>Cantidad Total de la Muestra:</b> <span t-field="object.sample_quantity"/>
+
+
+                            <h3> Cliente:</h3>
+                            <t t-out="object.partner_invoice_id.name"/>
+
+                            <h3> Notas Adicionales: </h3>
+                            <t t-out="object.notes"/>
+                            
+                           
+
+                            <h3> Indicaciones:</h3>
+                            <!-- <p><b>Nombre:</b> <t t-out="object.partner_invoice_id.country_id.name"/></p> -->
+                            <p><b>Contacto:</b> <t t-out="object.partner_contact"/></p>
+                            <p><b>Pais:</b> <t t-out="object.partner_country"/></p>
+                            <p><b>Estado:</b> <t t-out="object.partner_state"/></p>
+                            <p><b>Ciudad:</b> <t t-out="object.partner_city"/></p>
+                            <p><b>Dirección:</b> <t t-out="object.partner_address"/></p>
+                            <p><b>Teléfono:</b> <t t-out="object.partner_phone"/></p>
+                            <p><b>E-mail:</b> <t t-out="object.partner_email"/></p>
+                            <p><b>Zip:</b> <t t-out="object.partner_zip"/></p>
+                            <t t-if="object.customs_info"
+                                <p><b>Información Aduanera: </b> <t t-out="object.partner_invoice_id.country_id.name"/></p>
+
+
+                        </div>
+                        <div style="background-color: #f0f0f0; padding: 10px; text-align: center; font-size: 12px; color: #777777;">
+                            <p>© 2024 Equation Coffee. Todos los derechos reservados.</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            ]]>
+        </field>
+        <field name="auto_delete" eval="True"/>
+        <!-- <field name="lang">${object.partner_id.lang}</field> -->
+    </record>
+</odoo>
+
+
+
+ 

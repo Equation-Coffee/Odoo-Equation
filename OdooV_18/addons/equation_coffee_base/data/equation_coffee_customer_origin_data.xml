@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_customer_origin_co_founders" model="equation.coffee_customer_origin">
+            <field name="name">Co-founders</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_industry_events" model="equation.coffee_customer_origin">
+            <field name="name">Industry events</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_coffee_sales_trip" model="equation.coffee_customer_origin">
+            <field name="name">Sales Trips</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_web_page" model="equation.coffee_customer_origin">
+            <field name="name">Web page/Social Media</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_cold_email" model="equation.coffee_customer_origin">
+            <field name="name">Cold email/call</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_origin_trip" model="equation.coffee_customer_origin">
+            <field name="name">Origin Trip</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_customer_origin_referrals" model="equation.coffee_customer_origin">
+            <field name="name">Referrals</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

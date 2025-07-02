@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_varietal_aruzi" model="equation.coffee_varietal">
+            <field name="name">Aruzi</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_castillo" model="equation.coffee_varietal">
+            <field name="name">Castillo</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_caturra" model="equation.coffee_varietal">
+            <field name="name">Caturra</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_catuai" model="equation.coffee_varietal">
+            <field name="name">Catuai</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_pink_bourbon" model="equation.coffee_varietal">
+            <field name="name">Pink Bourbon</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_red_bourbon" model="equation.coffee_varietal">
+            <field name="name">Red Bourbon</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_yellow_bourbon" model="equation.coffee_varietal">
+            <field name="name">Yellow Bourbon</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_geisha" model="equation.coffee_varietal">
+            <field name="name">Geisha</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_java" model="equation.coffee_varietal">
+            <field name="name">Java</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_mixed" model="equation.coffee_varietal">
+            <field name="name">Mixed</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_mokka" model="equation.coffee_varietal">
+            <field name="name">Mokka</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_sl_28" model="equation.coffee_varietal">
+            <field name="name">SL-28</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_paca" model="equation.coffee_varietal">
+            <field name="name">Paca</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_pacamara" model="equation.coffee_varietal">
+            <field name="name">Pacamara</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_sidra" model="equation.coffee_varietal">
+            <field name="name">Sidra</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_typika" model="equation.coffee_varietal">
+            <field name="name">Typika</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_tabi" model="equation.coffee_varietal">
+            <field name="name">Tabi</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_tekisic" model="equation.coffee_varietal">
+            <field name="name">Tekisic</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_san_bernando" model="equation.coffee_varietal">
+            <field name="name">San Bernando</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_varietal_papayo" model="equation.coffee_varietal">
+            <field name="name">Papayo</field>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="equation_coffee_purchase.equation_coffee_quotation_document_template" id="equation_coffee_quotation_document_template_currency_exchange_rate">
+        <xpath expr="//div[@id='manual_currency_exchange_rate']" position="replace">
+            <div class="col-3 bm-2" id="manual_currency_exchange_rate">
+                <strong>Exchange rate</strong>
+                <t t-if="o.manual_currency_exchange_rate">
+                    <p t-field="o.manual_currency_exchange_rate" class="m-0 text-success"/>
+                </t>
+                <t t-else="">
+                    <span class="text-danger">Pending</span>
+                </t>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='fixing_date_manual_currency_exchange_rate']" position="replace">
+            <div class="col-3 bm-2" id="fixing_date_manual_currency_exchange_rate">
+                <strong>Fixing Date</strong>
+                <t t-if="o.fixing_date_manual_currency_exchange_rate">
+                    <p t-field="o.fixing_date_manual_currency_exchange_rate" class="m-0 text-success"/>
+                </t>
+                <t t-else="">
+                    <span class="text-danger">Pending</span>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+

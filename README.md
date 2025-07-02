@@ -20,6 +20,8 @@ El proceso de muestreo consiste en el envío de pequeñas cantidades de café a 
 
 El objetivo de este desarrollo es implementar el flujo del proceso de envío de muestras dentro del CRM de Odoo. Esto permitirá integrar de forma más eficiente productos provenientes de distintas fuentes de inventario, al mismo tiempo que se abordan las principales limitaciones del sistema anterior. A continuación se detalla el proceso de construcción y la estrucura del módulo de muestras.
 
+Consulta [Módulo de Muestras](samples.md) para mas detalles
+
 ## 2.2 Automatización Offering List
 
 El objetivo de este desarrollo es trasladar el archivo de productos disponibles a Odoo incluyendo calculo de precios e información de trazabilidad de cada uno de los cafes. Adicional a esto se implementa el proceso de generación y decscarga del documento (con fines comerciales) enfocado a disminuir recursos en la emicion del ofertable y construyendo procesos de trazabilidad que me permitan generar una secuencia en el lead comercial.

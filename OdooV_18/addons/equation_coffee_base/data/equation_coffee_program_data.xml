@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_program_nano_lot_exotic_varietals" model="equation.coffee_program">
+            <field name="name">Nano- lot Exotic Varietals</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_microlot_tradicional_varieties" model="equation.coffee_program">
+            <field name="name">Microlot Tradicional Varieties</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_microlot" model="equation.coffee_program">
+            <field name="name">Microlot</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_nanolot" model="equation.coffee_program">
+            <field name="name">Nanolot</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_regional_selection" model="equation.coffee_program">
+            <field name="name">Regional Selection</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_equation_coffee'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_estate_selection" model="equation.coffee_program">
+            <field name="name">Estate Selection</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_equation_coffee'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_microlot_selection" model="equation.coffee_program">
+            <field name="name">Microlot Selection</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_equation_coffee'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_regional_premium_selection" model="equation.coffee_program">
+            <field name="name">Regional Premium Selection</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_equation_coffee'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_neigbors" model="equation.coffee_program">
+            <field name="name">Neighbors</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_delagua_coffee_paradise'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_neighbors_reserve" model="equation.coffee_program">
+            <field name="name">Neighbors Reserve</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_delagua_coffee_paradise'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="equation_coffee_program_exotic_varaitals" model="equation.coffee_program">
+            <field name="name">Exotic Varaitals</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_delagua_coffee_paradise'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+    </data>
+</odoo>

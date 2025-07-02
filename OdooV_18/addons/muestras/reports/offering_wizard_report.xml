@@ -1,0 +1,87 @@
+  <odoo>
+    <!-- <template id="reporte_muestra_pdf_wizard">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="wizard">
+        <div style="position: absolute; top: 0; left: 0; width:100%; height:100%; z-index:0;">
+          <img t-att-src="'/muestras/static/src/img/offering_background.png'" 
+               style="width: 100%; height: 100%; object-fit: cover; opacity: 0.1;"/>
+        </div>
+
+          <h1>Offering List</h1>
+          <h2>Consecutivo:<t t-esc="wizard.sequence"/></h2>
+          <h3>Usuario:<t t-esc="wizard.salesperson_header.name"/></h3>
+          <p><t t-esc="datetime.datetime.now().strftime('%d/%m/%Y')"/></p>
+
+          <t t-set="unique_categories" t-value="list(set([line.equation_main_category_name for line in wizard.line_id if line.show_line]))"/>
+          <t t-foreach="unique_categories" t-as="main_category">
+            <h2><t t-esc="main_category"/></h2>
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th>Ref</th>
+                  <th>Origen</th>
+                  <th>Variedad</th>
+                  <th>Proceso</th>
+                  <th>Disponibilidad</th>
+                  <th>Precio SPOT USA</th>
+                  <th>Precio FOB USA</th>
+                  <th>SCA</th>
+                  <th>Macroperfil</th>
+                </tr>
+              </thead>
+              <tbody>   
+                <t t-foreach="wizard.line_id.filtered(lambda l: l.show_line and l.equation_main_category_name==main_category)" t-as="line">
+                  <tr>
+                      <td><t t-esc="line.register_id.lote"/></td>
+                      <td><t t-esc="line.register_id.town"/></td>
+                      <td><t t-esc="line.register_id.variety"/></td>
+                      <td><t t-esc="line.register_id.equation_process_offering.name"/></td>
+                      <td><t t-esc="line.register_id.availability_35kg"/></td> 
+                      <td><t t-esc="line.price_spot_usa"/></td>
+                      <td><t t-esc="line.price_fob_usa"/></td>
+                      <td><t t-esc="line.register_id.sca_actual"/></td>
+                      <td><t t-esc="line.register_id.mcp"/></td>
+                  </tr>
+                </t>
+              </tbody>    
+            </table>
+          </t>
+        </t>
+      </t>
+    </template> -->
+    <template id="reporte_muestra_pdf_wizard">
+        <t t-call="web.external_layout">
+          <t t-set="css_asset" t-value="'muestras.report_offering_custom_style'"/>
+          <!-- <style>
+            .page {
+                height: 100%;  /* Asegura que la página ocupe toda la altura */
+                width: 100%;  /* Asegura que la página ocupe todo el ancho */
+                background-image: url('/muestras/static/src/img/offering_background.png');
+                background-size: cover;  /* Hace que la imagen cubra toda la página */
+                background-position: center; /* Centra la imagen */
+                background-repeat: no-repeat; /* Evita que la imagen se repita */
+            }
+          </style> -->
+          <main>
+              <div class="page" t-attf-style="background-color:#c9a66b; width:1200px; height:900px;">
+                  <div class="row">
+                      <h1>Hpña</h1>
+                  </div>
+              </div>
+        </main>
+        </t>
+    </template>
+
+
+
+    <record id="reporte_muestra_pdf_wizard_action" model="ir.actions.report">
+      <field name="name">PDF desde Wizard</field>
+      <field name="model">muestras.offering_pdf_wizard</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">muestras.reporte_muestra_pdf_wizard</field>
+      <field name="report_file">muestras.reporte_muestra_pdf_wizard</field>
+      <field name="print_report_name">'Reporte_' + time.strftime("%Y%m%d_%H%M%S")</field>
+      <!-- <field name="binding_model_id" eval="False"/>
+      <field name="binding_type" eval="False"/> -->
+    </record>
+  </odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="purchase.report_purchasequotation_document" id="equation_coffee_quotation_document_template">
+        <xpath expr="//table[hasclass('table-borderless')]" position="before">
+        
+            <div id="negotiation_type_of_purchase_all" class="row mt-4 mb32" t-if="o.buy_green_coffee">
+                <div class="col-3 bm-2" id="equation_coffee_purchase_type">
+                    <strong>Purchase Type</strong>
+                    <p t-field="o.equation_coffee_purchase_type" class="m-0 text-success"/>
+                </div>
+            </div>
+
+            <div id="negotiation_type_of_purchase" class="row mt-4 mb32" t-if="o.buy_green_coffee and o.equation_coffee_purchase_type in ('differential', 'price_in_dollars_per_pound')">
+                <div class="col-3 bm-2" id="contract_price_c" t-if="o.equation_coffee_purchase_type == 'differential'">
+                    <strong>Contract price C</strong>
+                    <t t-if="o.contract_price_c">
+                        <p t-field="o.contract_price_c" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="diferential" t-if="o.equation_coffee_purchase_type == 'differential'">
+                    <strong>Diferential</strong>
+                    <t t-if="o.price_diferential">
+                        <p t-field="o.price_diferential" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="price_in_dollars_per_pound" t-if="o.equation_coffee_purchase_type == 'price_in_dollars_per_pound'">
+                    <strong>Price in dollars per pound</strong>
+                    <t t-if="o.price_in_dollars_per_pound">
+                        <p t-field="o.price_in_dollars_per_pound" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="manual_currency_exchange_rate">
+                </div>
+            </div>
+
+
+            <div id="negotiation_type_of_purchase_fixing_dates" class="row mt-4 mb32" t-if="o.buy_green_coffee and o.equation_coffee_purchase_type in ('differential', 'price_in_dollars_per_pound')">
+                <div class="col-3 bm-2" id="fixing_date_contract_price_c" t-if="o.equation_coffee_purchase_type == 'differential'">
+                    <strong>Fixing Date</strong>
+                    <t t-if="o.fixing_date_contract_price_c">
+                        <p t-field="o.fixing_date_contract_price_c" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="fixing_date_price_diferential" t-if="o.equation_coffee_purchase_type == 'differential'">
+                    <strong>Fixing Date</strong>
+                    <t t-if="o.fixing_date_price_diferential">
+                        <p t-field="o.fixing_date_price_diferential" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="fixing_date_price_in_dollars_per_pound" t-if="o.equation_coffee_purchase_type == 'price_in_dollars_per_pound'">
+                    <strong>Fixing Date</strong>
+                    <t t-if="o.fixing_date_price_in_dollars_per_pound">
+                        <p t-field="o.fixing_date_price_in_dollars_per_pound" class="m-0 text-success"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger">Pending</span>
+                    </t>
+                </div>
+                <div class="col-3 bm-2" id="fixing_date_manual_currency_exchange_rate">
+                </div>        
+            </div>
+
+        </xpath>
+    </template>
+</odoo>
+

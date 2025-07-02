@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="equation_coffee_drying_process_natural" model="equation.coffee_drying_process">
+            <field name="name">Natural</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_equation_coffee')), (4, ref('equation_coffee_base.equation_coffee_project_delagua_coffee_paradise')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district')), (4, ref('equation_coffee_base.equation_coffee_project_flying_pumas'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_drying_process_honey" model="equation.coffee_drying_process">
+            <field name="name">Honey</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_equation_coffee')), (4, ref('equation_coffee_base.equation_coffee_project_delagua_coffee_paradise')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district')), (4, ref('equation_coffee_base.equation_coffee_project_flying_pumas'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="equation_coffee_drying_process_coffee_washed" model="equation.coffee_drying_process">
+            <field name="name">Washed</field>
+            <field name="equation_coffee_project_ids" eval="[(4, ref('equation_coffee_base.equation_coffee_project_la_palma_el_tucan')), (4, ref('equation_coffee_base.equation_coffee_project_equation_coffee')), (4, ref('equation_coffee_base.equation_coffee_project_creativa_coffee_district')), (4, ref('equation_coffee_base.equation_coffee_project_flying_pumas'))]"/>
+            <field name="active" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

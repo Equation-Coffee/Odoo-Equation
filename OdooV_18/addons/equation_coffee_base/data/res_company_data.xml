@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="base.main_company" model="res.company">
+            <field name="name">EQUATION COFFEE SAS</field>
+            <field name="street">Cl 98 7a 72</field>
+            <field name="country_id" ref="base.co"/>
+            <field name="state_id" ref="base.state_co_03"/>
+            <field name="city">Bogotá D.C.</field>
+            <field name="zip">110221</field>
+            <field name="vat">900965222-4</field>
+            <field name="company_registry">900965222-4</field>
+            <field name="currency_id" ref="base.COP"/>
+            <field name="phone">6016750846</field>
+            <field name="mobile">(+57) 3134126798</field>
+            <field name="email">tesoreria@thecoffeehub.co</field>
+            <field name="website">https://equationcoffee.com/</field>
+            <field name="logo" type="base64" file="equation_coffee_base/static/img/res_company_logo_equation_colombia.png"/>
+            <field name="url_superfinancial_service">https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService</field>
+            <field name="body_superfinancial_request">
+                <![CDATA[
+                    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:act="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/">
+                    <soapenv:Header/>
+                    <soapenv:Body>
+                    <act:queryTCRM>
+                    </act:queryTCRM>
+                    </soapenv:Body>
+                    </soapenv:Envelope>
+                ]]>
+            </field>
+        </record>
+
+        <record id="res_company_equation_coffee_llc" model="res.company">
+            <field name="name">EQUATION COFFEE LLC</field>
+            <field name="street">7201 NE GLISAN STREET</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="state_id" ref="base.state_us_32"/>
+            <field name="city">Portland</field>
+            <field name="zip">97213</field>
+            <field name="vat">EIN 86-3812234</field>
+            <field name="company_registry">EIN 86-3812234</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="mobile">(+57) 3134126798</field>
+            <field name="email">operaciones@equationcoffee.com</field>
+            <field name="website">https://equationcoffee.com/</field>
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_llc"/>
+            <field name="logo" type="base64" file="equation_coffee_base/static/img/res_company_logo_equation_llc.png"/>
+        </record>
+
+        <record id="res_company_equation_coffee_europe_b_v" model="res.company">
+            <field name="name">EQUATION COFFEE EUROPE B.V</field>
+            <field name="street">Boompjes 40</field>
+            <field name="country_id" ref="base.nl"/>
+            <field name="state_id" ref="base.state_nl_zh"/>
+            <field name="city">Róterdam</field>
+            <field name="zip">3011 XB</field>
+            <field name="vat">NL865413691B01</field>
+            <field name="company_registry">RSIN 865413691</field>
+            <field name="currency_id" ref="base.EUR"/>
+            <field name="mobile">(+31) 202253604</field>
+            <field name="email">angelica@equationcoffee.com</field>
+            <field name="website">https://equationcoffee.com/</field>
+            <field name="partner_id" ref="equation_coffee_base.res_partner_equation_coffee_europe_b_v"/>
+            <field name="logo" type="base64" file="equation_coffee_base/static/img/res_company_logo_equation_europe.png"/>
+        </record>
+
+
+    </data> 
+</odoo>

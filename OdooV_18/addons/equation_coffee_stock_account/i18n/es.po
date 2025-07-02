@@ -1,0 +1,228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_stock_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-20 23:22+0000\n"
+"PO-Revision-Date: 2023-12-20 23:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_bl_number
+msgid "BL / AWB Number"
+msgstr "Número BL / AWB"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_bill_lading
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_bill_lading
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_bill_lading
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_bill_lading
+msgid "Bill of lading"
+msgstr "Conocimiento de embarque"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_country_ori
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_country_ori
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_country_ori
+msgid "Country of origin"
+msgstr "País de origen"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_stock_account_inherit_view_move_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_stock_account_inherit_view_picking_form
+msgid "Export Information"
+msgstr "Información de exportación"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_stock_account_inherit_view_picking_form
+msgid "Get Exp. Info"
+msgstr "Obt. Info Exp."
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_hs_code
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_hs_code
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_hs_code
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_hs_code
+msgid "HS code"
+msgstr "Código HS"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model,name:equation_coffee_stock_account.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_destination_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_destination_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_destination_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_destination_port
+msgid "Destination"
+msgstr "Destino"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_loading_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_loading_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_loading_port
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_loading_port
+msgid "Origin"
+msgstr "Origen"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_qty
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_qty
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_qty
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_reference
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_reference
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_reference
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_reference
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_bank_statement_line__equation_coffee_shipping_line
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_move__equation_coffee_shipping_line
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_account_payment__equation_coffee_shipping_line
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_shipping_line
+msgid "Shipping Line / Carrier"
+msgstr "Naviera / Transportista"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model,name:equation_coffee_stock_account.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_vessel
+msgid "Vessel"
+msgstr "Buque"
+
+#. module: equation_coffee_stock_account
+#. odoo-python
+#: code:addons/equation_coffee_stock_account/models/stock_picking.py:0
+#, python-format
+msgid "Gross weight should be greater than zero"
+msgstr "El peso bruto debería ser mayor a cero"
+
+#. module: equation_coffee_stock_account
+#. odoo-python
+#: code:addons/equation_coffee_stock_account/models/stock_picking.py:0
+#, python-format
+msgid "Net weight should be greater than zero"
+msgstr "El peso neto debería ser mayor a cero"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_gross_weight
+msgid "Gross Weight"
+msgstr "Peso bruto"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_net_weight
+msgid "Net Weight"
+msgstr "Peso Neto"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_gross_weight_uom_id
+msgid "Uom Gross Weight"
+msgstr "Unid. Medida peso bruto"
+
+#. module: equation_coffee_stock_account
+#: model:ir.model.fields,field_description:equation_coffee_stock_account.field_stock_picking__equation_coffee_net_weight_uom_id
+msgid "Uom Net Weight"
+msgstr "Unid. Medida peso Neto"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_stock_account_inherit_view_picking_form
+msgid "Gross Weight"
+msgstr "Peso bruto"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_stock_account_inherit_view_picking_form
+msgid "Net Weight"
+msgstr "Peso neto"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Gross Weight</strong>"
+msgstr "<strong>Peso bruto</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Net Weight</strong>"
+msgstr "<strong>Peso neto</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referencia</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>HS Code</strong>"
+msgstr "<strong>Código HS</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Vessel</strong>"
+msgstr "<strong>Buque</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>BL / AWB Number</strong>"
+msgstr "<strong>Número BL / AWB</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Shipping Line /  Carrier</strong>"
+msgstr "<strong>Naviera / Transportista</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Origin</strong>"
+msgstr "<strong>Origen</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_delivery_document
+msgid "<strong>Destination</strong>"
+msgstr "<strong>Destino</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Country of origin</strong>"
+msgstr "<strong>País de origen</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Loading Port</strong>"
+msgstr "<strong>Puerto de carga</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Discharge Port</strong>"
+msgstr "<strong>Puerto de descarga</strong>"
+
+#. module: equation_coffee_stock_account
+#: model_terms:ir.ui.view,arch_db:equation_coffee_stock_account.equation_coffee_report_invoice_document
+msgid "<strong>Shipping Line /  Carrier</strong>"
+msgstr "<strong>Naviera / Transportista</strong>"

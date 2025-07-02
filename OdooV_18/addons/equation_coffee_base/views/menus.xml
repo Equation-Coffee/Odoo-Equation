@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_equation_coffee_root"
+            name="Equation Coffee"
+            web_icon="equation_coffee_base,static/description/icon.png"
+            groups="equation_coffee_base.group_equation_coffee_user"
+            sequence="70">
+
+        <menuitem id="menu_equation_coffee_settings"
+            name="Settings"
+            sequence="100"
+            groups="equation_coffee_base.group_equation_coffee_user">
+
+            <menuitem id="submenu_equation_coffee_customer_settings"
+                name="Customer"
+                sequence="1"
+                groups="equation_coffee_base.group_equation_coffee_user">
+
+                <menuitem id="menu_equation_coffee_account_type"
+                    name="Account Types"
+                    action="equation_coffee_account_type_action"
+                    sequence="1"/>
+
+                <menuitem id="menu_equation_coffee_customer_origin"
+                    name="Customers Origin"
+                    action="equation_coffee_customer_origin_action"
+                    sequence="2"/>
+
+                <menuitem id="menu_equation_coffee_customer_program"
+                    name="Customers Program"
+                    action="equation_coffee_customer_program_action"
+                    sequence="3"/>
+            </menuitem>
+
+            <menuitem id="submenu_equation_coffee_settings"
+                name="Equation Coffee"
+                sequence="2"
+                groups="equation_coffee_base.group_equation_coffee_user">
+
+                <menuitem id="menu_equation_coffee_project"
+                    name="Projects"
+                    action="equation_coffee_project_action"
+                    sequence="1"/>
+
+                <menuitem id="menu_equation_coffee_program"
+                    name="Coffee Program"
+                    action="equation_coffee_program_action"
+                    sequence="2"/>
+
+                <menuitem id="menu_equation_coffee_varietal"
+                    name="Varietals"
+                    action="equation_coffee_varietal_action"
+                    sequence="3"/>
+
+                <menuitem id="menu_equation_coffee_fermentation_process"
+                    name="Fermentation Processes"
+                    action="equation_coffee_fermentation_process_action"
+                    sequence="4"/>
+
+                <menuitem id="menu_equation_coffee_drying_process"
+                    name="Drying Processes"
+                    action="equation_coffee_drying_process_action"
+                    sequence="5"/>
+
+                <menuitem id="menu_equation_coffee_profile"
+                    name="Coffee Profiles"
+                    action="equation_coffee_profile_action"
+                    sequence="6"/>
+
+                <menuitem id="menu_equation_coffee_category"
+                    name="Categories"
+                    action="equation_coffee_category_action"
+                    sequence="7"/>
+                
+                <menuitem id="menu_equation_coffee_origin"
+                    name="Origin"
+                    action="equation_coffee_origin_action"
+                    sequence="8"/>
+
+                <menuitem id="menu_equation_coffee_sca"
+                    name="SCA Score"
+                    action="equation_coffee_sca_action"
+                    sequence="9"/>
+
+                <menuitem id="menu_equation_coffee_macroprofile"
+                    name="Macroprofile"
+                    action="equation_coffee_macroprofile_action"
+                    sequence="10"/>
+
+                <menuitem id="menu_equation_coffee_process_offering"
+                    name="Offering Process"
+                    action="equation_coffee_process_offering_action"
+                    sequence="11"/>
+
+
+            </menuitem>
+
+        </menuitem>
+        
+    </menuitem>
+</odoo>
+
+

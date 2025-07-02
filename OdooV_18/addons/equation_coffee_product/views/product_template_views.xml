@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="equation_coffee_product_inherit_view_search" model="ir.ui.view">
+        <field name="name">equation.coffee.product.inherit.view.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="equation_coffee_project_id"/>
+                <field name="equation_coffee_varietal_id"/>
+                <field name="equation_coffee_program_id"/>
+                <field name="equation_coffee_drying_process_id"/>
+                <field name="equation_coffee_fermentation_process_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="equation_coffee_product_inherit_view_v2_form" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <span class="d-inline-flex">
+                    <field name="is_it_coffee" invisible="type != 'consu' and not is_storable"/>
+                    <label for="is_it_coffee" invisible="type != 'consu' and not is_storable"/>
+                </span>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+               <attribute name="string">Categorias del Producto</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="before">
+               <field name="equation_coffee_category_id" widget="many2many_tags"/>
+            </xpath>
+
+            <xpath expr="//page[last()]" position="after">
+                <page name="equation_coffee_product_information" string="Coffee Product Information" invisible="not is_it_coffee">
+                    <group name="equation_coffee_product_root">
+                        <group>
+                            <field name="is_it_export_coffee"/>
+                            <field name="equation_coffee_project_id" required="is_it_coffee"/>
+                            <field name="equation_coffee_varietal_id" required="is_it_coffee"/>
+                        </group>
+                        <group>
+                            <field name="equation_coffee_program_id"/>
+                            <field name="equation_coffee_drying_process_id" required="is_it_coffee"/>
+                            <field name="equation_coffee_fermentation_process_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

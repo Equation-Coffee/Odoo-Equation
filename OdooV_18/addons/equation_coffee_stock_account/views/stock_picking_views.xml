@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="equation_coffee_stock_account_inherit_view_picking_form" model="ir.ui.view">
+        <field name="name">equation.coffee.stock.account.inherit.view.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="get_values_from_invoices" string="Get Exp. Info" type="object" invisible="picking_type_code != 'outgoing'"/>
+            </xpath>
+
+            <xpath expr="//group[@name='other_infos']" position="after">
+                <group name="equation_coffee_export_information_root_group" string="Export Information" invisible="picking_type_code != 'outgoing'">
+                    <field name="equation_coffee_qty" readonly="1"/>
+                    <label for="equation_coffee_gross_weight" string="Gross Weight"/>
+                    <div>
+                        <field name="equation_coffee_gross_weight" class="oe_inline"/>
+                        <field name="equation_coffee_gross_weight_uom_id" nolabel="1" class="oe_inline" style="margin-left:5px" required="equation_coffee_gross_weight &gt; 0"/>
+                    </div>
+                    <label for="equation_coffee_net_weight" string="Net Weight"/>
+                    <div>
+                        <field name="equation_coffee_net_weight" class="oe_inline"/>
+                        <field name="equation_coffee_net_weight_uom_id" nolabel="1" class="oe_inline" style="margin-left:5px" required="equation_coffee_net_weight &gt; 0"/>
+                    </div>
+
+                    <field name="equation_coffee_reference" readonly="1"/>
+                    <field name="equation_coffee_hs_code" readonly="1"/>
+                    <field name="equation_coffee_vessel"/>
+                    <field name="equation_coffee_bl_number"/>
+                    <field name="additional_instructions"/>
+                    <field name="equation_coffee_shipping_line" readonly="1"/>
+                    <field name="equation_coffee_loading_port" readonly="1"/>
+                    <field name="equation_coffee_destination_port" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

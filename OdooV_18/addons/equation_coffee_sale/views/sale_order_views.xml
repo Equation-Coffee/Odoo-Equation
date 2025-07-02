@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="view_order_tree_inherit_source" model="ir.ui.view">
+            <field name="name">sale.order.list.inherit.source</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="origin" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_order_tree_equation_tree" model="ir.ui.view">
+            <field name="name">view.order.tree.equation.list</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="origin" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_order_form_inherit_source" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.source</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/list/field[@name='product_template_id']" position="after">
+                    <field name="description_sale"/>
+                    <!-- <field name="product_packaging_id"/> -->
+                </xpath> 
+                <!-- <xpath expr="//field[@name='order_line']/list/field[@name='computed_name']" position="replace">
+                </xpath> -->
+            </field>
+        </record>
+    </data>
+</odoo>

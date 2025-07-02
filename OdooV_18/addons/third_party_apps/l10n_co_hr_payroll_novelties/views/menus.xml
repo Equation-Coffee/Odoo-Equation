@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            action="l10n_co_hr_payroll_novelties_action"
+            id="menu_hr_payroll_novelties" name="Novelties"
+            parent="hr_work_entry_contract_enterprise.menu_hr_payroll_root"
+            sequence="80" />
+    </data>
+</odoo>

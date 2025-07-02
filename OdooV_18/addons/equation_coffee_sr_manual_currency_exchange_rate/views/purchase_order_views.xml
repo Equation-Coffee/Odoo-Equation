@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+         <record id="equation_coffee_sr_manual_currency_exchange_rate_inherit_purchase_order_form_extends_add_manual_currency_exchange_rate" model="ir.ui.view">
+            <field name="name">equation.coffee.sr.manual.currency.exchange.rate.inherit.purchase.order.form.extends.add.manual.currency.exchange.rate</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="sr_manual_currency_exchange_rate.purchase_order_form_extends_add_manual_currency_exchange_rate"/>
+            <field name="arch" type="xml">
+                <field name="apply_manual_currency_exchange" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="manual_currency_exchange_rate" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="equation_coffee_sr_manual_currency_exchange_rate_inherit_equation_coffee_purchase_inherit_purchase_order_form" model="ir.ui.view">
+            <field name="name">equation.coffee.sr.manual.currency.exchange.rate.inherit.equation.coffee.purchase.inherit.purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="equation_coffee_purchase.equation_coffee_purchase_inherit_purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_in_dollars_per_pound']" position="after">
+                    <field name="manual_currency_exchange_rate" invisible="equation_coffee_purchase_type == 'price_in_pesos_per_kilogram'" readonly="state in ('done', 'purchase', 'cancel')" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </xpath>
+                <xpath expr="//field[@name='fixing_date_price_in_dollars_per_pound']" position="after">
+                    <field name="fixing_date_manual_currency_exchange_rate" invisible="equation_coffee_purchase_type == 'price_in_pesos_per_kilogram'" readonly="state in ('done', 'purchase', 'cancel')" required="manual_currency_exchange_rate &gt; 0"/>
+                </xpath>
+            </field>
+        </record>
+
+	</data>
+</odoo>

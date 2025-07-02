@@ -1,0 +1,10 @@
+
+<odoo>
+    <template inherit_id="account.report_invoice_document" id="custom_sale_order_line_report_invoice_document_inherit">
+        <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+            <td name='account_invoice_line_name'>
+                <sapn t-field="line.name"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>  

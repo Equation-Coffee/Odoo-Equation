@@ -1,0 +1,1399 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equation_coffee_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-23 21:48+0000\n"
+"PO-Revision-Date: 2023-11-23 21:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_form
+msgid "Account Type"
+msgstr "Tipo de cuenta"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_account_type_action
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_account_type
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_tree
+msgid "Account Types"
+msgstr "Tipos de cuenta"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_acetic
+msgid "Acetic"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_needaction
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__active
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_exception_decoration
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_state
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_type_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:res.groups,name:equation_coffee_base.group_equation_coffee_admin
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: equation_coffee_base
+#: model:ir.module.category,description:equation_coffee_base.module_category_equation_coffee_customization
+msgid ""
+"Allow the user to view and manage the models and actions to be added in Odoo"
+" for the management of the Equation Coffee company."
+msgstr ""
+"Permitir al usuario ver y gestionar los modelos y acciones a añadir en Odoo "
+"para la gestión de la empresa Equation Coffee."
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_aruzi
+msgid "Aruzi"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_attachment_count
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_bio_innovation
+msgid "Bio-innovation"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_program,name:equation_coffee_base.equation_coffee_customer_program_blends
+msgid "Blends"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_res_company__body_superfinancial_request
+msgid "Body superfinancial request"
+msgstr "Cuerpo solicitud superfinanciera"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,code:equation_coffee_base.equation_coffee_project_creativa_coffee_district
+msgid "CCD"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_castillo
+msgid "Castillo"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_catuai
+msgid "Catuai"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_caturra
+msgid "Caturra"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_chilled_cherry
+msgid "Chilled Cherry"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_clear
+msgid "Clear"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_co_founders
+msgid "Co-founders"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_account_type,name:equation_coffee_base.equation_coffee_account_type_co_roasting_facilities
+msgid "Co-roasting Facilities"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__code
+msgid "Code"
+msgstr "Código"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_form
+msgid "Coffee Profile"
+msgstr "Perfil del café"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_profile_action
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_profile
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_tree
+msgid "Coffee Profiles"
+msgstr "Perfiles del café"
+
+#. module: equation_coffee_base
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_program
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_form
+msgid "Coffee Program"
+msgstr "Programa de café"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_program_action
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_tree
+msgid "Coffee Programs"
+msgstr "Programas de café"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_account_type,name:equation_coffee_base.equation_coffee_account_type_coffee_suppliers
+msgid "Coffee Suppliers"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_cold_email
+msgid "Cold email/call"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__company_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__company_id
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_fermentation_process_action
+msgid "Create your Fermentation Process"
+msgstr "Cree su proceso de fermentación"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_varietal_action
+msgid "Create your Varietal"
+msgstr "Cree su Varietal"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_account_type_action
+msgid "Create your account type"
+msgstr "Cree su tipo de cuenta"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_profile_action
+msgid "Create your coffee profile"
+msgstr "Cree su perfil de café"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_program_action
+msgid "Create your coffee program"
+msgstr "Cree su programa de café"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_customer_program_action
+msgid "Create your customer coffee program"
+msgstr "Cree su programa de café para clientes"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_customer_origin_action
+msgid "Create your customer origin"
+msgstr "Cree su origen de cliente"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_drying_process_action
+msgid "Create your drying process"
+msgstr "Cree su proceso de secado"
+
+#. module: equation_coffee_base
+#: model_terms:ir.actions.act_window,help:equation_coffee_base.equation_coffee_project_action
+msgid "Create your project"
+msgstr "Cree su proyecto"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__create_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__create_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,name:equation_coffee_base.equation_coffee_project_creativa_coffee_district
+msgid "Creativa Coffee District"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.actions.server,name:equation_coffee_base.ir_cron_get_currency_rate_cop_to_usd_ir_actions_server
+#: model:ir.cron,cron_name:equation_coffee_base.ir_cron_get_currency_rate_cop_to_usd
+msgid "Currency Rate: Get dollar to Colombian peso exchange rate"
+msgstr "Tipo de cambio: Obtener el tipo de cambio de dólar a peso colombiano"
+
+#. module: equation_coffee_base
+#: model:ir.ui.menu,name:equation_coffee_base.submenu_equation_coffee_customer_settings
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_form
+msgid "Customer Coffee Program"
+msgstr "Programa de café para clientes"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_customer_program_action
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_tree
+msgid "Customer Coffee Programs"
+msgstr "Programas de café para clientes"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_form
+msgid "Customer Origin"
+msgstr "Origen del cliente"
+
+#. module: equation_coffee_base
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_customer_origin
+msgid "Customers Origin"
+msgstr "Origen de los clientes"
+
+#. module: equation_coffee_base
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_customer_program
+msgid "Customers Program"
+msgstr "Programa de clientes"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_customer_origin_action
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_tree
+msgid "Customers origin"
+msgstr "Origen de los clientes"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,code:equation_coffee_base.equation_coffee_project_delagua_coffee_paradise
+msgid "DCP"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,name:equation_coffee_base.equation_coffee_project_delagua_coffee_paradise
+msgid "Delagua Coffee Paradise"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__display_name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_drying_process_action
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_drying_process
+msgid "Drying Processes"
+msgstr "Proceso de Secado"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_form
+msgid "Drying process"
+msgstr "Proceso de secado"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_tree
+msgid "Drying processes"
+msgstr "Procesos de secado"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_coffee_dynamic_cherry
+msgid "Dynamic Cherry"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,code:equation_coffee_base.equation_coffee_project_equation_coffee
+msgid "EQ"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,name:equation_coffee_base.equation_coffee_project_equation_coffee
+#: model:ir.module.category,name:equation_coffee_base.module_category_equation_coffee_customization
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_root
+#: model:ir.ui.menu,name:equation_coffee_base.submenu_equation_coffee_settings
+msgid "Equation Coffee"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_account_type
+msgid "Equation Coffee Account Type"
+msgstr "Equation Coffee Tipo de cuenta"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_customer_origin
+msgid "Equation Coffee Customer Origin"
+msgstr "Equation Coffee Origen del cliente"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_customer_program
+msgid "Equation Coffee Customer Program"
+msgstr "Programa de clientes de Equation Coffee"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_drying_process
+msgid "Equation Coffee Drying Process"
+msgstr "Equation Coffee Proceso de secado"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_fermentation_process
+msgid "Equation Coffee Fermentation Process"
+msgstr "Equation Coffee Proceso de fermentación"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_profile
+msgid "Equation Coffee Profile"
+msgstr "Equation Coffee Perfil"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_program
+msgid "Equation Coffee Program"
+msgstr "Equation Coffee Programa"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_project
+msgid "Equation Coffee Project"
+msgstr "Equation Coffee Proyecto"
+
+#. module: equation_coffee_base
+#: model:ir.model,name:equation_coffee_base.model_equation_coffee_varietal
+msgid "Equation Coffee Varietal"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_estate_selection
+msgid "Estate Selection"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_exotic_varaitals
+msgid "Exotic Varaitals"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_extended_static_cherry
+msgid "Extended Static Cherry"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,code:equation_coffee_base.equation_coffee_project_flying_pumas
+msgid "FP"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_form
+msgid "Fermentation Process"
+msgstr "Proceso de fermentación"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_fermentation_process_action
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_fermentation_process
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_tree
+msgid "Fermentation Processes"
+msgstr "Proceso de Fermentación"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_profile,name:equation_coffee_base.equation_coffee_profile_floral_aromatic_delicate
+msgid "Floral: aromatic, delicate"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,name:equation_coffee_base.equation_coffee_project_flying_pumas
+msgid "Flying Pumas"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_follower_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_partner_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__activity_type_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_profile,name:equation_coffee_base.equation_coffee_profile_fruity_and_tropical
+msgid "Fruity & Tropical"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_profile,name:equation_coffee_base.equation_coffee_profile_funky_clean_mild_moderate_and_funky
+msgid "Funky: clean, mild, moderate & funky"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_geisha
+msgid "Geisha"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__has_message
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_program,name:equation_coffee_base.equation_coffee_customer_program_higher_end_special_releases
+msgid "Higher-end special releases"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_drying_process,name:equation_coffee_base.equation_coffee_drying_process_honey
+msgid "Honey"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__id
+msgid "ID"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_exception_icon
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__activity_exception_icon
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__message_needaction
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__message_has_sms_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__message_has_error
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_account_type,name:equation_coffee_base.equation_coffee_account_type_importer
+msgid "Importer"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_industry_events
+msgid "Industry events"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_intrinsic_cherry
+msgid "Intrinsic Cherry"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_is_follower
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_java
+msgid "Java"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,name:equation_coffee_base.equation_coffee_project_la_palma_el_tucan
+msgid "La Palma & El Tucán"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_lactic
+msgid "Lactic"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project____last_update
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__write_uid
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__write_date
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_main_attachment_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_has_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_microlot
+msgid "Microlot"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_microlot_selection
+msgid "Microlot Selection"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_microlot_tradicional_varieties
+msgid "Microlot Tradicional Varieties"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_mixed
+msgid "Mixed"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_mokka
+msgid "Mokka"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__my_activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__name
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_nano_lot_exotic_varietals
+msgid "Nano- lot Exotic Varietals"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_nanolot
+msgid "Nanolot"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_drying_process,name:equation_coffee_base.equation_coffee_drying_process_natural
+msgid "Natural"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_neigbors
+msgid "Neighbors"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_neighbors_reserve
+msgid "Neighbors Reserve"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_calendar_event_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_date_deadline
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_summary
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_type_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_needaction_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_has_error_counter
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__message_needaction_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__message_has_error_counter
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_origin_trip
+msgid "Origin Trip"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_project,code:equation_coffee_base.equation_coffee_project_la_palma_el_tucan
+msgid "PT"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_paca
+msgid "Paca"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_pacamara
+msgid "Pacamara"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_papayo
+msgid "Papayo"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_pink_bourbon
+msgid "Pink Bourbon"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_form
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_project_action
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__equation_coffee_project_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__equation_coffee_project_ids
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_project
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_search
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_tree
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_red_bourbon
+msgid "Red Bourbon"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_referrals
+msgid "Referrals"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_regional_premium_selection
+msgid "Regional Premium Selection"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_program,name:equation_coffee_base.equation_coffee_program_regional_selection
+msgid "Regional Selection"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__activity_user_id
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_account_type,name:equation_coffee_base.equation_coffee_account_type_roaster
+msgid "Roaster"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_sl_28
+msgid "SL-28"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__message_has_sms_error
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_coffee_sales_trip
+msgid "Sales Trips"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_san_bernando
+msgid "San Bernando"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_search
+msgid "Search Coffee Profile"
+msgstr "Buscar perfil de café"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_search
+msgid "Search Coffee Program"
+msgstr "Buscar programa de café"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_search
+msgid "Search Customer Origin"
+msgstr "Buscar origen del cliente"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_search
+msgid "Search Fermentation Process"
+msgstr "Buscar proceso de fermentación"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_search
+msgid "Search Project"
+msgstr "Buscar proyecto"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_search
+msgid "Search Varietal"
+msgstr "Buscar varietal"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_search
+msgid "Search account type"
+msgstr "Buscar tipo de cuenta"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_search
+msgid "Search customer coffee Program"
+msgstr "Buscar clientes Programa café"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_search
+msgid "Search drying process"
+msgstr "Buscar proceso de secado"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__sequence_id
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: equation_coffee_base
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_settings
+msgid "Settings"
+msgstr "Configuraciones"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_sidra
+msgid "Sidra"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_program,name:equation_coffee_base.equation_coffee_customer_program_single_origin
+msgid "Single origin"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_splash
+msgid "Splash"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_fermentation_process,name:equation_coffee_base.equation_coffee_fermentation_process_static_cherry
+msgid "Static Cherry"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__activity_state
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_base_inherit_view_company_form
+msgid "Superfinancial Api data"
+msgstr "Datos Api Superfinanciera"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_tabi
+msgid "Tabi"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_tekisic
+msgid "Tekisic"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_profile,name:equation_coffee_base.equation_coffee_profile_traditional_sweew_and_clean
+msgid "Traditional: sweet & clean"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__activity_exception_decoration
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_typika
+msgid "Typika"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_res_company__url_superfinancial_service
+msgid "Url superfinancial service"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:res.groups,name:equation_coffee_base.group_equation_coffee_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_form
+msgid "Varietal"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.actions.act_window,name:equation_coffee_base.equation_coffee_varietal_action
+#: model:ir.ui.menu,name:equation_coffee_base.menu_equation_coffee_varietal
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_tree
+msgid "Varietals"
+msgstr "Varietales"
+
+#. module: equation_coffee_base
+#: model:equation.coffee_drying_process,name:equation_coffee_base.equation_coffee_drying_process_coffee_washed
+msgid "Washed"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_customer_origin,name:equation_coffee_base.equation_coffee_customer_origin_web_page
+msgid "Web page/Social Media"
+msgstr "Página web/Medios sociales"
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_account_type__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_origin__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_customer_program__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_drying_process__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_fermentation_process__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_profile__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_program__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_project__website_message_ids
+#: model:ir.model.fields,field_description:equation_coffee_base.field_equation_coffee_varietal__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_account_type__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_origin__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_customer_program__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_drying_process__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_fermentation_process__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_profile__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_program__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_project__website_message_ids
+#: model:ir.model.fields,help:equation_coffee_base.field_equation_coffee_varietal__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model:equation.coffee_varietal,name:equation_coffee_base.equation_coffee_varietal_yellow_bourbon
+msgid "Yellow Bourbon"
+msgstr ""
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_account_type_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_program_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_drying_process_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_fermentation_process_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_profile_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_program_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_project_view_form
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_varietal_view_form
+msgid "e.g. Roaster"
+msgstr "p. ej. Tostadora"
+
+#. module: equation_coffee_base
+#: model_terms:ir.ui.view,arch_db:equation_coffee_base.equation_coffee_customer_origin_view_form
+msgid "e.g. Website"
+msgstr "p. ej. Website"
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_account_type.py:0
+#, python-format
+msgid "An account type with the name {rec.name} already exists. Please check with your administrator"
+msgstr "Ya existe un tipo de cuenta con el nombre {rec.name}. Por favor, consulte con su administrador"
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_customer_origin.py:0
+#, python-format
+msgid "The customer origin {rec.name} already exists. Validate with your administrator."
+msgstr "El origen de cliente {rec.name} ya existe. Valídelo con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_customer_program.py:0
+#, python-format
+msgid "A customer coffee program with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe un programa de café de cliente con este nombre {rec.name}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_drying_process.py:0
+#, python-format
+msgid "A drying process with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe un proceso de secado con este nombre {rec.name}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_fermentation_process.py:0
+#, python-format
+msgid "A fermentation process with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe un proceso de fermentación con este nombre {rec.name}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_profile.py:0
+#, python-format
+msgid "A coffee profile with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe un perfil de café con este nombre {rec.name}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_program.py:0
+#, python-format
+msgid "A coffee profile with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe un programa de café con este nombre {rec.name}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_project.py:0
+#, python-format
+msgid "A project with this name {rec.name} and code {rec.code} already exists. Please contact its administrator."
+msgstr "Ya existe un proyecto con este nombre {rec.name} y código {rec.code}. Póngase en contacto con su administrador."
+
+#. module: equation_coffee_base
+#. odoo-python
+#: code:addons/equation_coffee_base/models/equation_coffee_varietal.py:0
+#, python-format
+msgid "A varietal with this name {rec.name} already exists. Please contact your administrator."
+msgstr "Ya existe una variedad con este nombre {rec.name}. Póngase en contacto con su administrador."
