@@ -15,11 +15,12 @@ A continuación se presenta la documentación de los desarrollos generdos en el 
 # 2. Desarrollos
 
 ## 2.1 Módulo de Muestras (Samples)
-
+<div align="justify">
 El proceso de muestreo consiste en el envío de pequeñas cantidades de café a clientes potenciales con el objetivo de dar a conocer el inventario disponible e iniciar nuevas oportunidades comerciales. Hasta Septiembre de 2024, este procedimiento se gestionaba mediante documentos de Google (Sheets y Forms) conectados con las bandejas de entrada de Gmail de los equipos involucrados. Aunque funcional, esta metodología presentaba limitaciones en cuanto a la trazabilidad de los envíos, la centralización de la información y la recopilación estructurada del feedback por parte de los destinatarios.
-
+</div>
+<div align='justify'>
 El objetivo de este desarrollo es implementar el flujo del proceso de envío de muestras dentro del CRM de Odoo. Esto permitirá integrar de forma más eficiente productos provenientes de distintas fuentes de inventario, al mismo tiempo que se abordan las principales limitaciones del sistema anterior. A continuación se detalla el proceso de construcción y la estrucura del módulo de muestras.
-
+</div>
 Consulta [Módulo de Muestras](samples.md) para mas detalles
 
 ## 2.2 Automatización Offering List
