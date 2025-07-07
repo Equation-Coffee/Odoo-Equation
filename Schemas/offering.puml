@@ -67,7 +67,7 @@ OfferingPDF "*..salesperson_header" --> "1-id" ResUsers
 OfferingPDF "*..salesperson" --> "1-id" ResUsers  
 
 
-class   PrductFather{
+class   ProductFather{
     ---General Info---
 
     + name : Char
@@ -132,7 +132,22 @@ class   PrductFather{
     + price_usd : Float  
     + pricelb : Float 
 
+    ----
+
+    + _project()
+    + _program()
+    + _varietal()
+    + _fprocess()
+    + _process()
+    + _origin_town()
+    ~ _sca()
 
 }
+
+class Atlas{
+
+}
+
+Atlas --|> ProductFather
 
 @enduml

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20250415\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-01 17:58+0000\n"
-"PO-Revision-Date: 2025-07-01 17:58+0000\n"
+"POT-Creation-Date: 2025-07-07 17:58+0000\n"
+"PO-Revision-Date: 2025-07-07 17:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -210,6 +210,15 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_actual
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_actual
+msgid "Actual SCA"
+msgstr ""
+
+#. module: muestras
 #: model:ir.actions.server,name:muestras.cron_update_days_since_start_ir_actions_server
 msgid "Actualizar Días Desde Inicio"
 msgstr ""
@@ -247,13 +256,17 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__altitude
+msgid "Altitud"
+msgstr ""
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__altitude
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__altitude
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__altitude
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__altitude
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__altitude
-msgid "Altitud"
-msgstr ""
+msgid "Altitude"
+msgstr "Altitud"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__booking
@@ -276,6 +289,11 @@ msgid "Archivo PDF"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityAsia
+msgid "Asia Quantity"
+msgstr "Cantidad Asia"
+
+#. module: muestras
 #: model:ir.actions.act_window,name:muestras.prueba_action_window
 #: model:ir.model.fields,field_description:muestras.field_muestras_offeringcat__atlas
 msgid "Atlas"
@@ -283,7 +301,7 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.ui.menu,name:muestras.muestras_allproducts_menu_3_list
-msgid "Atlas - Proyectos"
+msgid "Atlas - Projects"
 msgstr ""
 
 #. module: muestras
@@ -297,6 +315,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__message_attachment_count
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__message_attachment_count
 msgid "Attachment Count"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__available
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__available
+msgid "Availability"
+msgstr "Disponibilidad"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__dis_temporarly_button
+msgid "Availability Temporarly Button"
 msgstr ""
 
 #. module: muestras
@@ -327,11 +359,6 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__warehouse
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__warehouse
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__warehouse
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__warehouse
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__warehouse
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__warehouse
 msgid "Bodega"
 msgstr ""
 
@@ -396,19 +423,13 @@ msgid "Cancelar"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__quantity_kg
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__quantity_kg
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__quantity_kg
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__quantity_kg
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantity_kg
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__quantity_kg
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__quantity
 msgid "Cantidad"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityAsia
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityAsia
 msgid "Cantidad Asia"
 msgstr ""
 
@@ -419,13 +440,7 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityEU
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityEU
 msgid "Cantidad EU"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_neto
-msgid "Cantidad Inicial"
 msgstr ""
 
 #. module: muestras
@@ -445,7 +460,6 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__quantityUSA
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityUSA
 msgid "Cantidad USA"
 msgstr ""
 
@@ -462,13 +476,8 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__category
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__program
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__program
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__program
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__program
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__program
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__category
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__program
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__program
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__program
 msgid "Categoria"
 msgstr ""
@@ -498,7 +507,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__offeringCat
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__offeringCat
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__offeringCat
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__offeringCat
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__offeringCat
 #: model:ir.ui.menu,name:muestras.muestras_cat_menu_1_list
 msgid "Categorias Portafolio"
@@ -558,17 +566,9 @@ msgstr ""
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Codification"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__code
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__code
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__code
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__code
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__code
-msgid "Codigo del Producto"
-msgstr ""
+msgstr "Codificación"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__price_c
@@ -578,13 +578,15 @@ msgstr ""
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Coffee Details"
-msgstr ""
+msgstr "Detalles del Café"
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Coffee Information"
-msgstr ""
+msgstr "Información del Café"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__coffee_sample
@@ -613,14 +615,18 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__condicion
+#: model:ir.model.fields,field_description:muestras.field_muestras_product__condicion
+msgid "Condición"
+msgstr ""
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__condicion
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__condicion
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__condicion
-#: model:ir.model.fields,field_description:muestras.field_muestras_product__condicion
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__condicion
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__condicion
-msgid "Condición"
-msgstr ""
+msgid "Condition"
+msgstr "Condición"
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
@@ -648,11 +654,16 @@ msgid "Costumer"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__country_origin
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__country_customer
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__country_partner
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_country
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__country_origin
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__country_origin
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__country_origin
@@ -684,7 +695,6 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__create_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__create_uid
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__create_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__create_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__create_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__create_uid
@@ -710,12 +720,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__create_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__create_date
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__create_date
@@ -739,13 +748,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__date_create
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__create_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__create_date
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__date_create
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__date_create
 msgid "Creation Date"
-msgstr ""
+msgstr "Fecha de Creación"
 
 #. module: muestras
 #: model:ir.model.fields,help:muestras.field_muestras_order__date_order
@@ -778,11 +792,6 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__internal_code
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__internal_code
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__internal_code
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__internal_code
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__internal_code
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__internal_code
 msgid "Código Interno"
 msgstr ""
 
@@ -860,7 +869,6 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__display_name
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__display_name
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__display_name
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__display_name
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__display_name
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__display_name
@@ -895,11 +903,6 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__available_status
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__available
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__available
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__available
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__available
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__available
 msgid "Disponibilidad"
 msgstr ""
 
@@ -945,11 +948,6 @@ msgid "Disponible Prices"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__dis_temporarly_button
-msgid "Disponible_temporary_Value"
-msgstr ""
-
-#. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.view_wirzard_order_crm
 msgid "Do you want to link the sample request to an existing lead?"
 msgstr ""
@@ -966,18 +964,32 @@ msgid "Draft"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__process
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__process
+msgid "Drying Process"
+msgstr "Proceso de Secado"
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_drying_process
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__equation_drying_process
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__equation_drying_process
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_drying_process
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_drying_process
 msgid "Drying Process Equation"
-msgstr ""
+msgstr "Equation Proceso de Secado"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_email
 msgid "E-mail"
 msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityEU
+msgid "EU Quantity"
+msgstr "Cantidad EU"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_exw_eu
@@ -1024,24 +1036,20 @@ msgid "EXW USD/lb"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__edition
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__edition
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__edition
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__edition
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__edition
-msgid "Edicion"
-msgstr ""
-
-#. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.view_order_line_wizard_form
 msgid "Editar Líneas de la Orden"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__edition
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__edition
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__edition
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__edition
 msgid "Edition"
-msgstr ""
+msgstr "Edición"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__email_content
@@ -1054,10 +1062,9 @@ msgid "Email Send"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__entry_id
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__entry_id
 msgid "Entry ID"
-msgstr ""
+msgstr "ID Atlas"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_macroprofile
@@ -1066,7 +1073,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_macroprofile
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_macroprofile
 msgid "Equation Macroprofile"
-msgstr ""
+msgstr "Equation Macroperfil"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_process_offering
@@ -1075,7 +1082,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_process_offering
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_process_offering
 msgid "Equation Offering Process"
-msgstr ""
+msgstr "Equation Proceso Offering"
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.disponible_form
@@ -1100,7 +1107,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_program
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_program
 msgid "Equation Program"
-msgstr ""
+msgstr "Equation Programa"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_project
@@ -1109,7 +1116,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_project
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_project
 msgid "Equation Project"
-msgstr ""
+msgstr "Equation Proyecto"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_varietal
@@ -1118,7 +1125,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_varietal
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_varietal
 msgid "Equation Varietal"
-msgstr ""
+msgstr "Equation Varietal"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__custom_location
@@ -1178,7 +1185,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__extra_charge_premium
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__extra_charge_premium
 msgid "Extra Charge Premium"
-msgstr ""
+msgstr "Cargo Extra Café Premium"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_fob_eu
@@ -1251,17 +1258,21 @@ msgid "Factor de Rendimiento"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__farm
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__farm
+msgid "Farm"
+msgstr "Finca"
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_price__date
 msgid "Fecha"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__date_create
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__date_create
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__date_create
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__date_create
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__date_create
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__date_create
 msgid "Fecha de Creación"
 msgstr ""
 
@@ -1284,7 +1295,16 @@ msgstr ""
 #. module: muestras
 #: model:ir.actions.act_window,name:muestras.feedback_action_window
 msgid "Feedbak Categories"
-msgstr ""
+msgstr "Categorias de Feedback"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__fprocess
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__fprocess
+msgid "Fermentation Process"
+msgstr "Proceso de Fermentación"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__equation_fermentation_process
@@ -1293,7 +1313,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_fermentation_process
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_fermentation_process
 msgid "Fermentation Process Equation"
-msgstr ""
+msgstr "Equation Proceso de Fermentación"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__fprocess_selection
@@ -1332,14 +1352,18 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__farm
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__farm
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__farm
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__farm
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__farm
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__farm
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__farm
 msgid "Finca"
 msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_entrega
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_entrega
+msgid "First SCA"
+msgstr "SCA Entrega"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__fob_usa_show
@@ -1371,13 +1395,17 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__freshness
+msgid "Frescura"
+msgstr ""
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__freshness
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__freshness
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__freshness
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__freshness
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__freshness
-msgid "Frescura"
-msgstr ""
+msgid "Freshness"
+msgstr "Frescura"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__fuente
@@ -1420,7 +1448,6 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__id
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__id
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__id
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__id
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__id
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__id
@@ -1446,7 +1473,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__id
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__m
@@ -1505,21 +1532,32 @@ msgid "Información Adicional Requerida"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_neto
+msgid "Initial Quantity"
+msgstr "Cantidad Inicial"
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__internal_code
 msgid "Interal Code"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__internal_code
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__internal_code
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__internal_code
 msgid "Internal Code"
-msgstr ""
+msgstr "Código Interno"
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Internal Notes"
-msgstr ""
+msgstr "Notas Internas"
 
 #. module: muestras
 #: model:ir.model,name:muestras.model_muestras_inventario
@@ -1546,13 +1584,15 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Inventory"
-msgstr ""
+msgstr "Inventario"
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Inventory Details"
-msgstr ""
+msgstr "Detalles de Invetario"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__partner_invoice_id
@@ -1566,7 +1606,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__is_decaf
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__is_decaf
 msgid "Is Decaffeinated?"
-msgstr ""
+msgstr "¿Es descafeinado?"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__message_is_follower
@@ -1583,7 +1623,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__is_premium
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__is_premium
 msgid "Is Premium?"
-msgstr ""
+msgstr "¿Es Café Premium?"
 
 #. module: muestras
 #: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__uom__kg
@@ -1602,9 +1642,13 @@ msgid "La solicitud de muestra asociada a este lead."
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__last_execution_date
+msgid "Last Execution"
+msgstr "Ultima Ejecución"
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__write_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__write_uid
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__write_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__write_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__write_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__write_uid
@@ -1630,12 +1674,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale__write_uid
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultima Actualización"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__write_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__write_date
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__write_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__write_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__write_date
 #: model:ir.model.fields,field_description:muestras.field_muestras_feedback__write_date
@@ -1712,10 +1755,15 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__location
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__location
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__location
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__location
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #. module: muestras
 #: model:ir.model,name:muestras.model_muestras_pruebalog
@@ -1725,7 +1773,25 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Logistics"
+msgstr "Logística"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__lote
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__lote
+msgid "Lot"
+msgstr "Lote"
+
+#. module: muestras
+#. odoo-python
+#: code:addons/muestras/models/pruebasConexion.py:0
+msgid ""
+"Lot %(lote)s: For the product, the sum of the fields must be exactly "
+"%(expected).2f. It is currently %(actual).2f."
 msgstr ""
 
 #. module: muestras
@@ -1735,12 +1801,7 @@ msgstr "Número de serie/lote"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__lote
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__lote
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__lote
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__lote
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__lote
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__lote
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__lote
 msgid "Lote"
 msgstr ""
 
@@ -1754,7 +1815,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__mcp
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__mcp
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__mcp
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__mcp
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__mcp
 msgid "Macro-Perfil"
 msgstr ""
@@ -1768,8 +1828,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_history_line__equation_macroprofile
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__macroprofile_boolean
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__mcp
 msgid "Macroprofile"
-msgstr ""
+msgstr "Maacroperfil"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_macroprofile_name
@@ -1900,10 +1961,15 @@ msgid "My Activity Deadline"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__name
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__name
 #: model:ir.model.fields,field_description:muestras.field_muestras_tabla__name
 #: model:ir.model.fields,field_description:muestras.field_muestras_testmodel__name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: muestras
 #. odoo-python
@@ -2023,11 +2089,6 @@ msgstr ""
 #: model:ir.model.fields,help:muestras.field_muestras_inventario__message_has_error_counter
 #: model:ir.model.fields,help:muestras.field_muestras_spoteu__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__lote
-msgid "Número de Lote"
 msgstr ""
 
 #. module: muestras
@@ -2164,12 +2225,7 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__country_origin
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__country_origin
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__country_origin
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__country_origin
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__country_origin
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__country_origin
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__country_origin
 msgid "Origen"
 msgstr ""
 
@@ -2181,9 +2237,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__origin_boolean
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_origin
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__equation_origin_town
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__town
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__equation_origin_town
 msgid "Origin"
-msgstr ""
+msgstr "Origen"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__equation_origin_name
@@ -2191,9 +2248,22 @@ msgid "Origin Name"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__town
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__town
+msgid "Origin Town"
+msgstr ""
+
+#. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.orderform_list
 msgid "Other Info"
 msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_salida
+msgid "Output Weight"
+msgstr "Peso de salida"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__pdf_file
@@ -2218,6 +2288,24 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__boton_prueba
 msgid "PRUEBA"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_type
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_type
+msgid "Packaging"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_weight
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_weight
+msgid "Packaging weight"
 msgstr ""
 
 #. module: muestras
@@ -2274,38 +2362,8 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__macroprofile
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__macroprofile
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__macroprofile
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__macroprofile
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__macroprofile
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__macroprofile
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__macroprofile
 msgid "Perfil Sensorial"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_salida
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__peso_salida
-msgid "Peso  salida"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_disponible
-msgid "Peso Disponible"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__peso_neto
-msgid "Peso Neto"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_weight
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_weight
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_weight
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_weight
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_weight
-msgid "Peso del empaque"
 msgstr ""
 
 #. module: muestras
@@ -2342,6 +2400,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_parametros__percentUSA
 msgid "Porcentaje USA"
 msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__offeringCat
+msgid "Portafolio Categories"
+msgstr "Categorias de Portafolio"
 
 #. module: muestras
 #: model:ir.model.fields.selection,name:muestras.selection__muestras_order__coffee_sample__pss
@@ -2384,11 +2447,6 @@ msgid "Precio por Carga"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__price_usd
-msgid "Precio por Kilo"
-msgstr ""
-
-#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__load_price
 msgid "Precio por carga"
 msgstr ""
@@ -2420,6 +2478,11 @@ msgid "Price Type must be unique!"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__price_us
+msgid "Price US/kg"
+msgstr "Precio US/kg"
+
+#. module: muestras
 #: model:ir.ui.menu,name:muestras.muestras_price_1
 #: model:ir.ui.menu,name:muestras.price_menu
 msgid "Prices"
@@ -2431,21 +2494,7 @@ msgid "Pro-Forma Invoice #"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__process
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__process
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__process
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__process
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__process
-msgid "Proceso"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__fprocess
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__fprocess
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__fprocess
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__fprocess
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__fprocess
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__fprocess
 msgid "Proceso de Fermentación"
 msgstr ""
 
@@ -2473,16 +2522,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__product_id
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Product"
-msgstr ""
+msgstr "Producto"
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__code
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__code
+msgid "Product Code"
+msgstr "Código de Producto"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__name
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__name
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Product Name"
-msgstr ""
+msgstr "Nombre del Producto"
 
 #. module: muestras
 #: model:ir.model.fields.selection,name:muestras.selection__muestras_allproducts__disp_inventario__dis
@@ -2502,7 +2562,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__producer
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__producer
 msgid "Productor"
-msgstr ""
+msgstr "Productor"
 
 #. module: muestras
 #: model:ir.actions.act_window,name:muestras.disponible_action_window
@@ -2528,39 +2588,40 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__program
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__program
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__program
 #: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
 msgid "Program"
-msgstr ""
+msgstr "Programa"
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__programa
 #: model:ir.model.fields,field_description:muestras.field_muestras_parametros__program
 msgid "Programa"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__project
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__project
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__project
 msgid "Project"
-msgstr ""
+msgstr "Proyecto"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_project__name
 msgid "Proyect Name"
-msgstr ""
+msgstr "Nombre del Proyecto"
 
 #. module: muestras
-#. odoo-python
-#: code:addons/muestras/models/productFather.py:0
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__project
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__proyecto
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__project
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__project
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__project
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__project
 #: model:ir.model.fields,field_description:muestras.field_muestras_parametros__project
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__project
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__project
 msgid "Proyecto"
 msgstr ""
 
@@ -2588,13 +2649,19 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Purchase"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__quantity
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantity_kg
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__quantity_kg
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__email_to
@@ -2621,16 +2688,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__region
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__region
 msgid "Region"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__town
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__town
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__town
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__town
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__town
-msgid "Region de Origen"
-msgstr ""
+msgstr "Región"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__country
@@ -2691,23 +2749,13 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sca_actual
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_actual
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_actual
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_actual
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__sca_actual
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_actual
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_actual
 msgid "SCA Actual"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sca_entrega
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__sca_entrega
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__sca_entrega
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__sca_entrega
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__sca_entrega
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__sca_entrega
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__sca_entrega
 msgid "SCA Entrega"
 msgstr ""
 
@@ -2802,12 +2850,14 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Sales"
 msgstr ""
 
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Sales Description"
 msgstr ""
 
@@ -2926,9 +2976,14 @@ msgid "Send Sample Without Linking a Lead"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__macroprofile
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__sensory_profile_boolean
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__macroprofile
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__macroprofile
 msgid "Sensory Profile"
-msgstr ""
+msgstr "Perfil Sensorial"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__sequence
@@ -3052,7 +3107,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_prueba__supplier
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__supplier
 msgid "Supplier"
-msgstr ""
+msgstr "Proveedor"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__trm
@@ -3077,15 +3132,6 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,help:muestras.field_muestras_order_line__price
 msgid "The price per unit of the product"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__packing_type
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__packing_type
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__packing_type
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__packing_type
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__packing_type
-msgid "Tipo de Empaque"
 msgstr ""
 
 #. module: muestras
@@ -3121,6 +3167,11 @@ msgid "US Tariffs"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__quantityUSA
+msgid "USA Quantity"
+msgstr "Cantidad US"
+
+#. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_history__trm
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__trm
 msgid "USD/COP Exchange Rate"
@@ -3131,6 +3182,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__price_usd
 #: model:ir.model.fields,field_description:muestras.field_muestras_father__price_usd
 #: model:ir.model.fields,field_description:muestras.field_muestras_inventario__price_usd
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__price_usd
 #: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__price_usd
 msgid "USD/kg"
 msgstr ""
@@ -3147,23 +3199,14 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__location
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__location
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__location
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__location
 #: model:ir.model.fields,field_description:muestras.field_muestras_order__location
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__location
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__location
 msgid "Ubicación"
 msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__uom
 #: model:ir.model.fields,field_description:muestras.field_muestras_disponible__uom
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__uom
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__uom
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__uom
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__uom
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__uom
 msgid "Unidad de Medida"
 msgstr ""
 
@@ -3171,6 +3214,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__price
 #: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
 msgid "Unit Price"
+msgstr ""
+
+#. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__uom
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__uom
+msgid "Unit of Measurement"
 msgstr ""
 
 #. module: muestras
@@ -3202,6 +3253,7 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Upsell & Cross-Sell"
 msgstr ""
 
@@ -3233,14 +3285,8 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__variety
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__variety
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__variedad
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__variety
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__variety
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__variety
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__variety
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__variety
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__variety
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__variety
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__variety
 msgid "Variedad"
 msgstr ""
@@ -3257,11 +3303,16 @@ msgid "Varietal Name"
 msgstr ""
 
 #. module: muestras
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__variety
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard__variety_boolean
 #: model:ir.model.fields,field_description:muestras.field_muestras_offering_pdf_wizard_line__variety_show
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__variety
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__variety
 #: model_terms:ir.ui.view,arch_db:muestras.report_saleorder_document
 msgid "Variety"
-msgstr ""
+msgstr "Variedad"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__sale
@@ -3271,6 +3322,7 @@ msgstr ""
 #. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "Vendor Bills"
 msgstr ""
 
@@ -3287,7 +3339,7 @@ msgstr ""
 #. module: muestras
 #: model:ir.model.fields.selection,name:muestras.selection__muestras_order__typesample__gre
 msgid "Verde"
-msgstr ""
+msgstr "Green"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_wizard_sale_line__verification
@@ -3301,10 +3353,15 @@ msgstr ""
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_alldisponibles__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_father__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__warehouse
 #: model:ir.model.fields,field_description:muestras.field_muestras_order_line__warehouse
 #: model:ir.model.fields,field_description:muestras.field_muestras_product__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__warehouse
+#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__warehouse
 msgid "Warehouse"
-msgstr ""
+msgstr "Bodega"
 
 #. module: muestras
 #: model:ir.model.fields,field_description:muestras.field_muestras_allproducts__website_message_ids
@@ -3361,13 +3418,9 @@ msgid "code"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model,name:muestras.model_muestras_conexion
-msgid "conexion triple hpta"
-msgstr ""
-
-#. module: muestras
 #: model_terms:ir.ui.view,arch_db:muestras.allproducts_form
 #: model_terms:ir.ui.view,arch_db:muestras.father_form
+#: model_terms:ir.ui.view,arch_db:muestras.prueba_form
 msgid "e.g. Cheese Burger"
 msgstr ""
 
@@ -3390,21 +3443,6 @@ msgid "muestras.generate_pdf"
 msgstr ""
 
 #. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_disponible__name
-#: model:ir.model.fields,field_description:muestras.field_muestras_father__name
-#: model:ir.model.fields,field_description:muestras.field_muestras_inventario__name
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__name
-#: model:ir.model.fields,field_description:muestras.field_muestras_spoteu__name
-msgid "name"
-msgstr ""
-
-#. module: muestras
 #: model:ir.model,name:muestras.model_muestras_tabla
 msgid "tabla"
-msgstr ""
-
-#. module: muestras
-#: model:ir.model.fields,field_description:muestras.field_muestras_conexion__last_execution_date
-#: model:ir.model.fields,field_description:muestras.field_muestras_prueba__last_execution_date
-msgid "Última Ejecución"
 msgstr ""

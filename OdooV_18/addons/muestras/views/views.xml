@@ -1119,7 +1119,7 @@
       <field name="model">muestras.offering_pdf_wizard</field>
       <field name="arch" type="xml">
           <form string="Campos">
-            <div class="alert alert-info" style="margin-bottom: 10px;">
+            <div class="alert alert-info" role="status" style="margin-bottom: 10px;">
                 Please select and configure the fields for your offering.
             </div>
               <group name="partner_info" string="Select your customer">

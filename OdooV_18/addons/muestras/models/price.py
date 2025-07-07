@@ -86,7 +86,7 @@ class Price(models.Model):
         from bs4 import BeautifulSoup
         url_trm = 'https://www.dolar-colombia.com/'
         print(url_trm)
-        response = requests.get(url_trm)
+        response = requests.get(url_trm,10)
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, 'html.parser')
             # Buscar el elemento con la clase 'box-exchange-rate'

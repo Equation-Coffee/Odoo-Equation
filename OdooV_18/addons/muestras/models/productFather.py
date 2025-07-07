@@ -16,7 +16,7 @@ class SampleFather(models.Model):
     internal_code = fields.Char(string="Internal Code")
     code = fields.Char(string="Product Code")    
     project = fields.Char(string="Project", required=True, default="",compute="_project")
-    program = fields.Text(string='Category',compute="_program")
+    program = fields.Text(string='Program',compute="_program")
     category = fields.Text(string ='__',required=False,default="")
     variety = fields.Text(string='Variety',compute="_varietal")
     process = fields.Char(string="Drying Process",compute="_process") ## Drying Process
@@ -93,11 +93,12 @@ class SampleFather(models.Model):
 
 
     ### METHODS ###
+
+    ### Equation Parametrization Methods ###
     @api.depends('equation_project')
     def _project(self):
         for record in self:
             record.project=record.equation_project.name
-
 
     @api.depends('equation_program')
     def _program(self):
@@ -113,7 +114,6 @@ class SampleFather(models.Model):
     def _fprocess(self):
         for record in self:
             record.fprocess=record.equation_fermentation_process.name
-
 
     @api.depends('equation_drying_process')
     def _process(self):
@@ -135,8 +135,6 @@ class SampleFather(models.Model):
         for record in self:
             record.mcp=record.equation_macroprofile.name
 
-    def mi_metodo(self):
-        print('Hola')
     
 
 

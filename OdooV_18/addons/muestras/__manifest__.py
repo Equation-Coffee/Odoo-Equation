@@ -41,7 +41,7 @@
         'views/muestras_menus.xml',
         'security/ir.model.access.csv',
         'data/ir_cron.xml',
-        'data/mail_template.xml',
+        'data/mail_template.xml',   
         'data/rules.xml',
         'reports/muestras_report_view.xml',
         'reports/muestras_report_template.xml',
@@ -61,12 +61,13 @@
    'assets': {
         'web.assets_backend': [
             '/muestras/static/src/css/custom_styles.css',
-            '/muestras/static/src/js/custom_tree_button.js',
+            # '/muestras/static/src/js/custom_tree_button.js',
             '/muestras/static/src/js/sale_tree_extend.js',
             '/muestras/static/src/xml/wizard_button_offering.xml',
+            '/muestras/static/src/xml/atlas_update_button.xml',
             '/muestras/static/src/img/offering_background.png',
-            '/muestras/static/equationlogo.png',  # Asegúrate de que tenga la extensión .xml
-            '/muestras/static/src/css/offering.css',
+            # '/muestras/static/equationlogo.png',  # Asegúrate de que tenga la extensión .xml
+            # '/muestras/static/src/css/offering.css',
             # '/muestras/static/src/css/css_report.xml',
 
         ],

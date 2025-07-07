@@ -4,7 +4,7 @@
       <field name="name">muestras.prueba.list</field>
       <field name="model">muestras.prueba</field>
       <field name="arch" type="xml">
-        <list>
+        <list js_class="button_atlas_update">
           <header>
             <button name="update"
                         string="Update"
@@ -41,19 +41,6 @@
                 <form string="Product">
                     <sheet name="product_form">
                         <div class="oe_button_box" name="button_box">
-                            <!-- <button class="oe_stat_button" name="open_pricelist_rules" icon="fa-list-ul" groups="product.group_product_pricelist" type="object">
-                                    <div class="o_field_widget o_stat_info">
-                                        <span class="o_stat_value">
-                                            <field name="pricelist_item_count"/>
-                                        </span>
-                                        <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
-                                            Extra Prices
-                                        </span>
-                                        <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
-                                            Extra Price
-                                        </span>
-                                    </div>
-                            </button> -->
                         </div>
                         <field name="id" invisible="True"/>
                         <div class="oe_title">
@@ -85,18 +72,14 @@
                                         <field name="equation_program"/>
                                         <field name="equation_fermentation_process"/>
                                         <field name="equation_drying_process"/>
-                                        <field name="equation_process_offering"/>
                                     </group>
                                     <group name="coffee_details_ii">
-                                        <field name="is_decaf"/>
                                         <field name="equation_origin_town"/>
                                         <field name="sca_actual"/>
                                         <field name="freshness"/>
                                         <field name="edition"/>
                                         <field name="equation_macroprofile"/>
                                         <field name="macroprofile"/>
-                                        <field name="price_usd"/>
-                                        <field name="condicion"/>
                                         <!-- <label for="list_price"/> -->
                                         <div name="pricing">
                                         
@@ -142,6 +125,7 @@
                                         <field name="producer"/>
                                         <field name="farm"/>
                                         <field name="supplier"/>
+                                        <field name="price_usd"/>
                                         <!-- <label for="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/> -->
                                         <!-- <div class="o_row" name="weight" attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"> -->
                                             <!-- <field name="weight" class="oe_inline"/>
@@ -157,9 +141,12 @@
                                         <field name="country_origin"/>
                                         <field name="location"/>
                                         <field name="quantity_kg"/>
+                                        <field name="quantityEU"/>
+                                        <field name="quantityUSA"/>
+                                        <field name="quantityAsia"/>
                                         <field name="uom"/>
                                     </group>
-                                </group>
+                                </group>    
                             </page>
                         </notebook>
                     </sheet>
