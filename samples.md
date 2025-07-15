@@ -72,10 +72,119 @@ Un ejemplo. Al seleccionar un valor de proyecto en el atributo <u>Equation Proje
 
 ### 2.2 Modelo Atlas 
 
-#### 2.2.2 Métodos
+<div align='justify'>
+El modelo <strong>Atlas - Projects</strong> nace de la necesidad de tener un reflejo exacto del inventario registrado para los cafés de Proyectos en el ERP de <em>Atlas</em>. De esta manera, el equipo de calidades crea y actualiza lotes de cafes desde el ERP y tanto el administrador como el mismo equipo de calidades puede visualizar el inventario en Odoo mediante el uso de un botón.
+</div>
+
+
+
+#### 2.2.1 Atributos
+
+<div>
+En este modelo se heredan atributos y métodos de <strong>ProductFather</strong>. A continuación se listan de manera separada los campos que se heredan con modificaciones nuevas para ese modelo y los campos  totalmente nuevos.
+</div>
+<br>
+
+- <em>Campos heredados con modificaciones </em>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center;">Campo</th>
+      <th style="text-align: center;">Tipo de Campo</th>
+      <th style="text-align: center;">Descripción</th>
+      <th style="text-align: center;">Categoría</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">price_us</td>
+      <td style="text-align: center;">Float</td>
+      <td style="text-align: justify;">El campo pasa a un campo no obligatorio </td>
+      <td style="text-align: center;">Price</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">pricelb</td>
+      <td style="text-align: center;">Float</td>
+      <td style="text-align: justify;">El campo pasa a un campo no obligatorio </td>
+      <td style="text-align: center;">Price</td>
+    </tr>
+  </tbody>
+</table>
+
+ - <em>Campos Nuevos </em>
+
+<div align='justify'>
+Se añade una nueva categoria de atributos denominada <strong><em>API</em></strong> que agrupará  los campos relacionados con la conexión Atlas - Odoo.
+</div> 
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center;">Campo</th>
+      <th style="text-align: center;">Tipo de Campo</th>
+      <th style="text-align: center;">Descripción</th>
+      <th style="text-align: center;">Categoría</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">update_mode</td>
+      <td style="text-align: center;">Selection</td>
+      <td style="text-align: justify;">Indica el tipo de creación del lote. Este campo se hizo para solucionar la contingencia generada por la falta de uso de la herramienta <em>Atlas</em> por parte del equipo de calidades Panamá. La idea es dejar de usar este campo a largo plazo. En escencia, este campo permite al <u>usuario administrador</u> crear lotes desde Odoo y aislarlos del flujo de actualización <em>Atlas-Odoo</em> </td>
+      <td style="text-align: center;">General Info</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">peso_neto</td>
+      <td style="text-align: center;">Float</td>
+      <td style="text-align: justify;">Almacena la cantidad incial del lote registrado en <em>Atlas</em></td>
+      <td style="text-align: center;">Inventory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">peso_salida</td>
+      <td style="text-align: center;">Float</td>
+      <td style="text-align: justify;">Almacena la cantidad total de salidas en kg del lote registrado en <em>Atlas</em></td>
+      <td style="text-align: center;">Inventory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">quantityUSA - quantityEU - quantityAsia</td>
+      <td style="text-align: center;">Float</td>
+      <td style="text-align: justify;">Estos campos estan destinados a almancenar la distribución de la cantidad actual del lote en las regiones comerciales</td>
+      <td style="text-align: center;">Inventory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">needsRegionUpdate</td>
+      <td style="text-align: center;">Boolean</td>
+      <td style="text-align: justify;">Booleano que evalua diferencias entre la cantidad actual del lote y la suma de las cantidades distribuidas en regiones.</td>
+      <td style="text-align: center;">Inventory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">update_boolean</td>
+      <td style="text-align: center;">Boolean</td>
+      <td style="text-align: justify;">Marca la actualización correcta del lote y la generación (o no en caso de que el lote tenga cantidad 0 ) de lotes distribuidos en el modelo <em>muestras.allproductos</em></td>
+      <td style="text-align: center;">Inventory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">last_execution_date</td>
+      <td style="text-align: center;">Datetime</td>
+      <td style="text-align: justify;">Ultima fecha de actualización
+      <td style="text-align: center;">API</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">entry_id</td>
+      <td style="text-align: center;">Char</td>
+      <td style="text-align: justify;">ID del lote asociado a la base de datos de <em>Atlas</em>.
+      <td style="text-align: center;">API</td>
+    </tr>
+  </tbody>
+</table>
+
 
 <div align="justify">
 </div>
+
+<br>
 
 A grandez rasgos el modulo tienen 5 memtodos
 METODOS DE CREACION ESCRITURA.
@@ -96,7 +205,7 @@ En los metodos de validacion se definen las restricciones para generar bien los 
 
 <div align="justify">
 Este módulo de <strong>JavaScript</strong> extiende el comportamiento de las vistas <strong>List</strong> con el fin de agregar un botón personalizado.
-La clase personalizada <strong><italic>CustomListController</italic></strong> extiende o hereda la clase <em>ListController</em> la cual es la clase que incluye el controlador principal para las vistas <em>List</em>. Dentro de esta herencia se inlcuye un método adicional <strong>customMethod().</strong>
+La clase personalizada <strong><italic>CustomListController</italic></strong> extiende o hereda la clase <em>ListController</em> la cual incluye el controlador principal para las vistas <em>List</em>. Dentro de esta herencia se incluye un método adicional <strong>customMethod().</strong>
 </div>
 
 <div align="justify">
