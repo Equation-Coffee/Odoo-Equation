@@ -187,7 +187,7 @@ Se añade una nueva categoria de atributos denominada <strong><em>API</em></stro
 <br>
 
 A grandez rasgos el modulo tienen 5 memtodos
-METODOS DE CREACION ESCRITURA.
+METODOS DE CREACION ESCRITURA. INCLUIR ESTO JAJAJAJ 
 Estos dos metodos se heredan de la clase base de modelos en Odoo, se hereda la creacion y al escritur con el super(Pruebas,self) y se le añade la funcion  de normalizacion de todos los productos para generar los productos en la visual general de todo el sistema.
 
 METODOS DE VALIDACION.
