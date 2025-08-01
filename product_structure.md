@@ -70,6 +70,16 @@ Dentro de este modelo se definen 5 categorias para agrupar los atributos del mod
 
 #### 2.1.2 Métodos
 
+## 2.2 Atlas
+
+## 2.3 SPOT EU
+
+El objetivo de este modulo es hacer un enlace en tiempo real con el inventario de Odoo correspondiente a las existencias ubicadadas en la operacion SPOT de la region de Europa. 
+La función espejo del inventario depende de las actualizaciones de cada uno d elos lotes que se puede presentar de 4 formas distintas.
+
+    - Creacion del lote 
+    - 
+
 ## 3. Vistas
 
 ## 4. Grupos y Permisos

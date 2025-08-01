@@ -193,9 +193,23 @@ Estos dos metodos se heredan de la clase base de modelos en Odoo, se hereda la c
 METODOS DE VALIDACION.
 En los metodos de validacion se definen las restricciones para generar bien los lotes y los productos. esta la suma por region que necesita unas veridicaciones extras para que este funcionando a plena maquina y estaria el campo que me permite diferenciar entre un lote disponible y otro no disponible.
 
+## 2.3 SPOT EU
+
+El objetivo de este modulo es hacer un enlace en tiempo real con el inventario de Odoo correspondiente a las existencias ubicadadas en la operacion SPOT de la region de Europa. 
+La función espejo del inventario depende de las actualizaciones de cada uno d elos lotes que se puede presentar de 4 formas distintas.
+
+    - Creacion del lote desde una orden de compra
+    - Creacion del lote desde una ajsutes de inventario
+    - Creacion del lote desde la interfaz de lotes
+    - Update por 
+    - Update por ajuste de inventario
+    - Update por 
+
 
 
 ## 3. Vistas
+
+El archivo de vistas de cada modelo se compondra de tres 4 partes. Una vista tipoform, otra tipo list, tipo searh y la accion 
 
 ## 4. Grupos y Permisos
 
