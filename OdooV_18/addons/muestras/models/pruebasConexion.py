@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 class Prueba(models.Model):
     _name = "muestras.prueba"
     _description = "Inventario Proyectos ATLAS"
-    _inherit="muestras.father"
+    _inherit=['muestras.father','mail.thread','mail.activity.mixin']
     _rec_name="lote"
 
 
@@ -27,21 +27,27 @@ class Prueba(models.Model):
             ('dis','Disponible'),
             ('nodis','No Disponible'),
         ],
-        string="Availability",default='dis',required=True,compute='no_disp',store=True,readonly=False
-    )
+        string="Availability",default='dis',required=True,compute='no_disp',store=True,readonly=False,tracking=True)
     offeringCat = fields.Many2many('muestras.offeringcat',string="Portafolio Categories")    
     dis_temporarly_button = fields.Boolean(string="Availability Temporarly Button",default=True)
+    update_mode=fields.Selection(
+        selection=[
+            ('odoo','Created and Updated in Odoo'),
+            ('atlas','Created and Updated from Atlas')
+        ],string="Update Mode",default='atlas',required=True)
 
     ### Inventory ###
     peso_neto = fields.Float(string="Initial Quantity",required=False)
     peso_salida = fields.Float(string="Output Weight",required=False)
-    quantityUSA = fields.Float(string="USA Quantity",store=True) 
-    quantityEU = fields.Float(string ="EU Quantity",store=True)
-    quantityAsia = fields.Float(string="Asia Quantity",store=True)
+    quantityUSA = fields.Float(string="USA Quantity",store=True,tracking=True) 
+    quantityEU = fields.Float(string ="EU Quantity",store=True,tracking=True)
+    quantityAsia = fields.Float(string="Asia Quantity",store=True,tracking=True)
+    needsRegionUpdate = fields.Boolean(string="Needs Region Update")
+    update_boolean = fields.Boolean(string="Updated All Products")
 
     ### Price ###
-    price_us = fields.Float(string="Price US/kg",required=False)
-    pricelb = fields.Float(string="USD/lb",required=False)
+    price_us = fields.Float(string="Price US/kg",required=False,tracking=True)
+    pricelb = fields.Float(string="USD/lb",required=False,tracking=True)
 
     ### API ###
     last_execution_date = fields.Datetime(string="Last Execution",required=False)
@@ -49,7 +55,6 @@ class Prueba(models.Model):
 
 
     ### Methods ###
-
     @api.model
     def default_model(self,fields):
         res=super(Prueba,self).default_get(fields)
@@ -60,12 +65,19 @@ class Prueba(models.Model):
     def create(self, vals_list):
         records = super(Prueba, self).create(vals_list)
         for record in records:
-            self.env['muestras.allproducts'].normalize_product_data(record)
+            if record.needsRegionUpdate == False:
+                self.env['muestras.allproducts'].normalize_product_data(record)
         return records
 
+
     def write(self, vals):
+        if self.env.context.get('skip_normalization'):
+            return super(Prueba, self).write(vals)
         result = super(Prueba, self).write(vals)
-        self.env['muestras.allproducts'].normalize_product_data(self)
+        if self.needsRegionUpdate == False:
+            self.env['muestras.allproducts'].normalize_product_data(self)
+            if self.available=='dis':
+                self.with_context(skip_normalization=True).write({'update_boolean': True})
         return result
     
     @api.constrains('quantityUSA','quantityEU','quantityAsia')
@@ -73,7 +85,7 @@ class Prueba(models.Model):
         for record in self:
                 total_sum = record.quantityUSA + record.quantityAsia + record.quantityEU
                 if record.quantity_kg!=0:
-                    if total_sum !=record.quantity_kg:
+                    if total_sum !=record.quantity_kg:      
                         raise ValidationError(_(
                             "Lot %(lote)s: For the product, the sum of the fields must be exactly %(expected).2f. "
                             "It is currently %(actual).2f."
@@ -81,9 +93,23 @@ class Prueba(models.Model):
                             'lote': record.lote,
                             'expected': record.quantity_kg,
                             'actual': total_sum
-                        })
-                    
-    @api.depends('quantity_kg')
+                        })  
+                
+
+
+    @api.onchange('quantity_kg','quantityUSA','quantityEU','quantityAsia','available')
+    def _needsRegionUpdate(self):
+        for record in self:
+            total_sum = record.quantityUSA + record.quantityAsia + record.quantityEU
+            if record.quantity_kg!=0 and record.available=='dis':
+                if total_sum!=record.quantity_kg:
+                    record.needsRegionUpdate = True
+                else : record.needsRegionUpdate = False 
+            elif record.available =='nodis':
+                record.needsRegionUpdate = False               
+    
+
+    @api.depends('quantity_kg')             
     def no_disp(self):
         for record in self:
             if record.quantity_kg==0:
@@ -108,55 +134,36 @@ class Prueba(models.Model):
             # Solicitar el token
             response = requests.post(urlToken, json=payloadToken)
             if response.status_code == 200:
-                data = response.json()
-                access = data.get("access")
+                access = response.json().get("access")
                 _logger.info("Token obtenido correctamente: %s", access)
 
                 # Configurar el encabezado con el token
-                headerConnection = {
-                    "Authorization": f"Bearer {access}"
-                }
-
-                # Realizar la solicitud de datos
+                headerConnection = {"Authorization": f"Bearer {access}"}
                 importData = requests.get(urlConnection, headers=headerConnection)  
                 if importData.status_code == 200:
                     _logger.info("Conexión exitosa a la API de Atlas")
                     datos = importData.json()
-                    print('kakakakakaka')
                     lotes = [item['lote'] for item in datos]
-                    # print(lotes)
                     products=self.env['muestras.prueba'].search([('quantity_kg','!=',0)])
 
                     for prod in products:
-                        if prod.lote not in lotes:
-                            # print('No esta',prod.lote)
+                        if prod.lote not in lotes and prod.update_mode == 'atlas'and prod.available=='dis':
                             prod.available='nodis'
                             prod.peso_neto=0
                             prod.quantity_kg=0
                             prod.quantityUSA=0
                             prod.quantityEU=0
                             prod.quantityAsia=0
-
-                    
-
-
-                    # Crear registros en Odoo
+                            prod.needsRegionUpdate=False
                     for item in datos:
-                        
-                        if item.get('country_code')=='COL':
-                            country_name="Colombia"
-                        if item.get('country_code')=='PAN':
-                            country_name="Panama"
-                        if item.get('country_code')=='MEX':
-                            country_name="Mexico"
+                        country_map = {'COL':"Colombia",'PAN':"Panama",'MEX':"Mexico"}
+                        country_name = country_map.get(item.get('country_code'),' ')
                         existing_record=self.search([
                             ('lote','=',item.get('lote'))
                         ],limit=1)
                         equation_project = self.env['equation.coffee_project'].search([('name','=',item.get("project_name"))])
                         equation_program = self.env['equation.coffee_program'].search([('name','=',item.get("programa"))])
                         equation_varietal = self.env['equation.coffee_varietal'].search([('name','=',item.get("variedad"))])
-                        
-
                         if not existing_record:
                             record = self.create({
                                 'lote': item.get("lote") or 'Sin Lote',
@@ -184,13 +191,18 @@ class Prueba(models.Model):
                                 'freshness':item.get("frescura"),
                                 'farm':item.get("finca_terroir"),
                                 'altitude':float(item.get("altitud") or 0) if str(item.get("altitud")).replace('.', '', 1).isdigit() else 0,
-                                'available':'dis'
+                                'available':'dis',
+                                'update_mode':'atlas',
+                                'needsRegionUpdate':True,
 
                             })
-
                         if existing_record:
+                            if item.get('quantity_kg') == existing_record.quantityUSA + existing_record.quantityEU + existing_record.quantityAsia:
+                                needsUpdate = False
+                            else : needsUpdate = True
+                            if existing_record.update_mode =='odoo':
+                                continue
                             existing_record.write({
-                                
                                 'sca_actual':item.get("sca_score") or 0.0,
                                 'lote': item.get("lote") or 'Sin Lote',
                                 'peso_neto': item.get("total_entradas") or 0.0,
@@ -217,34 +229,24 @@ class Prueba(models.Model):
                                 'freshness':item.get("frescura"),
                                 'farm':item.get("finca_terroir"),
                                 'altitude':float(item.get("altitud") or 0) if str(item.get("altitud")).replace('.', '', 1).isdigit() else 0,
-                                'available':'dis'
-
+                                'available':'dis',
+                                'needsRegionUpdate':needsUpdate,
                             })
-
-
                         self.env.cr.commit()
                         _logger.info("Registro creado para lote: %s", item.get("lote_number"))
-                        
-
-                    # Actualizar el campo de última ejecución
                     self.write({'last_execution_date': fields.Datetime.now()})
-
                 else:
                     error_message = f"Error en la conexión con Atlas Grano: código de estado {importData.status_code}"
                     _logger.error(error_message)
             else:
                 error_message = f"No se pudo obtener el token: código de estado {response.status_code}"
                 _logger.error(error_message)
-                # self.env.user.notify_info(error_message)
-
         except requests.exceptions.RequestException as e:
             error_message = f"Error en la conexión con la API externa: {e}"
             _logger.error(error_message)
-            # self.env.user.notify_info(error_message)
         return {"mensaje": "Actualización completada con éxito"}
 
 
-# Modelo de log para registrar las ejecuciones
 class PruebaLog(models.Model):
     _name = "muestras.pruebalog"
     _description = "Log de ejecuciones de la función de conexión con Atlas"

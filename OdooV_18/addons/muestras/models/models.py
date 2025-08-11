@@ -557,18 +557,53 @@ class StockLot(models.Model):
     _inherit='stock.lot'
 
 
-    def write(self,vals):
+    def write(self,vals):   
         result=super(StockLot,self).write(vals)
-        # self.env['muestras.spoteu'].normalize_inventary(self)
+        for lot in self:
+            if lot.company_id.id == 15:
+                self.env['muestras.spoteu'].normalize_inventary(lot)
         return result
 
     @api.model
     def create(self,vals):
         record=super(StockLot,self).create(vals)
-        # self.env['muestras.spoteu'].normalize_inventary(record)
+        if record.company_id.id == 15:
+                self.env['muestras.spoteu'].normalize_inventary(record)
         return record
 
-    
-    
 
-        
+class StockQuant(models.Model):
+    _inherit = 'stock.quant'
+
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        for quant in records:
+            lot = quant.lot_id
+            if lot and lot.company_id.id == 15:
+                quant.env['muestras.spoteu'].normalize_inventary(lot)
+        return records
+
+    def write(self, vals):
+        result = super().write(vals)
+        processed_lots = set()
+        for quant in self:
+            lot = quant.lot_id
+            if lot and lot.id not in processed_lots and lot.company_id.id == 15:
+                quant.env['muestras.spoteu'].normalize_inventary(quant.lot_id)
+                processed_lots.add(quant.lot_id.id)
+        return result
+    
+class StockPicking(models.Model):
+    _inherit = 'stock.picking'
+
+    def button_validate(self):
+        res = super().button_validate()
+
+        for picking in self:
+            if picking.picking_type_id.code == 'incoming':
+                for move_line in picking.move_line_ids:
+                    lot = move_line.lot_id
+                    if lot:
+                        _logger.info("Normalizando lote %s desde picking %s", lot.name, picking.name)
+                        self.env['muestras.spoteu'].normalize_inventary(lot)
+        return res        

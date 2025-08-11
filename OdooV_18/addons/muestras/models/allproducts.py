@@ -17,6 +17,18 @@ class AllProducts(models.Model):
         'muestras.offeringcat',
         string="Categorias Portafolio"
     )
+
+        ### Equation Info ###
+    equation_project = fields.Many2one('equation.coffee_project',string="Equation Project",tracking=True)
+    equation_program = fields.Many2one('equation.coffee_program',string="Equation Program",tracking=True)
+    equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal",tracking=True)
+    equation_drying_process = fields.Many2one('equation.coffee_drying_process',string="Drying Process Equation",tracking=True)
+    equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation",tracking=True)
+    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin",tracking=True)
+    equation_sca_score = fields.Many2one('equation.coffee_sca',string="SCA Score",tracking=True)
+    equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile",tracking=True)
+    equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process",tracking=True)
+
     # Región asociada al producto
     region=fields.Text(string="Region", readonly=True)
     # Cantidad disponible en la región
@@ -148,6 +160,7 @@ class AllProducts(models.Model):
                             'region': "United States",
                             'quantity': product.quantityUSA,
                             'price':product.price_usd,
+                            'equation_project':product.equation_project.id,
                             'project':product.project,
                             'variety':product.variety,
                             'program':product.program,
@@ -180,6 +193,7 @@ class AllProducts(models.Model):
                             'region': "Europe",
                             'quantity': product.quantityEU,
                             'price':product.price_usd,
+                            'equation_project':product.equation_project.id,
                             'project':product.project,
                             'variety':product.variety,
                             'program':product.program,
@@ -211,6 +225,7 @@ class AllProducts(models.Model):
                             'region': 'Asia',
                             'quantity': product.quantityAsia,
                             'price':product.price_usd,
+                            'equation_project':product.equation_project.id,
                             'project':product.project,
                             'variety':product.variety,
                             'program':product.program,
@@ -250,6 +265,7 @@ class AllProducts(models.Model):
                 'quantity':product.quantity_kg,
                 'region':region,
                 'fuente':'Disponibles',
+                'equation_project':product.equation_project.id,
                 'project':product.project,
                 'variety':product.variety,
                 'program':product.program,
@@ -259,7 +275,7 @@ class AllProducts(models.Model):
                 'country_origin':product.country_origin,
                 'lote':product.lote,
                 'internal_code':product.internal_code,
-                'edition':product.edition,
+                'edition':product.main_category.name,
                 'process':product.process,
                 'score':product.score,
                 'macroprofile':product.macroprofile,
@@ -285,6 +301,7 @@ class AllProducts(models.Model):
                     'region':region,
                     'quantity':product.quantity_kg,
                     'fuente':'Disponibles',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -294,7 +311,7 @@ class AllProducts(models.Model):
                     'country_origin':product.country_origin,
                     'lote':product.lote,
                     'internal_code':product.internal_code,
-                    'edition':product.edition,
+                    'edition':product.main_category.name,
                     'process':product.process,
                     'score':product.score,
                     'macroprofile':product.macroprofile,
@@ -329,6 +346,7 @@ class AllProducts(models.Model):
                 'quantity':product.quantity_kg,
                 'region':'Europe',
                 'fuente':'SPOT EU Temporary',
+                'equation_project':product.equation_project.id,
                 'project':product.project,
                 'variety':product.variety,
                 'program':product.program,
@@ -364,6 +382,7 @@ class AllProducts(models.Model):
                     'region':'Europe',
                     'quantity':product.quantity_kg,
                     'fuente':'Disponibles',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -451,6 +470,7 @@ class AllProducts(models.Model):
                         'altitude':product.altitude,
                         'available_status':product.available,
                         'date_create':product.date_create,
+                        'equation_project':product.equation_project.id,
                     })
                 else:
                     if quantityTemp:
@@ -491,6 +511,7 @@ class AllProducts(models.Model):
                             'altitude':product.altitude,
                             'available_status':product.available,
                             'date_create':product.date_create,
+                            'equation_project':product.equation_project.id,
         
                         })
                         self.env.cr.commit()
@@ -513,6 +534,7 @@ class AllProducts(models.Model):
                 'quantity':product.quantity_kg,
                 'region':product.region,
                 'fuente':'Inventario SPOT',
+                'equation_project':product.equation_project.id,
                 'project':product.project,
                 'variety':product.variety,
                 'program':product.program,
@@ -548,6 +570,7 @@ class AllProducts(models.Model):
                     'region':product.region,
                     'quantity':product.quantity_kg,
                     'fuente':'Inventario SPOT',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -598,6 +621,7 @@ class AllProducts(models.Model):
                     'quantity':product.quantity_kg,
                     'region':region,
                     'fuente':'Disponibles',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -607,7 +631,7 @@ class AllProducts(models.Model):
                     'country_origin':product.country_origin,
                     'lote':product.lote,
                     'internal_code':product.internal_code,
-                    'edition':product.edition,
+                    'edition':product.main_category.name,
                     'process':product.process,
                     'score':product.score,
                     'macroprofile':product.macroprofile,
@@ -634,6 +658,7 @@ class AllProducts(models.Model):
                         'region':region,
                         'quantity':product.quantity_kg,
                         'fuente':'Disponibles',
+                        'equation_project':product.equation_project.id,
                         'project':product.project,
                         'variety':product.variety,
                         'program':product.program,
@@ -643,7 +668,7 @@ class AllProducts(models.Model):
                         'country_origin':product.country_origin,
                         'lote':product.lote,
                         'internal_code':product.internal_code,
-                        'edition':product.edition,
+                        'edition':product.main_category.name,
                         'process':product.process,
                         'score':product.score,
                         'macroprofile':product.macroprofile,
@@ -679,6 +704,7 @@ class AllProducts(models.Model):
                     'quantity':product.quantity_kg,
                     'region':'Europe',
                     'fuente':'SPOT EU Temporary',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -715,6 +741,7 @@ class AllProducts(models.Model):
                         'region':'Europe',
                         'quantity':product.quantity_kg,
                         'fuente':'Disponibles',
+                        'equation_project':product.equation_project.id,
                         'project':product.project,
                         'variety':product.variety,
                         'program':product.program,
@@ -759,6 +786,7 @@ class AllProducts(models.Model):
                     'quantity':product.quantity_kg,
                     'region':product.region,
                     'fuente':'Inventario SPOT',
+                    'equation_project':product.equation_project.id,
                     'project':product.project,
                     'variety':product.variety,
                     'program':product.program,
@@ -794,6 +822,7 @@ class AllProducts(models.Model):
                         'region':product.region,
                         'quantity':product.quantity_kg,
                         'fuente':'Inventario SPOT',
+                        'equation_project':product.equation_project.id,
                         'project':product.project,
                         'variety':product.variety,
                         'program':product.program,

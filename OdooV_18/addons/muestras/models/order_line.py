@@ -16,57 +16,57 @@ class Order_line(models.Model):
 
 
     ### FIELDS ####
+    ### Order Info ###
     order_id=fields.Many2one(comodel_name='muestras.order',string='Order Reference',ondelete='cascade',
         required=True,index=True,copy=False
         )   
+    notes=fields.Text(string="Additional Notes")
+    quantity=fields.Float(string="Sample(g)",required=True,default=150.0)
+    price=fields.Float(string="Unit Price",required=False,digits=(16,2),help="The price per unit of the product")
+    booking=fields.Float(string="Booking",required=True,default=0.0)
+    subtotal=fields.Float(string="Subtotal",required=False,digits=(16,2),help="Subtotal Price",store=True)
+    line_state=fields.Selection(
+        selection=[
+            ('draft','Draft'),
+            ('active','Active Sample'),
+            ('declined','Declined Sample'),
+            ('sold','Sold Sample'),
+        ],string="Line State",default='draft')
+
+    ### Product ###
     product_id=fields.Many2one(comodel_name='muestras.allproducts',string='Product',ondelete='cascade',required=True,index=True,copy=True,
         domain="[('available_status', '=', 'dis')]")
-    quantity=fields.Float(string="Sample(g)",required=True)
-    price=fields.Float(string="Unit Price",required=False,digits=(16,2),help="The price per unit of the product")
-    booking=fields.Float(string="Reserva",required=True,default=0.0)
-    subtotal=fields.Float(string="Subtotal",required=False,digits=(16,2),help="Subtotal Price",store=True)
-    project = fields.Char(string='Proyecto')
-    variety = fields.Text(string='Variedad')
-    program = fields.Text(string='Categoria')
+    project = fields.Char(string='Project')
+    variety = fields.Text(string='Variety')
+    program = fields.Text(string='Program') 
     category = fields.Text(string = '.')
     location =fields.Char(string="Location")
     warehouse=fields.Char(string="Warehouse")
-    country_origin=fields.Char(string="Origen")
+    country_origin=fields.Char(string="Origin")
     region=fields.Char(string="Region")
-    lote=fields.Char(string="Lote")
+    lote=fields.Char(string="Lot")
     internal_code=fields.Char(string="Cod Int")
     edition=fields.Char(string="Edition")
     process=fields.Char(string="Process")
     score=fields.Float(string="Score")
-    macroprofile=fields.Char(string="Macro Pr.")
-    fuente=fields.Char(string="Fuente de datos")
+    macroprofile=fields.Char(string="Macroprofile")
+    fuente=fields.Char(string="Data Origin")
     state=fields.Selection(string="Order State ", related="order_id.state")
-    notes=fields.Text(string="Notas Adicionales")
-    farm=fields.Char(string="Finca")
+    farm=fields.Char(string="Farm")
     uom=fields.Selection(
         selection=[
             ('kg','Kilogramos'),
             ('lb','Libras'),
-        ],
-        string="Unidad de Medida",
-        default=None,
-        required=True
-        )
+        ],string="Unit of Measurement",default=None,required=True)
     boolean_booking=fields.Boolean(string=" ")
     sale_check=fields.Selection(
         selection=[
             ('ns','No venta'),
             ('sl','Venta'),
-        ],
-        string='Venta',
-        default=None
-    )
+        ],string='Sale',default=None)
 
-    booking_change=fields.Float(string="Venta")
-    feedback_selection= fields.Many2many(
-        'muestras.feedback',
-        string="Feedback"
-    )
+    booking_change=fields.Float(string="Sale Change")
+    feedback_selection= fields.Many2many('muestras.feedback',string="Feedback")
     feedback_notes=fields.Text(string="Notas Feedback")
     
     ### Campos para visualización en el menu de order line###
@@ -80,7 +80,7 @@ class Order_line(models.Model):
     display_type = fields.Selection(
         selection=[
             ('line_section', "Section"),
-            ('line0_note', "Note"),
+            ('line_note', "Note"),
         ], default=False)
 
     sequence=fields.Integer(string='Sequence',default=10)
@@ -98,7 +98,8 @@ class Order_line(models.Model):
             self.country_origin=self.product_id.country_origin
             self.lote=self.product_id.lote
             self.internal_code=self.product_id.internal_code
-            self.edition=self.product_id.edition
+            if self.product_id.product_id:
+                self.edition=self.product_id.edition
             if self.product_id.disponible_id:
                 self.process=self.product_id.fprocess
             else:    
@@ -116,5 +117,51 @@ class Order_line(models.Model):
     def _subtotal(self):
         if self.quantity:
             self.subtotal=self.price*self.booking
+        
 
+    def sell_lot(self):
+        return self.open_wizard_sale(action_type='sale',sale_check='sl')
 
+    def release_lot(self):
+        return self.open_wizard_sale(action_type='release',sale_check='ns')
+        # product = self.product_id
+        # product.write({
+        #     'disponible':product.disponible + self.booking,
+        #     'booking':product.booking - self.booking
+        # })
+        # self.line_state = 'declined'
+        # order_states = self.states()
+        # order = self.order_id
+        # if 'declined' in order_states and len(order_states)==1:
+        #     order.write({
+        #         'state':'cancelb'
+        #     })
+        # elif 'declined' in order_states and len(order_states)>1:
+        #     order.write({
+        #         'state':'partial_rejection'
+        #     })
+
+        print('hola')
+
+    def open_wizard_sale(self,action_type,sale_check):
+        return{
+            'type':'ir.actions.act_window',
+            'res_model' : 'muestras.wizard_sale',
+            'name':'Confirm Sample Order/Lot Sale',
+            'view_mode':'form',
+            'target':'new',
+            'context':{
+                'active_id':self.id,    
+                'active_model':'muestras.order.line',
+                'action_type':action_type,
+                'sale_check':sale_check,
+                'default_sale_check':sale_check,
+            }
+        }
+    
+    def states (self):
+        lines = self.env['muestras.order.line'].search([('order_id','=',self.order_id.id)])
+        states=[]
+        for line in lines :
+            if line.line_state not in states: states.append(self.line_state)
+        return states

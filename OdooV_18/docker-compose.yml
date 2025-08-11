@@ -1,4 +1,4 @@
-version: "3.1"
+
 
 services:
   web:
@@ -22,10 +22,12 @@ services:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_DB=postgres
     ports:
-      - "${DB_PORT}:5432"
+      - "5432:5432"
     volumes:
-      - ./postgresql:/var/lib/postgresql/data # Guarda los datos de la base de datos
-      - ./odoo-data:/var/lib/odoo  # <--- ESTA ES LA NUEVA LÍNEA
+      - ./postgresql:/var/lib/postgresql/data 
+      - ./odoo-data:/var/lib/odoo  
+      - odoo-data-vol:/var/lib/odoo
 
 volumes:
   pg_data:
+  odoo-data-vol:

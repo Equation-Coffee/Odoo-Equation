@@ -1,18 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <!-- <record id="equation_coffee_customer_program_view_search" model="ir.ui.view">
-        <field name="name">equation.coffee.customer.program.view.search</field>
-        <field name="model">equation.coffee_customer_program</field>
+    <record id="muestras.spoteu_search" model="ir.ui.view">
+        <field name="name">muestras.spoteu.form</field>
+        <field name="model">muestras.spoteu</field>
         <field name="arch" type="xml">
             <search string="Search customer coffee Program">
                 <field name="name"/>
-                <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
+                <field name="lote"/>
+                <!-- <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
                 <group expand="1" string="Group By">
                     <filter string="Company" name="company_id" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
-                </group>
+                </group> -->
             </search>
         </field>
-    </record> -->
+    </record>
 
     <record id="muestras.spoteu_form" model="ir.ui.view">
       <field name="name">muestras.spoteu.form</field>
@@ -20,8 +21,10 @@
       <field name="inherit_id" ref="muestras.father_form"/>
       <field name="mode">primary</field>
       <field name="arch" type="xml">
+
         <xpath expr="//group[@name='codification']/field[@name='lote']" position="after">
             <field name="default_code"/>
+            <field name="stock_id"/>
         </xpath>
         <xpath expr="//group[@name='group_general']" position="inside">
             <field name="offeringCat" widget="many2many_tags"/>
@@ -35,6 +38,13 @@
         <field name="type">list</field>
         <field name="arch" type="xml">
             <list string="Inventario SPOT EU">
+                <header>
+                    <button name="update_button"
+                            string="Update"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-check" />
+                </header>                
                 <field name="name"/>
                 <field name="lote"/>
                 <field name="project"/>
@@ -47,18 +57,18 @@
                 <field name="edition"/>
                 <field name="sca_actual"/>
                 <field name="macroprofile"/>
+                <field name="quantity_kg"/>
             </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="muestras.spoteu_action_window">
-      <field name="name">SPOT X Europe</field>
+      <field name="name">Europe Inventory</field>
       <field name="res_model">muestras.spoteu</field>
       <field name="view_mode">list,form</field>
       <field name="type">ir.actions.act_window</field>
       <field name="context">{'trigger_sync':True}</field>
       <field name="domain">[('available','=','dis')]</field>
-
     </record>
 
 </odoo>

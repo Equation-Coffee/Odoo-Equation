@@ -5,15 +5,12 @@ odoo.define('muestras.AutoSyncOnLoad', function (require) {
     const rpc = require('web.rpc');
 
     ListController.include({
-        /**
-         * Sobrecargamos el inicio de la vista
-         */
         willStart: function () {
-            if (this.modelName === 'muestras.prueba') { // Ajusta al modelo asociado
+            if (this.modelName === 'muestras.prueba') { 
                 console.log('Sincronizando datos al cargar la vista...');
                 rpc.query({
                     model: 'muestras.modelo',
-                    method: '_atlas', // Llamamos al método _atlas en el backend
+                    method: '_atlas',
                     args: [],
                 }).then(function (result) {
                     console.log('Sincronización completada:', result);

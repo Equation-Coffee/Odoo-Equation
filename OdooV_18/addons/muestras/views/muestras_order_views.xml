@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="muestras.order_search" model="ir.ui.view">
+        <field name="name">muestras.order.search</field>
+        <field name="model">muestras.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Order Line">
+                <!-- <field name="name"/> -->
+                <field name="name"/>
+                <field name="partner_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="muestras.orderform_list">
+        <field name="name">muestras.order.form</field>
+        <field name="model">muestras.order</field>
+        <field name="arch" type="xml">
+            <form>
+            <header>
+                <!--TODO: Result from converting "states='draft'" attribute into an 'invisible' attribute
+                    Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+                <button name="open_wizard_crm" string="Send Sample" type="object" invisible="state not in ['draft']" class="btn-primary" data-hotkey="g" context="{'validate_analytic':True}"/>
+                <!--TODO: Result from converting "states='sent'" attribute into an 'invisible' attribute
+                    Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+                <button name="cancel_book" string="Release Sample" type="object" invisible="state not in ['sent']" context="{'validate_analytic': True}"/>
+                <!-- <button name="cancel_shipment" string="Cancel Shipment" type="object" states="sent"
+                context="{'validate_analytic': True}"/> -->
+                <!--TODO: Result from converting "states='sent'" attribute into an 'invisible' attribute
+                    Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+                <button name="sale_order" string="Create Sales Order" type="object" invisible="state not in ['sent']" class="btn-primary" context="{'validate_analytic': True}"/>
+                <!--TODO: Result from converting "states='draft'" attribute into an 'invisible' attribute
+                    Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
+                <button name="sale_order_without_shipment" string="Create Sales Order Without Sample Shipment" type="object" invisible="state not in ['draft']" class="btn-primary" context="{'validate_analytic': True}"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+            </header>
+            <sheet>
+                <div class="oe_title">
+                <h1>
+                    <field name="name" readonly="1"/>
+                </h1>
+                </div>
+                <group name="sale_header">
+                <group name="partner_details">
+                <!-- context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" -->
+                    <field name="partner_id" widget="res_partner_many2one" options="{'always_reload': True}"/>
+                    <!-- <field name="country_customer" attrs="{'readonly':[('state','!=','draft')]}"/> -->
+                    <field name="partner_contact" readonly="state != 'draft'"/> 
+                    <field name="partner_country" readonly="state != 'draft'"/>
+                    <field name="partner_address" readonly="state != 'draft'"/>
+                    <field name="partner_city" readonly="state != 'draft'"/>
+                    <field name="partner_state" readonly="state != 'draft'"/>
+                    <field name="partner_phone" readonly="state != 'draft'"/>
+                    <field name="partner_email" readonly="state != 'draft'"/>
+                    <field name="partner_zip" readonly="state != 'draft'"/>
+                    <field name="boolean_customs_info" readonly="state != 'draft'"/>
+                    <field name="customs_info" invisible="not boolean_customs_info" required="boolean_customs_info" readonly="state != 'draft'"/>
+                    <field name="custom_location"/>
+                    
+                </group>
+                <group name="sample_details">
+                    <field name="create_date" invisible="state == 'draft'"/>
+                    <field name="deadline" invisible="state == 'draft'"/>
+                    <field name="release_date" invisible="state != 'cancelb'"/>
+                    <field name="typesample" widget="res_partner_may2one"/>
+                    <field name="coffee_sample" widget="res_partner_may2one"/> 
+                    <field name="booking"/>
+                    <field name="location"/>
+                    <field name="region"/>
+                    <field name="state" invisible="1"/>
+                    <field name="salesperson" widget="res_partner_many2one" readonly="1"/>
+                    <field name="salesperson_header" widget="res_partner_many2one"/>
+                    <field name="crm_team"/>
+                    <field name="lote_quantity"/>
+                    <field name="company" widget="many2many_tags"/>
+                </group>
+                </group>
+                <notebook>
+                <page string="Order Lines" name="order_lines">
+                    <field name="order_lines" widget="section_and_note_one2many" mode="list,kanban,form" readonly="state != 'draft'">
+                    <form>
+                        <field name="display_type" invisible="1"/>
+                        <field name="sequence" invisible="1"/>
+                        <field name="order_id" invisible="1"/>
+                        <field name="state" invisible="1"/>
+                        <field name="product_id"/>
+
+                        
+                        <!-- <field name="product_uom_category_id" invisible="1"/> -->
+                        <group>
+                        </group>
+                    </form>
+                    <list string="Sales Order Lines" editable="bottom" class="specific_table_class">
+                        <field name="state" invisible="1"/>
+                        <control>
+                        <create name="add_product_control" string="Add a product" invisible="state != 'draft'"/>
+                        <create name="add_section_control" string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                        </control>
+                        <!-- <field name="order_id"/>  -->
+                        <field name="product_id" style="white-space:normal"/>
+                        <field name="lote"/>
+                        <field name="farm"/>
+                        <field name="project"/>
+                        <field name="program"/>
+                        <field name="variety" style="font-size: 5px;"/>
+                        <field name="location"/>
+                        <field name="process"/>
+                        <field name="country_origin"/>
+                        <field name="region"/>
+                        <field name="uom"/>
+                        <field name="edition"/>
+                        <field name="score" style="font-size: 5px;"/>
+                        <field name="macroprofile"/>
+                        <field name="quantity"/>
+                        <field name="boolean_booking"/>
+                        <field name="booking" invisible="not boolean_booking"/>
+                        <field name="price"/>
+                        <field name="sale_check"/>
+                        <field name="feedback_selection"/>
+                        <field name="subtotal"/>
+                        <!-- <field name="sale_check" attrs="{'invisible': [('state', '=', 'draft')]}"/> -->
+                    </list>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total" style="margin-top: 20px; padding-top: 10px; border-top: 2px solid #dedede;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                            <div style="flex: 1; text-align: left;">
+                                <label for="total" string="Total Amount:" style="font-size: 16px; font-weight: bold; color: #555555;"/>
+                            </div>
+                            <div style="flex: 1; text-align: right;">
+                                <field name="total" readonly="1" widget="monetary" options="{'currency_field': 'currency_id'}" style="font-size: 18px; font-weight: bold; color: #1D8FEB;"/>
+                            </div>
+                        </div>
+                    </group>
+                </page>   
+                <page string="Other Info" name="other_information">
+                </page>
+                <page string="Customer Signature" name="customer_signature">
+                </page>
+                <page string="Customer Information" name="customer_signature">
+                </page>
+                </notebook>
+                <group>
+                    <field name="notes" placeholder="Escribe tus notas aquí..." readonly="state != 'draft'"/>  
+                </group>
+
+            </sheet>
+            <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record model ="ir.ui.view" id="muestras.order_list">
+        <field name="name">muestras.order.list</field>
+        <field name="model">muestras.order</field>
+        <field name="arch" type="xml">
+            <list>
+            <field name="name"/>
+            <field name="create_date"/>
+            <field name="partner_id"/>
+            <field name="salesperson_header"/>
+            <!-- <field name="project"/>
+            <field name="category"/>
+            <field name="edition"/>                   -->
+            <field name="booking"/>
+            <field name="country"/>
+            <field name="location"/>
+            <field name="release_date"/>
+            <field name="lote_quantity"/> 
+            <field name="days"/>   
+            <field name="state" decoration-success="state == 'sale'" 
+                decoration-info="state == 'draft' or state == 'sent'"
+                decoration-danger="state == 'cancels'"
+                decoration-warning="state == 'cancelb' or state=='cancelba' or state=='expiring'"  widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.order_action_window">
+      <field name="name">Solicitudes de Muestras</field>
+      <field name="res_model">muestras.order</field>
+      <field name="view_mode">list,form,graph,pivot,kanban</field>
+    </record>
+
+</odoo>

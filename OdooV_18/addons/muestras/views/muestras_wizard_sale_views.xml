@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_order_line_wizard_form" model="ir.ui.view">
+      <field name="name">muestras.wizard_sale.form</field>
+      <field name="model">muestras.wizard_sale</field>
+      <field name="arch" type="xml">
+          <form string="Editar Líneas de la Orden">
+              <group>
+                  <field name="order_id" readonly="1"/>
+                  <field name="active_model" readonly="1"/>
+                  <field name="line_id">
+                      <list editable="bottom" delete="false" create="false">  
+                          <field name="product_id" readonly="1"/>
+                          <field name="booking" readonly="1"/>
+                          <field name="booking_change"/>
+                          <field name="sale_check" readonly="('active_model','muestras.order.line')"/>
+                          <field name="feedback_selection" widget="many2many_tags"/>
+                          <field name="feedback_notes"/>
+                          <field name="line_id" column_invisible="1"/>
+                      </list>
+                  </field>
+              </group>
+              <footer>
+                  <button string="Confirm" type="object" name="confirm" class="btn-primary"/>
+                  <button string="Cancel" class="btn-secondary" special="cancel"/>
+              </footer>
+          </form>
+      </field>
+    </record>
+
+    <record id="muestras.wizard_sale_window" model="ir.actions.act_window">
+        <field name="name">Confirm Sample Order/Lot Sale</field>
+        <field name="res_model">muestras.wizard_sale</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

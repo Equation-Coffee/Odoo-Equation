@@ -10,33 +10,46 @@ _logger = logging.getLogger(__name__)
 
 class Order(models.Model):
     _name="muestras.order"
+    _inherit = ['mail.thread','mail.activity.mixin']
     _description="Vista de order de muestars"
 
     ### FIEELDS ###
-    name=fields.Char(string ="Order Reference",required=True,
-        copy=False,readonly=True,index= 'trigram',default=lambda self: _('New')) 
-    partner_id = fields.Many2one(comodel_name="res.partner",string="Costumer"
-        #  ,required=True,readonly=False,change_default=True,index=True,tracking=1
-        )
-    country_partner=fields.Char(string="Country",index=True)
+    ### Order Info ###
+    name=fields.Char(string ="Order Reference",required=True,copy=False,readonly=True,index= 'trigram',default=lambda self: _('New'))
     state = fields.Selection(
         selection=[
             ('draft',"Draft"),
             ('sent',"Sample Shipment"),
             ("cancels","Shipment Cancelled"),
-            ("cancelb","Booking Cancelled"),
+            ("cancelb","Declined"),
             ("expering","Reserve to Expire"),
+            ("partial_rejection","Partial Rejection"),
+            ("partial_sale","Partial Sale"),
             ("cancelba","Booking Cancelled (Auto)"),
             ('sale',"Order Sale"),
-        ],
-        string = "Status",
-        readonly=True, copy=False,index=True,
-        default='draft'
-    )
-    internal_code=fields.Char(string="Interal Code",index=True)
-    project=fields.Char(string="Project",index=True)
-    category=fields.Char(string="Category",index=True)
-    edition=fields.Char(string="Edition",index=True)
+        ],string = "Status",readonly=True, copy=False,index=True,default='draft',tracking=True)
+    date_order=fields.Datetime(string='Order Date',required=True,readonly=False,copy=False,help="Creation date of draft/sent orders,\nConfirmation date of confirmed orders.",default=fields.Datetime.now)
+    order_lines=fields.One2many(string="Ordenes de compra",comodel_name='muestras.order.line',inverse_name='order_id',copy=True,auto_join=True)
+    coffee_sample=fields.Selection(
+        selection=[
+            ('pss','Pre Shipment Sample'),
+            ('ss','Shipment Sample'),
+            ('cs','Comercial Sample'),
+            ('rp','Replicable Sample'),
+        ],string="Coffee Sample Type",default=None,required=True)
+    typesample=fields.Selection(
+        selection=[
+            ('gre',"Verde"),
+            ('tos',"Tostado"),
+        ],string="Sample Type",default=None,required=True)
+    release_date=fields.Date(string="Release Date")
+    notes = fields.Text(string="Notas Adicionales",required=False)
+    custom_location=fields.Selection(
+        selection=[
+            ('pd','Por Defecto'),
+            ('col','Colombia'),
+            ('usa','United States'),
+        ],string="Equipo de Calidades",default='pd',required=True)
     quantity=fields.Char(string="Amount of kg reserved",index=True,store=True)
     booking=fields.Float(string="Amount of Booking",index=True,store=True,compute="_kg_reserved",default=0.0)
     region=fields.Char(string="Región Comercial",index=True,store=True,compute="region_order")
@@ -46,85 +59,24 @@ class Order(models.Model):
     country=fields.Char(string="Región Comercial",index=True)
     date=fields.Date(string="Date",index=True,default=None)
     days=fields.Integer(string="Days")
-    salesperson=fields.Many2one(string="Salesperson ",comodel_name="res.users",readonly=True,
-        default=lambda self: self.env.user)
+    lote_quantity=fields.Integer(string="Número de Lotes",store=True,compute='_number_lots')
+    sample_quantity=fields.Float(string="Cantidad Total de muestra",store=True,compute="")
+    salesperson=fields.Many2one(string="Salesperson ",comodel_name="res.users",readonly=True,default=lambda self: self.env.user)
+    salesperson_header=fields.Many2one(comodel_name='res.users',string="Main Salesperson",default=lambda self: self.env.user,tracking=True)
     crm_team=fields.Char(string="Equipo de Ventas",store=True,compute="crm_team_compute")
     email_sent=fields.Boolean(string="Email Send")
     email_content = fields.Html(string='Email Content', sanitize=False)
     email_to=fields.Char(string="Recipient")
     quotation=fields.Many2one(string="Quotation")
     total=fields.Float(string="Total Amount",store=True,compute="total_sample_price")
-    salesperson_header=fields.Many2one(comodel_name='res.users',
-        string="Main Salesperson",
-        default=lambda self: self.env.user)
-    company=fields.Many2many(
-        'res.company',
-        string="Company"
-    )
+    company=fields.Many2many('res.company',string="Company")
 
-    custom_location=fields.Selection(
-        selection=[
-            ('pd','Por Defecto'),
-            ('col','Colombia'),
-            ('usa','United States'),
-        ],
-        string="Equipo de Calidades",
-        default='pd',
-        required=True
-    )
- 
-
-
-
-    date_order=fields.Datetime(string='Order Date',required=True,readonly=False,
-        copy=False,help="Creation date of draft/sent orders,\nConfirmation date of confirmed orders.",default=fields.Datetime.now)
-    
-    ### Partner -based compute fields ##
-
-    partner_invoice_id = fields.Many2one(comodel_name='res.partner',
-        string="Invoice Adress", compute='_compute_partner_invoice_id',
-        store=True, readonly=False,required=True,precompute=True
+    ### Parnter ### 
+    partner_id = fields.Many2one(comodel_name="res.partner",string="Costumer",tracking=True
+        #  ,required=True,readonly=False,change_default=True,index=True,tracking=1
         )
-    order_lines=fields.One2many(string="Ordenes de compra",comodel_name='muestras.order.line',
-        inverse_name='order_id',copy=True,auto_join=True
-        )
-    coffee_sample=fields.Selection(
-        selection=[
-            ('pss','Pre Shipment Sample'),
-            ('ss','Shipment Sample'),
-            ('cs','Comercial Sample'),
-            ('rp','Replicable Sample'),
-        ],
-        string="Coffee Sample Type",
-        default=None,
-        required=True
-        )
-    typesample=fields.Selection(
-        selection=[
-            ('gre',"Verde"),
-            ('tos',"Tostado"),
-        ],
-        string="Sample Type",
-        default=None,
-        required=True
-        )
-
-    #### CUSTOMER FIELDS #####
-    # contact =fields.    
-    country_customer=fields.Char(string="Country",index=True,compute='_compute_country_customer',default=None)
-    delivery_address=fields.Char(string="Delivery Address",index=True)
-    # postal_code=fields
-    # phone_contact
-    # email_contact
-    # customs   ## ADUANAS    
-
-    release_date=fields.Date(string="Release Date")
-
-
-
-    # ### COMPUTE FIELDS ###
-
-    notes = fields.Text(string="Notas Adicionales",required=False) 
+    country_partner=fields.Char(string="Country",index=True)
+    partner_invoice_id = fields.Many2one(comodel_name='res.partner',string="Invoice Adress", compute='_compute_partner_invoice_id',store=True, readonly=False,required=True,precompute=True,tracking=True)
     partner_country=fields.Char(string="Country",required=True)
     partner_address=fields.Char(string="Address",required=True)
     partner_city=fields.Char(string="City",required=True)
@@ -135,8 +87,30 @@ class Order(models.Model):
     partner_contact=fields.Char(string="Contact",required=True,default=" ")
     boolean_customs_info=fields.Boolean(string="Información Adicional Requerida")
     customs_info=fields.Char(string="Custom Info")
-    lote_quantity=fields.Integer(string="Número de Lotes",store=True,compute='_number_lots')
-    sample_quantity=fields.Float(string="Cantidad Total de muestra",store=True,compute="")
+    country_customer=fields.Char(string="Country",index=True,compute='_compute_country_customer',default=None)
+    delivery_address=fields.Char(string="Delivery Address",index=True,tracking=True)
+
+    ### Don't related fields ###    
+    internal_code=fields.Char(string="Interal Code",index=True)
+    project=fields.Char(string="Project",index=True)
+    category=fields.Char(string="Category",index=True)
+    edition=fields.Char(string="Edition",index=True)
+
+
+
+    ### METHODS ###
+    ### Overrides ORM - Initialization ###
+    @api.model
+    def create(self,vals):
+        if vals.get('name',_('New')) ==_('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('muestras.order')
+        if 'salesperson' not in vals:
+            vals['salesperson']=self.env.user.id
+        return super(Order,self).create(vals)
+    
+
+    ### Validation
+
     
     @api.onchange('partner_id')
     def partner_info(self):
@@ -148,8 +122,6 @@ class Order(models.Model):
             self.partner_email=self.partner_id.email
             self.partner_zip=self.partner_id.zip
             self.partner_state=self.partner_id.state_id.name
-
-
 
     @api.depends('partner_id')
     def _compute_partner_invoice_id(self):
@@ -166,14 +138,6 @@ class Order(models.Model):
                 order.country_customer=None
 
 
-
-    @api.model
-    def create(self,vals):
-        if vals.get('name',_('New')) ==_('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('muestras.order')
-        if 'salesperson' not in vals:
-            vals['salesperson']=self.env.user.id
-        return super(Order,self).create(vals)
 
     def _update_days(self):
         records = self.search([])
@@ -196,28 +160,25 @@ class Order(models.Model):
 #### ACTION METHODS ####
     def send_sample(self):
         try:
-            # Validación de disponibilidad de productos
             for line in self.order_lines:
                 product = line.product_id
                 if product.disponible < line.booking:
                     raise UserError(f"Not enough quantity available for lot {product.lote}.")
-                else:
-                    product.disponible -= line.booking
-                    product.booking += line.booking
-
-            # Si el bucle se completa correctamente, ejecuta el resto
+            for line in self.order_lines:
+                product = line.product_id
+                product.disponible -= line.booking
+                product.booking += line.booking
+                line.line_state = 'active'
             self.state = 'sent'
             self.create_date = date.today()
             self.deadline = date.today() + timedelta(days=21)
             region_list = self.regions()
             self.recipient(region_list)
-
-            # Envío del correo electrónico
             template = self.env.ref('muestras.muestras_email_template_order')
             if template:
                 template.send_mail(self.id, force_send=True)
                 self.email_sent = True
-                self.email_content = self.generate_table_html()
+                # self.email_content = self.generate_table_html()
 
         except UserError as e:
             # Manejo de errores específicos
@@ -389,7 +350,7 @@ class Order(models.Model):
                     email_to+=f",{mail}"
         elif self.custom_location=='usa':
             for mail in usa:
-                if mail not in mails:
+                if mail not in mails:   
                     mails.append(mail)
                     email_to+=f",{mail}"
         self.email_to=email_to
@@ -399,8 +360,7 @@ class Order(models.Model):
         for line in self.order_lines:
             region=line.product_id.location
             if region not in regions_sample:
-                regions_sample.append(region)
-
+                regions_sample.append(region)   
         return regions_sample
 
 
@@ -504,6 +464,11 @@ class Order(models.Model):
             'view_mode': 'form',
             'name':'Sale',
             'target': 'new',  # Mostrar como ventana emergente
+            'context':{
+                'order_id':self.id,
+                'active_model':'muestras.order',
+                
+            }
         }
     
     def open_wizard_crm(self):
@@ -522,7 +487,7 @@ class Order(models.Model):
 
     def create_crm_lead(self):
         # Buscar la etapa específica (estado fijo)
-        stage = self.env['crm.stage'].search([('name', '=', 'Sample Request')], limit=1)
+        stage = self.env['crm.stage'].search(['|',('id', '=', 12),('name','=',"Sample Management")], limit=1)
         if not stage:
             raise ValueError("La etapa 'Nueva etapa' no existe en el pipeline de CRM.")
 
@@ -545,7 +510,7 @@ class Order(models.Model):
         lead = self.env['crm.lead'].browse(lead_id)
         if not lead.exists():
             return False
-        stage = self.env['crm.stage'].search([('name', '=', 'Sample Request')], limit=1)
+        stage = self.env['crm.stage'].search(['|',('id', '=', 12),('name','=',"Sample Management")], limit=1)
         if not stage:
             raise ValueError("La etapa 'Nueva etapa' no existe en el pipeline de CRM.")
         lead.write({
@@ -559,83 +524,170 @@ class SaleWizard(models.TransientModel):
     _name = "muestras.wizard_sale"
     _description="Wizard de Compra"
 
-    order_id = fields.Many2one('muestras.order', string='Orden', required=True)
-    line_id = fields.One2many('muestras.wizard_sale.line', 'wizard_id', string="Muestras")
+    order_id = fields.Many2one('muestras.order', string='Order Name', required=True)
+    line_id = fields.One2many('muestras.wizard_sale.line', 'wizard_id', string="Samples")
+    active_model = fields.Char(string='Active Model')
 
     @api.model
     def default_get(self, fields):
         res = super(SaleWizard, self).default_get(fields)
         active_id = self.env.context.get('active_id')
+        active_model = self.env.context.get('active_model')
+        action_type = self.env.context.get('action_type')
+        sale_check = self.env.context.get('sale_check')
+        res['active_model']= active_model
         
-        if active_id:
-            order = self.env['muestras.order'].browse(active_id)
-            if order:
-                lines = []
-                for line in order.order_lines:
-                    lines.append((0, 0, {
-                        'line_id': line.id,
-                        'product_id': line.product_id.id,
-                        'variety': line.variety,
-                        'program': line.program,
-                        'quantity': line.quantity,
-                        'booking': line.booking,
-                        'sale_check': line.sale_check,
-                    }))
-                res.update({'order_id': order.id, 'line_id': lines})
+        if not (active_model and active_id):
+            return res
+        record = self.env[active_model].browse(active_id)
+        lines = []
+        if active_model == 'muestras.order':
+            order = record
+            for line in order.order_lines:
+                lines.append((0, 0, {
+                    'line_id': line.id,
+                    'product_id': line.product_id.id,
+                    'variety': line.variety,
+                    'program': line.program,
+                    'quantity': line.quantity,
+                    'booking': line.booking,
+                    'sale_check': line.sale_check,
+                }))
+            res.update({'order_id': order.id, 'line_id': lines})
+        elif active_model == 'muestras.order.line':
+            line = record
+            lines.append((0,0,{
+                    'line_id': line.id,
+                    'product_id': line.product_id.id,
+                    'variety': line.variety,
+                    'program': line.program,
+                    'quantity': line.quantity,
+                    'booking': line.booking,
+                    'sale_check':sale_check,                
+            }))
+            res.update({'order_id':line.order_id.id,'line_id':lines})
         
         return res
 
-    def apply_changes_l(self):
-        """Aplica cambios a las líneas de la orden de venta y actualiza stock"""
-        if not self.order_id:
-            raise UserError("No se ha encontrado una orden de venta válida.")
+    def confirm(self):
+        action_type = self.env.context.get('action_type')
+        if self.active_model == 'muestras.order':
+            if not self.order_id:
+                raise UserError("No se ha encontrado una orden de venta válida.")
 
-        for wizard_line in self.line_id:
-            if not wizard_line.line_id:
-                continue  # Si la línea no está vinculada, omitir
+            for wizard_line in self.line_id:
+                if not wizard_line.line_id:
+                    continue  # Si la línea no está vinculada, omitir
 
-            # Actualizar la línea de pedido con write()
-            wizard_line.line_id.write({
-                'sale_check': wizard_line.sale_check,
-                'booking_change': wizard_line.booking_change,
-                'feedback_notes': wizard_line.feedback_notes,
-                'feedback_selection': wizard_line.feedback_selection
-            })
+                # Actualizar la línea de pedido con write()
+                wizard_line.line_id.write({
+                    'sale_check': wizard_line.sale_check,
+                    'booking_change': wizard_line.booking_change,
+                    'feedback_notes': wizard_line.feedback_notes,
+                    'feedback_selection': wizard_line.feedback_selection
+                })
 
-            product = wizard_line.line_id.product_id
+                product = wizard_line.line_id.product_id
 
-            if self.order_id.state == 'sent':
-                sale_extra = wizard_line.booking_change - wizard_line.booking
+                if self.order_id.state == 'sent':
+                    sale_extra = wizard_line.booking_change - wizard_line.booking
 
-                if wizard_line.sale_check == 'sl':
+                    if wizard_line.sale_check == 'sl':
+                        if product.disponible < sale_extra:
+                            raise UserError(f"Not enough quantity available for the lot {product.lote}.")
+                        else:
+                            product.write({
+                                'disponible': product.disponible - sale_extra,
+                                'booking': product.booking - wizard_line.booking,
+                                'sale': product.sale + wizard_line.booking_change
+                            })
+
+                    elif wizard_line.sale_check == "ns":
+                        product.write({
+                            'disponible': product.disponible + wizard_line.booking,
+                            'booking': product.booking - wizard_line.booking
+                        })
+
+                elif self.order_id.state == 'draft':
+                    if wizard_line.sale_check == 'sl':
+                        if product.disponible < wizard_line.booking_change:
+                            raise UserError(f"Not enough quantity available for the lot {product.lote}.")
+                        else:
+                            product.write({
+                                'disponible': product.disponible - wizard_line.booking_change,
+                                'sale': product.sale + wizard_line.booking_change
+                            })
+
+            # Si todo está bien, actualizar el estado de la orden
+            self.order_id.write({'state': "sale"})
+            return {'type': 'ir.actions.act_window_close'}
+        elif self.active_model == 'muestras.order.line':
+            _logger.info('Entrando al cilco')
+            for wizard_line in self.line_id :
+                if not wizard_line.line_id :
+                    continue
+
+                if action_type == 'sale':
+                    wizard_line.line_id.write({
+                        'sale_check': wizard_line.sale_check,
+                        'booking_change': wizard_line.booking_change,
+                        'feedback_notes': wizard_line.feedback_notes,
+                        'feedback_selection': wizard_line.feedback_selection,
+                        'line_state':'sold'
+                    })
+                    product = wizard_line.line_id.product_id
+                    sale_extra = wizard_line.booking_change - wizard_line.booking
                     if product.disponible < sale_extra:
-                        raise UserError(f"No hay suficiente cantidad disponible para el lote {product.lote}.")
+                        raise UserError(f"Not enough quantity available for the lot {product.lote}.")
                     else:
                         product.write({
                             'disponible': product.disponible - sale_extra,
                             'booking': product.booking - wizard_line.booking,
                             'sale': product.sale + wizard_line.booking_change
                         })
-
-                elif wizard_line.sale_check == "ns":
-                    product.write({
-                        'disponible': product.disponible + wizard_line.booking,
-                        'booking': product.booking - wizard_line.booking
+                    order_states = self.states()
+                    order = self.order_id
+                    if 'sold' in  order_states and len(order_states)==1:
+                        order.write({
+                            'state':'sale',
+                        })
+                    elif 'sold' in order_states and len(order_states)>1:
+                        order.write({
+                            'state':'partial_sale',
+                        })
+                elif action_type == 'release':
+                    wizard_line.line_id.write({
+                        'sale_check': wizard_line.sale_check,
+                        'booking_change': wizard_line.booking_change,
+                        'feedback_notes': wizard_line.feedback_notes,
+                        'feedback_selection': wizard_line.feedback_selection,
+                        'line_state':'declined'
                     })
-
-            elif self.order_id.state == 'draft':
-                if wizard_line.sale_check == 'sl':
-                    if product.disponible < wizard_line.booking_change:
-                        raise UserError(f"No hay suficiente cantidad disponible para el lote {product.lote}.")
-                    else:
-                        product.write({
-                            'disponible': product.disponible - wizard_line.booking_change,
-                            'sale': product.sale + wizard_line.booking_change
+                    product = wizard_line.line_id.product_id
+                    product.write({
+                            'disponible': product.disponible + wizard_line.booking,
+                            'booking': product.booking - wizard_line.booking
+                        })
+                    order_states = self.states()
+                    order = self.order_id
+                    if 'declined' in order_states and len(order_states)==1:
+                        order.write({
+                            'state':'cancelb'
+                        })
+                    elif 'declined' in order_states and len(order_states)>1:
+                        order.write({
+                            'state':'partial_rejection'
                         })
 
-        # Si todo está bien, actualizar el estado de la orden
-        self.order_id.write({'state': "sale"})
-        return {'type': 'ir.actions.act_window_close'}
+
+
+    def states(self):
+        lines = self.env['muestras.order.line'].search([('order_id','=',self.order_id.id)])
+        states =[]
+        for line in lines :
+            if line.line_state not in states: states.append(line.line_state)
+        return states
+
 
 
 class Sale_wizard_line(models.TransientModel):
@@ -645,11 +697,11 @@ class Sale_wizard_line(models.TransientModel):
     wizard_id=fields.Many2one('muestras.wizard_sale',string='Wizard',required=True)
     line_id=fields.Many2one('muestras.order.line',string='Linea Original',required=False,ondelete='cascade')
     product_id=fields.Many2one('muestras.allproducts',string='Product',ondelete='cascade',required=False)
-    variety=fields.Char(string='Variedad',readonly=True)
-    program=fields.Char(string='Categoria',readonly=True)
+    variety=fields.Char(string='Variety',readonly=True)
+    program=fields.Char(string='Program',readonly=True)
     quantity=fields.Float(string='Cantidad',readonly=True)
-    booking=fields.Float(string="Reserva",readonly=True)
-    booking_change=fields.Float(string="Cambios en la Reserva")
+    booking=fields.Float(string="Booking",readonly=True)
+    booking_change=fields.Float(string="Sale Quantity")
     sale_quantity=fields.Float(string='Venta',readonly=True)
     verification=fields.Boolean(string='Verificacion')
     sale_check=fields.Selection(
@@ -657,15 +709,14 @@ class Sale_wizard_line(models.TransientModel):
             ('ns','No venta'),
             ('sl','Venta'),
         ],
-        string='Venta',
-        default=None,
-        required=True
+        string='Sale?',
+        required=True,default=lambda self: self.env.context.get('sale_check', False)
     )
     feedback_selection= fields.Many2many(
         'muestras.feedback',
         string="Feedback"
     )
-    feedback_notes=fields.Text(string="Notas Feedback")
+    feedback_notes=fields.Text(string="Feedback Notes")
 
 
 class CRMConfirmation(models.TransientModel):

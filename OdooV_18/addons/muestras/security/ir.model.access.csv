@@ -19,7 +19,7 @@ access_muestras_inventario_admin,muestras.inventario,model_muestras_inventario,m
 access_muestras_disponible,muestras.disponible,model_muestras_disponible,muestras.muestras_disp,1,1,1,1
 access_muestras_disponible_admin,muestras.disponible,model_muestras_disponible,muestras.muestras_admin,1,1,1,1
 access_muestras_alldisponibles,muestras.alldisponibles,model_muestras_alldisponibles,base.group_user,1,1,1,1
-access_muestras_spoteu,muestras.spoteu,model_muestras_spoteu,muestras.muestras_spoteu,1,1,1,1
+access_muestras_spoteu,muestras.spoteu,model_muestras_spoteu,muestras.muestras_spoteu,1,0,0,0
 access_muestras_spoteu_admin,muestras.spoteu,model_muestras_spoteu,muestras.muestras_admin,1,1,1,1
 access_muestras_offeringcat,muestras.offeringcat,model_muestras_offeringcat,base.group_user,1,1,1,1
 access_muestras_wizard_sale,muestras.wizard_sale,model_muestras_wizard_sale,base.group_user,1,1,1,1

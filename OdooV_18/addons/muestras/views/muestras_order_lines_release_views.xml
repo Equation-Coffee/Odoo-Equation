@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="muestras.order_line_release_search" model="ir.ui.view">
+        <field name="name">muestras.order.line.release.search</field>
+        <field name="model">muestras.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Order Line">
+                <!-- <field name="name"/> -->
+                <field name="lote"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="order_line_release_form_view">
+        <field name="name">order.line.release.form</field>
+        <field name="model">muestras.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Order Line Details">
+                <sheet>
+                    <group>
+                      <field name="product_id"/>
+                      <field name="quantity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="order_line_release_list_view">
+      <field name="name">muestras.order.line.release.list</field>
+      <field name="model">muestras.order.line</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="product_id"/>
+          <field name="project"/>
+          <field name="program"/>
+          <field name="variety"/>
+          <field name="process"/>
+          <field name="order_name"/>
+          <field name="order_create_date"/>
+          <field name="line_state"/>
+            <!-- fecha de venciemiento
+            dias  -->
+          <field name="salesperson_name"/>
+          <field name="feedback_selection" widget="many2many_tags"/>
+          <field name="sale_check"/>
+          <field name="partner_name"/>
+          <button name="sell_lot" string="Sell" type="object" class="oe_link" icon="fa-check"/>
+          <button name="release_lot" string="Release Sample" type="object" class="oe_link text-danger" icon="fa-times"/>
+          <!-- region
+          vendedor
+          estado -->
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_order_line_release_list">
+        <field name="name">Samples Declined</field>
+        <field name="res_model">muestras.order.line</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="order_line_list_view"/>
+        <field name="type">ir.actions.act_window</field>  
+        <field name="context">{'trigger_sync':True}</field>
+        <field name="domain">[('line_state','!=','active')]</field>
+        <field name="target">main</field>
+    </record>
+
+
+
+</odoo>

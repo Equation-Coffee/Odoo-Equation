@@ -34,7 +34,7 @@
                                         <th>Proceso</th>
                                         <th>Variedad</th>
                                         <th>Muestra (g)</th>
-                                        <th>Edición</th>
+                                        <th>Categoria/Edición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,8 +56,12 @@
                                                 <td><t t-esc="line.process"/></td>
                                                 <td><t t-esc="line.variety"/></td>
                                                 <td><t t-esc="line.quantity"/></td>
-                                                <td><t t-esc="line.edition"/></td>
-
+                                                <t t-if="line.product_id.disponible_id">
+                                                    <td><t t-esc="line.product_id.disponible_id.main_category.name"></td>
+                                                </t>
+                                                <t t-if="not line.product_id.disponible_id">
+                                                    <td><t t-esc="line.edition"></td>
+                                                </t>
                                             </tr>
                                         </t>
                                     </t>

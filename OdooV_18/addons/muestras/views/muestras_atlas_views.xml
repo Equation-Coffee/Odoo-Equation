@@ -4,7 +4,7 @@
       <field name="name">muestras.prueba.list</field>
       <field name="model">muestras.prueba</field>
       <field name="arch" type="xml">
-        <list js_class="button_atlas_update">
+        <list js_class="button_atlas_update" decoration-danger="needsRegionUpdate" decoration-success="update_boolean">
           <header>
             <button name="update"
                         string="Update"
@@ -13,6 +13,8 @@
                         icon="fa-check" />
           </header>
           <field name="lote"/>
+          <field name="needsRegionUpdate" invisible='1'/>
+          <field name="update_boolean" invisible='1'/>  
           <field name="farm"/>
           <field name="project"/>
           <field name="program"/>
@@ -31,6 +33,29 @@
         </list>
       </field>
     </record>
+
+    <record id="muestras.prueba_search" model="ir.ui.view">
+        <field name="name">muestras.prueba.search</field>
+        <field name="model">muestras.prueba</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Campos de búsqueda rápida -->
+                <field name="lote"/>
+                <field name="equation_project"/>
+
+                <!-- Filtros -->
+                <!-- <filter name="filtro_1" string="Filtro 1" domain="[('estado','=','activo')]"/>
+                <filter name="filtro_2" string="Este Año" domain="[('fecha','&gt;=',(context_today().replace(month=1, day=1)))]"/> -->
+
+                <!-- Agrupaciones -->
+                <!-- <group expand="1" string="Agrupar por...">
+                    <filter name="group_estado" string="Estado" context="{'group_by': 'estado'}"/>
+                    <filter name="group_usuario" string="Usuario" context="{'group_by': 'usuario_id'}"/>
+                </group> -->
+            </search>
+        </field>
+    </record>
+
 
 
 
@@ -64,6 +89,9 @@
                                     <field name="lote"/>
                                     <field name="available"/>
                                     <field name="date_create"/>
+                                    <field name="update_mode"/>
+                                    <field name="needsRegionUpdate" invisible='1'/>
+                                    <field name="update_boolean" invisible='1'/>
                                 </group>
                                 <group name="coffee_details" string="Coffee Details">
                                     <group name="group_general">
@@ -150,18 +178,14 @@
                             </page>
                         </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <!-- <field name="message_follower_ids"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/> -->
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
 
 
     <record model="ir.actions.act_window" id="muestras.prueba_action_window">
-      <field name="name">Atlas</field>
+      <field name="name">Atlas - Projects</field>
       <field name="res_model">muestras.prueba</field>
       <field name="view_mode">list,form,graph,pivot,kanban</field>
     </record>

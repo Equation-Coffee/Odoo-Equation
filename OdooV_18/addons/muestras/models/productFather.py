@@ -7,6 +7,7 @@ from odoo.exceptions import ValidationError
 class SampleFather(models.Model):
     _name='muestras.father'
     _description="Modelo padre menú de muestras"
+    _inherit = ['mail.thread','mail.activity.mixin']
     _rec_name='lote'
 
     ### General Informatin ###
@@ -30,17 +31,18 @@ class SampleFather(models.Model):
         ],
         string="Availability",default=None,required=True
     )
+    company_id = fields.Many2one(comodel_name='res.company', string='Company', default=lambda self: self.env.company.id)
 
     ### Equation Info ###
-    equation_project = fields.Many2one('equation.coffee_project',string="Equation Project")
-    equation_program = fields.Many2one('equation.coffee_program',string="Equation Program")
-    equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal")
-    equation_drying_process = fields.Many2one('equation.coffee_drying_process',string="Drying Process Equation")
-    equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation")
-    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin")
-    equation_sca_score = fields.Many2one('equation.coffee_sca',string="SCA Score")
-    equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile")
-    equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process")
+    equation_project = fields.Many2one('equation.coffee_project',string="Equation Project",tracking=True)
+    equation_program = fields.Many2one('equation.coffee_program',string="Equation Program",tracking=True)
+    equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal",tracking=True)
+    equation_drying_process = fields.Many2one('equation.coffee_drying_process',string="Drying Process Equation",tracking=True)
+    equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation",tracking=True)
+    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin",tracking=True)
+    equation_sca_score = fields.Many2one('equation.coffee_sca',string="SCA Score",tracking=True)
+    equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile",tracking=True)
+    equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process",tracking=True)
 
     ### Technical Info ###
     score = fields.Integer(string="SCA")
