@@ -38,12 +38,14 @@
           <field name="process"/>
           <field name="order_name"/>
           <field name="order_create_date"/>
+          <field name="deadline"/>
+          <field name="days"/>
           <field name="line_state"/>
             <!-- fecha de venciemiento
             dias  -->
           <field name="salesperson_name"/>
-          <field name="feedback_selection" widget="many2many_tags"/>
-          <field name="sale_check"/>
+          <!-- <field name="feedback_selection" widget="many2many_tags"/> -->
+          <!-- <field name="sale_check"/> -->
           <field name="partner_name"/>
           <button name="sell_lot" string="Sell" type="object" class="oe_link" icon="fa-check"/>
           <button name="release_lot" string="Release Sample" type="object" class="oe_link text-danger" icon="fa-times"/>

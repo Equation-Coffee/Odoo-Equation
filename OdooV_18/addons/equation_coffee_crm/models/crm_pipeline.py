@@ -1,22 +1,17 @@
-
-from odoo import models, fields
-
-class CrmLead(models.Model):
-    _inherit = 'crm.lead'
-
-    sample_order_id = fields.Many2one(
-        'muestras.order', 
-        string='Solicitud de Muestra',
-        help='La solicitud de muestra asociada a este lead.'
-    )
+from odoo import api, fields, models
 
 class ParentKanban(models.Model):
     _name='crm.parent_kanban'
+    _inherit='crm.lead'
     _description = 'Kanban Externo'
 
     name = fields.Char(required=True)
-    stage_id = fields.Many2one("crm.parent_stage",required=True)
-    
+    etapa_id = fields.Many2one("crm.stage",required=True)
+    partner_id = fields.Many2one('res.partner', string="Partner")
+    tag_ids = fields.Many2many(
+        'crm.tag', 'crm_parent_kanban_tag_rel', 'parent_kanban_id', 'tag_id', string="Tags")
+
+
 
 
 
@@ -27,6 +22,3 @@ class ParentStage(models.Model):
     name = fields.Char(required=True)
     sequence = fields.Integer(default=1)
     fold = fields.Boolean(string="Folded in Kanban")
-
-
-

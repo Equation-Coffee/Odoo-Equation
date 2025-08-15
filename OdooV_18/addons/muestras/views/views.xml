@@ -442,42 +442,43 @@
                   <field name="factor"/>
                 </group>
                 <group name="load_price">
-                  <field name="main_category"/>
-                  <field name="price_category_adjustment"/>
                   <field name="is_premium"/>
                   <field name="extra_charge_premium" invisible="not is_premium"/>
+                  <field name="trm" groups='muestras.muestras_admin'/>
+                  <field name="price_c" groups='muestras.muestras_admin'/>
+                  <field name="eu_us" groups='muestras.muestras_admin'/>
+                  <field name="category_margin" groups='muestras.muestras_admin'/>
+                  <field name="category_margin_spot" groups='muestras.muestras_admin'/>
                 </group>
             </group>
             <group name="price_Calculator">
-                <group name="groupfob" string="Ex Works">
-                    <field name="trm" invisible ='1'/>
-                    <field name="price_c" invisible ='1'/>
-                    <field name="eu_us" invisible ='1'/>
+                <group name="groupfob" string="Amounts in USD">
                     <field name="uml" invisible='1'/>
                     <field name="ur" invisible ='1'/>
                     <field name="c_fob" invisible ='1'/>
                     <field name="coffee_load" invisible ='1'/>
-                    <field name="us_tariffs" />
+                    <field name="us_tariffs" readonly='1'/>
+                    <field name="price_exw"/>
+                    <field name="price_exw_kg"/>
+                    <field name="price_spot_usa"/>
+                    <field name="price_spot_usa_tariffs"/>
                     <!-- <field name="price_fob_usa"/>
                     <field name="price_fob_eu"/> -->
-                    <field name="price_exw"/>
-                    <field name="price_exw_eu"/>
                 </group>
-                <group name="group_spot" string="Spot Price">
-                  <field name="price_spot_usa"/>
-                  <field name="price_spot_usa_tariffs"/>
+                <group name="group_spot" string="Amounts in EU">
+                  <field name="price_exw_eu"/>
                   <field name="price_spot_eu"/>
                 </group>
                 <group name='group_fwv' string="FWB Price">
-                  <field name='price_fwb_usa'/>
-                  <field name='price_fwb_eu'/>
+                  <!-- <field name='price_fwb_usa'/>
+                  <field name='price_fwb_eu'/> -->
                 </group>
             </group>
           </page>
         </xpath>
 
         <xpath expr="//group[@name='group_general']" position="inside">
-          <field name="offeringCat" widget="many2many_tags"/>
+          <field name="main_category"/>
         </xpath>
       </field>
     </record>
@@ -487,18 +488,33 @@
       <field name="name">muestras.disponible.list_price</field>
       <field name="model">muestras.disponible</field>
       <field name="arch" type="xml">
-        <list js_class="button_in_list" default_group_by="available" expand="0"> 
+        <list editable='bottom' class="custom_tree_header" js_class="button_in_list" default_group_by="available" expand="0"> 
+          <button name="action_open_form" type="object" icon="fa-external-link" groups="muestras.muestras_admin,muestras.quality_EQ"/>
           <field name="sku"/>
-          <field name="code"/>
+          <field name='lote'/>
+          <field name='is_decaf'/>
+          <field name='equation_project'/>
+          <field name='equation_program'/>
+          <field name='equation_varietal'/>
+          <field name='equation_fermentation_process'/>
           <field name="equation_process_offering"/>
-          <field name="variety"/>
           <field name="main_category"/>
+          <field name="equation_origin_town"/>
+          <field name='equation_macroprofile'/>
           <!-- <field name="second_category" invisible='1'/> -->
-          <field name="town"/>
           <field name="sca_actual"/>
+          <field name="producer"/>
+          <field name='farm'/>
+          <field name="supplier"/>
+          <field name="sample_availability"/>
           <field name="availability_70kg"/>
-          <field name="mcp"/>
-          <field name="macroprofile"/>
+          <field name="availability_35kg"/>
+          <field name="price_selector" groups="muestras.muestras_admin,muestras.quality_EQ" />
+          <field name="excelso_kg" groups="muestras.muestras_admin,muestras.quality_EQ" invisible="price_selector != 'exc'"/>
+          <field name="cost_variance" groups="muestras.muestras_admin,muestras.quality_EQ" invisible="price_selector != 'dfc'"/>
+          <field name='load_price' groups="muestras.muestras_admin,muestras.quality_EQ" invisible="price_selector != 'pxc'"/>
+          <field name='is_premium' groups="muestras.muestras_admin,muestras.quality_EQ"/>
+          <field name="extra_charge_premium" groups="muestras.muestras_admin,muestras.quality_EQ" invisible="not is_premium"/>
           <field name="price_exw"/>
           <field name="price_exw_eu"/>
           <field name="price_spot_usa"/>
@@ -1109,7 +1125,15 @@
     <record model="ir.actions.act_window" id="muestras.disponibles_price_action_window">
       <field name="name">Offering List Equation</field>
       <field name="res_model">muestras.disponible</field>
-      <field name="view_mode">list,form</field>
+      <field name="view_mode">list</field>
+      <field name="view_id" ref="muestras.disponibles_price"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="muestras.disponibles_price_action_window_form">
+      <field name="name">Offering List Equation</field>
+      <field name="res_model">muestras.disponible</field>
+      <field name="view_mode">form</field>
+      <field name="groups_id" eval="[(6, 0, [ref('muestras.quality_EQ')])]"/>
       <field name="view_id" ref="muestras.disponibles_price"/>
     </record>
 

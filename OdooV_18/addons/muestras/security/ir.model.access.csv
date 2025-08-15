@@ -3,6 +3,7 @@ access_muestras_allproducts,muestras.allproducts,model_muestras_allproducts,mues
 access_allproducts_asia,muestras.allproducts,model_muestras_allproducts,muestras.group_Asia,1,1,0,0
 access_allproducts_europe,muestras.allproducts,model_muestras_allproducts,muestras.group_EU,1,1,0,0
 access_allproducts_usa,muestras.allproducts,model_muestras_allproducts,muestras.group_USA,1,1,0,0
+access_allproducts_quality_EQ,muestras.allproducts,model_muestras_allproducts,muestras.quality_EQ,1,1,1,1
 access_muestras_product,muestras.product,model_muestras_product,base.group_user,1,1,1,1
 access_muestras_tabla,muestras.tabla,model_muestras_tabla,base.group_user,1,1,1,1
 access_muestras_parametros,muestras.parametros,model_muestras_parametros,base.group_user,1,1,1,1
@@ -16,8 +17,9 @@ access_muestras_order_line,muestras.order.line,model_muestras_order_line,base.gr
 access_muestras_testmodel,muestras.testmodel,model_muestras_testmodel,base.group_user,1,1,1,1
 access_muestras_inventario,muestras.inventario,model_muestras_inventario,muestras.muestras_spotUSA,1,1,1,1
 access_muestras_inventario_admin,muestras.inventario,model_muestras_inventario,muestras.muestras_admin,1,1,1,1
-access_muestras_disponible,muestras.disponible,model_muestras_disponible,muestras.muestras_disp,1,1,1,1
+access_muestras_disponible,muestras.disponible,model_muestras_disponible,muestras.muestras_disp,1,0,0,0
 access_muestras_disponible_admin,muestras.disponible,model_muestras_disponible,muestras.muestras_admin,1,1,1,1
+access_muestras_disponible_quality,muestras.disponible,model_muestras_disponible,muestras.quality_EQ,1,1,1,1
 access_muestras_alldisponibles,muestras.alldisponibles,model_muestras_alldisponibles,base.group_user,1,1,1,1
 access_muestras_spoteu,muestras.spoteu,model_muestras_spoteu,muestras.muestras_spoteu,1,0,0,0
 access_muestras_spoteu_admin,muestras.spoteu,model_muestras_spoteu,muestras.muestras_admin,1,1,1,1

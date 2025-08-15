@@ -32,6 +32,9 @@ class Order_line(models.Model):
             ('declined','Declined Sample'),
             ('sold','Sold Sample'),
         ],string="Line State",default='draft')
+    release_date=fields.Date(string="Release Date")
+    days=fields.Integer(string="Days")
+    deadline=fields.Date(string="Deadline",index=True,readonly=True)
 
     ### Product ###
     product_id=fields.Many2one(comodel_name='muestras.allproducts',string='Product',ondelete='cascade',required=True,index=True,copy=True,

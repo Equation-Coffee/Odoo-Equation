@@ -24,5 +24,8 @@
         <record id="muestras_commercial_team_leaders" model="res.groups">
             <field name="name">Muestras/Lideres Equipos Comerciales</field>
         </record>
+        <record id="quality_EQ" model="res.groups">
+            <field name="name">Muestras/Calidades Equation</field>
+        </record>
     </data>
 </odoo>

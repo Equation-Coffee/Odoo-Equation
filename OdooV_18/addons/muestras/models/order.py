@@ -160,6 +160,9 @@ class Order(models.Model):
 #### ACTION METHODS ####
     def send_sample(self):
         try:
+            self.state = 'sent'
+            self.create_date = date.today()
+            self.deadline = date.today() + timedelta(days=21)
             for line in self.order_lines:
                 product = line.product_id
                 if product.disponible < line.booking:
@@ -169,9 +172,8 @@ class Order(models.Model):
                 product.disponible -= line.booking
                 product.booking += line.booking
                 line.line_state = 'active'
-            self.state = 'sent'
-            self.create_date = date.today()
-            self.deadline = date.today() + timedelta(days=21)
+                line.days = self.days
+                line.deadline = self.deadline
             region_list = self.regions()
             self.recipient(region_list)
             template = self.env.ref('muestras.muestras_email_template_order')
@@ -472,6 +474,7 @@ class Order(models.Model):
         }
     
     def open_wizard_crm(self):
+
         return {
             'type':'ir.actions.act_window',
             'res_model' : 'muestras.wizard_order_crm_selection',
@@ -480,7 +483,8 @@ class Order(models.Model):
             'target':'new',
             'context':{
                 'default_partner_id':self.partner_id.id,
-                'default_order_id':self.id
+                'default_order_id':self.id,
+                'default_deadline':date.today() + timedelta(days=21),
             }
         }
 
@@ -674,7 +678,11 @@ class SaleWizard(models.TransientModel):
                         order.write({
                             'state':'cancelb'
                         })
-                    elif 'declined' in order_states and len(order_states)>1:
+                    elif 'declined' in order_states and len(order_states)>1 and 'sold' in order_states:
+                        order.write({
+                            'state':'partial_sale'
+                        })
+                    elif 'declined' in order_states and len(order_states)>1 and 'sold' not in order_states:
                         order.write({
                             'state':'partial_rejection'
                         })
@@ -729,7 +737,8 @@ class CRMConfirmation(models.TransientModel):
         ('create', 'Create a new lead'),
         ('select', 'Link to an existing lead'),
         ('none', 'Send Sample Without Linking a Lead'),
-    ],string='Select an option')
+    ],string='Select an option',required=True)
+    deadline=fields.Date(string="Deadline",index=True,required=True)
 
     lead_id=fields.Many2one('crm.lead',string='Existing Lead',domain=[])
 

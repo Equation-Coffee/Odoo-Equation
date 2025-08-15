@@ -163,7 +163,7 @@ class Prueba(models.Model):
                         ],limit=1)
                         equation_project = self.env['equation.coffee_project'].search([('name','=',item.get("project_name"))])
                         equation_program = self.env['equation.coffee_program'].search([('name','=',item.get("programa"))])
-                        equation_varietal = self.env['equation.coffee_varietal'].search([('name','=',item.get("variedad"))])
+                        equation_varietal = self.env['equation.coffee_varietal'].with_context(lang='en_CO').search([('name','=',item.get("variedad"))])
                         if not existing_record:
                             record = self.create({
                                 'lote': item.get("lote") or 'Sin Lote',

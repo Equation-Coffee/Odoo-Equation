@@ -14,7 +14,9 @@
         'sales_team'
     ],
     'data': [
-        'views/crm_lead_views.xml'
+        'views/crm_lead_views.xml',
+        'views/crm_pipeline_views.xml',
+        'security/ir.model.access.csv',
     ],
     'license': 'LGPL-3',
     'application': False,

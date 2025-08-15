@@ -29,7 +29,7 @@ class SampleFather(models.Model):
             ('dis','Disponible'),
             ('nodis','No Disponible'),
         ],
-        string="Availability",default=None,required=True
+        string="Availability",default=None,required=True,tracking=True
     )
     company_id = fields.Many2one(comodel_name='res.company', string='Company', default=lambda self: self.env.company.id)
 
@@ -54,9 +54,9 @@ class SampleFather(models.Model):
     freshness = fields.Integer(string="Freshness")
     altitude = fields.Float(string="Altitude")
     condicion = fields.Char(string="Condition")
-    is_decaf = fields.Boolean(string="Is Decaffeinated?")
-    is_premium = fields.Boolean(string="Is Premium?")
-    extra_charge_premium = fields.Float(String="Aditional Cost for Premium Coffees")
+    is_decaf = fields.Boolean(string="Is Decaffeinated?",tracking=True)
+    is_premium = fields.Boolean(string="Is Premium?",tracking=True)
+    extra_charge_premium = fields.Float(String="Aditional Cost for Premium Coffees",required=True)
     packing_type = fields.Selection(
         selection = [
             ('bg','Bolsa'),

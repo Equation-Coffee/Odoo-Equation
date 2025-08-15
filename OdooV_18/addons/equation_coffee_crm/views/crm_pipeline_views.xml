@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_parent_kanban_kanban_v2" model="ir.ui.view">
+        <field name="name">crm.parent_kanban.kanban.v2</field>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id" class="o_kanban_group_expand">
+                <field name="stage_id"/>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_kanban_record">
+                            <field name="name"/>
+                            <!-- <div><strong>Etapa:</strong> <field name="etapa_id"/></div>
+                            <div><strong>Partner:</strong> <field name="partner_id"/></div> -->
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_parent_kanban_pipeline_v2" model="ir.actions.act_window">
+        <field name="name">Pipeline Externo</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_parent_kanban_kanban_v2')}),
+        ]"/>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem id="menu_parent_kanban_root_v2" name="Pipeline Externo" parent="crm.crm_menu_root"/>
+
+    <!-- Menú para registros -->
+    <menuitem id="menu_parent_kanban_v2" name="Registros" parent="menu_parent_kanban_root_v2"
+              action="action_parent_kanban_pipeline_v2"/>
+</odoo>

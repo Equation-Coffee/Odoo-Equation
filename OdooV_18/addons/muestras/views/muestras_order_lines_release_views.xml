@@ -45,8 +45,8 @@
           <field name="feedback_selection" widget="many2many_tags"/>
           <field name="sale_check"/>
           <field name="partner_name"/>
-          <button name="sell_lot" string="Sell" type="object" class="oe_link" icon="fa-check"/>
-          <button name="release_lot" string="Release Sample" type="object" class="oe_link text-danger" icon="fa-times"/>
+          <!-- <button name="sell_lot" string="Sell" type="object" class="oe_link" icon="fa-check"/>
+          <button name="release_lot" string="Release Sample" type="object" class="oe_link text-danger" icon="fa-times"/> -->
           <!-- region
           vendedor
           estado -->
@@ -58,7 +58,7 @@
         <field name="name">Samples Declined</field>
         <field name="res_model">muestras.order.line</field>
         <field name="view_mode">list</field>
-        <field name="view_id" ref="order_line_list_view"/>
+        <field name="view_id" ref="order_line_release_list_view"/>
         <field name="type">ir.actions.act_window</field>  
         <field name="context">{'trigger_sync':True}</field>
         <field name="domain">[('line_state','!=','active')]</field>

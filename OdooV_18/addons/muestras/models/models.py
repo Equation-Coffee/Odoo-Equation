@@ -93,8 +93,16 @@ class Disponibles(models.Model):
 
     ## Camios en las herencias del modelo padre
     equation_project=fields.Many2one('equation.coffee_project',string="Equation Project",
-                default=lambda self: self.env['equation.coffee_project'].search([('name', '=', 'Equation Coffee')], limit=1)
+                default=lambda self: self.env['equation.coffee_project'].search([('name', '=', 'Equation Coffee')], limit=1),required=True
                 )   
+    equation_program = fields.Many2one('equation.coffee_program',string="Equation Program",tracking=True,required=True)
+    equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal",tracking=True,required=True)
+    equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation",tracking=True,required=True)
+    equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process",tracking=True,required=True)
+    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin",tracking=True,required=True)
+    equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile",tracking=True,required=True)
+    location = fields.Char(string="Location",default="Colombia",required=True)
+
 
 
     #### Cambios campos de la modelo padre
@@ -115,7 +123,7 @@ class Disponibles(models.Model):
         string="Categorias Portafolio"
     )
 
-    main_category=fields.Many2one('muestras.offeringcat',string="Categoria Principal")
+    main_category=fields.Many2one('muestras.offeringcat',string="Categoria Principal",required=True,tracking=True)
     second_category=fields.Many2one('muestras.offeringcat',string="Categoria Secundaria")
     price_category_adjustment=fields.Float(string="Precio Adicional Spot por categoria")  ### Campo abolido
     category_margin=fields.Float(string="Category Margin",store=True,compute="_price_category_adjustment")
@@ -128,18 +136,18 @@ class Disponibles(models.Model):
     ur=fields.Float(string="Utilidad Regional",store=True,default=lambda self:self._default_price('Utilidad Regional'))
     c_fob=fields.Float(string="Costos FOB",store=True,default=lambda self:self._default_price('FOB Cost'))
     spot_cost_us=fields.Float(string="SPOT Cost US",store=True,default=lambda self:self._default_price('SPOT Cost US'))
-    spot_cost_eu=fields.Float(string="SPOR Cost EU",store=True,default=lambda self:self._default_price('SPOT Cost US'))
+    spot_cost_eu=fields.Float(string="SPOT Cost EU",store=True,default=lambda self:self._default_price('SPOT Cost US'))
     us_tariffs = fields.Float(string="US Tariffs",store=True,default=lambda self:self._default_price('US Tariffs'))
     decaf_cost = fields.Float(string="Decaf Cost",store=True,default=lambda self:self._default_price('Decaf Cost'))
     price_c_dif=fields.Float(string="Precio C + Dif",store=True)
     price_fob_usa=fields.Float(string='FOB US/lb',store=True,compute="_price_fob_usa")
     price_fob_eu=fields.Float(string='FOB EU/kg',store=True,compute="_price_fob_eu")
-    price_exw=fields.Float(string='EXW USD/lb',store=True,compute="_price_exw")
-    price_exw_kg=fields.Float(string='EXW USD/KG',store=True,compute="_price_exw_kg")
+    price_exw=fields.Float(string='EXW US/lb',store=True,compute="_price_exw")
+    price_exw_kg=fields.Float(string='EXW US/kg',store=True,compute="_price_exw_kg")
     price_exw_eu=fields.Float(string="EXW EU/kg",store=True,compute="_price_exw_eu")
     price_spot_usa_tariffs=fields.Float(string="Spot US/lb with Tariffs",store=True,compute="_price_spot_usa_tariffs")
-    price_spot_usa=fields.Float(string='Spot USDxlb',store=True,compute="_price_spot_usa")
-    price_spot_eu=fields.Float(string='SPOT EUxKG',store=True,compute="_price_spot_eu")
+    price_spot_usa=fields.Float(string='Spot US/lb',store=True,compute="_price_spot_usa")
+    price_spot_eu=fields.Float(string='SPOT EU/kg',store=True,compute="_price_spot_eu")
     price_fwb_usa=fields.Float(string='FWB USDxlb',store=True,compute="_price_fwb_usa")
     price_fwb_eu=fields.Float(string='FWB EUxkg',store=True,compute="_price_fwb_eu")
     
@@ -150,16 +158,15 @@ class Disponibles(models.Model):
             ('pxc','Precio por Carga')
         ],
         string="Price Selector",
-        default='exc',
-        required=True)
-    excelso_kg=fields.Float(string="Valor Kilogramo de Excelso")
-    cost_variance=fields.Float(string="Diferncial de Compra (USD/LB)")
-    load_price=fields.Float(string="Precio por carga")
+        default='exc',required=True,tracking=True)
+    excelso_kg=fields.Float(string="Valor Kilogramo de Excelso",tracking=True)
+    cost_variance=fields.Float(string="Diferncial de Compra (USD/LB)",tracking=True)
+    load_price=fields.Float(string="Precio por carga",tracking=True)
     factor=fields.Float(string="Factor de Rendimiento",compute='_factor')
-    availability_35kg=fields.Float(string="Disponibilidad en sacos de 35 kg",store=True,compute="_aval_35")
-    availability_70kg=fields.Float(string="Disponibilidad en sacos de 70 kg")
+    availability_35kg=fields.Float(string="Disponibilidad en sacos de 35 kg",store=True,compute="_aval_35",tracking=True)
+    availability_70kg=fields.Float(string="Disponibilidad en sacos de 70 kg",required=True)
     pdf_prueba = fields.Binary(string="Archivo PDF",attachment=True) 
-    sample_availability=fields.Float(string="Disponibilidad de Gramos de muestras")
+    sample_availability=fields.Float(string="Disponibilidad de Gramos de muestras",required=True,tracking=True)
 
     # @api.model
     # def get_global_param(self,param_name,default):
@@ -297,7 +304,7 @@ class Disponibles(models.Model):
             final_price = self.round_to_nearest_5(calculate_price)
             record.price_exw_kg = final_price
 
-    @api.depends('price_exw')
+    @api.depends('price_exw','eu_us')
     def _price_exw_eu(self):
         for record in self:
             calculate_price = record.price_exw*2.2046/record.eu_us
@@ -319,7 +326,7 @@ class Disponibles(models.Model):
             final_price = self.round_to_nearest_5(calculate_price)
             record.price_spot_usa_tariffs = final_price
 
-    @api.depends('price_exw')
+    @api.depends('price_exw','spot_cost_eu','category_margin_spot','eu_us')
     def _price_spot_eu(self):
         for record in self:
             calculate_price = (record.price_exw + record.spot_cost_eu + record.category_margin_spot)*2.2046/record.eu_us 
@@ -403,7 +410,37 @@ class Disponibles(models.Model):
         else: 
             final = math.trunc(value*100)/100 
         return final
-        
+
+    @api.constrains('available','price_selector','excelso_kg','load_price')
+    def _check_price_selector_values(self):
+        if self.available =='dis':
+            if self.price_selector == 'exc':
+                if self.excelso_kg<=0:
+                    raise ValidationError("El valor de Excelso debe ser mayor a 0")
+            elif self.price_selector == 'pxc':
+                if self.load_price<=0:
+                    raise ValidationError("El valor del Precio por Carga debe ser mayor a 0")
+
+    @api.constrains('available','availability_70kg')
+    def _check_availability_70kg(self):
+        if self.available == 'dis':
+            if self.availability_70kg<=0:
+                raise ValidationError("El valor disponible en sacos de 70 kg debe ser mayor a 0") 
+            
+    @api.constrains('available','sample_availability')
+    def _checko_sample_availability(self):
+        if self.available =='dis':
+            if self.sample_availability<=0:
+                raise ValidationError("El valor disponible de muestra debe ser mayor a 0") 
+
+    def action_open_form(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'view_mode': 'form',
+            'res_id': self.id,
+            'target': 'current',
+        }
 
 
 
