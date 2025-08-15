@@ -15,8 +15,8 @@
         <field name="state">code</field>
         <field name="code">env['muestras.price'].cron_trm()</field>
         <field name="interval_number">1</field>
-        <field name="interval_type">minutes</field>
-        <field name="active" eval="True"/>
+        <field name="interval_type">days</field>    
+        <field name="nextcall">2025-08-15 14:14:00</field>
+        <field name="active" eval="True"/>  
     </record>
-
 </odoo>

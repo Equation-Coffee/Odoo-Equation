@@ -18,3 +18,4 @@ from . import equation_coffee_origin
 from . import equation_coffee_sca
 from . import equation_coffee_macroprofile
 from . import equation_coffee_process_offering
+from . import equation_coffee_origin_town

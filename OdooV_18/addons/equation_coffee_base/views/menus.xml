@@ -81,7 +81,7 @@
                 <menuitem id="menu_equation_coffee_sca"
                     name="SCA Score"
                     action="equation_coffee_sca_action"
-                    sequence="9"/>
+                    sequence="12"/>
 
                 <menuitem id="menu_equation_coffee_macroprofile"
                     name="Macroprofile"
@@ -93,6 +93,10 @@
                     action="equation_coffee_process_offering_action"
                     sequence="11"/>
 
+                <menuitem id="menu_equation_coffee_origin_town"
+                    name="Origin Town"
+                    action="equation_coffee_origin_town_action"
+                    sequence="9"/>
 
             </menuitem>
 

@@ -5,6 +5,7 @@ import csv
 import os 
 import logging
 from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError
 import math
 
 _logger=logging.getLogger(__name__)
@@ -99,7 +100,7 @@ class Disponibles(models.Model):
     equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal",tracking=True,required=True)
     equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation",tracking=True,required=True)
     equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process",tracking=True,required=True)
-    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin",tracking=True,required=True)
+    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Departamento",tracking=True,required=True)
     equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile",tracking=True,required=True)
     location = fields.Char(string="Location",default="Colombia",required=True)
 
@@ -217,7 +218,15 @@ class Disponibles(models.Model):
             _logger.exception(f"Error al calcular valor para '{price_name}': {e}")
             return 0.0
      
-   
+    def export_data(self, fields_to_export, raw_data=False):
+        groups = [
+            'muestras.muestras_admin',
+            'muestras.quality_EQ',
+        ]
+        if not any (self.env.user.has_group(group)for group in groups):
+            raise AccessError(("No tienes permiso para exportar estos datos."))
+        return super().export_data(fields_to_export, raw_data)
+
     @api.model
     def crear_canal_productos(self):
         canal = self.env['mail.channel'].search([('name', '=', 'Productos')], limit=1)
@@ -442,11 +451,6 @@ class Disponibles(models.Model):
             'target': 'current',
         }
 
-
-
-
-
-
 # class SPOTEU(models.Model):
 #     _name="muestras.spoteu"
 #     _description="SPOT EU Temporary"
@@ -469,14 +473,6 @@ class Disponibles(models.Model):
 #         record=super(SPOTEU,self).create(vals)
 #         self.env['muestras.allproducts'].spotEU_data(record)
 #         return record
-    
-    
-   
-  
-
-
-
-
 
 class Product(models.Model):
         _name = 'muestras.product'

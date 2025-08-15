@@ -192,6 +192,7 @@
                                 <group name="coffee_details_ii">
                                     <field name="is_decaf"/>
                                     <field name="equation_origin_town"/>
+                                    <field name="equation_origin_municipality" domain="[('origin_id', '=', equation_origin_town)]"/>
                                     <field name="sca_actual"/>
                                     <field name="freshness"/>
                                     <field name="edition"/>
@@ -500,6 +501,7 @@
           <field name="equation_process_offering"/>
           <field name="main_category"/>
           <field name="equation_origin_town"/>
+          <field name="equation_origin_municipality" domain="[('origin_id', '=', equation_origin_town)]"/>
           <field name='equation_macroprofile'/>
           <!-- <field name="second_category" invisible='1'/> -->
           <field name="sca_actual"/>
@@ -530,7 +532,7 @@
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        <xpath expr="//group[@name='']">
+        <xpath expr="//group[@name='']">a
         </xpath>
       </field>
     </record> -->
@@ -1041,7 +1043,8 @@
                   <field name="crm_option" widget='radio'/>
                   <field name="lead_id" invisible="crm_option not in ['select']" domain="[('partner_id', '=', partner_id)]"/>
                   <field name="partner_id" invisible="1"/>
-                  <field name="order_id"/>
+                  <field name="order_id"  invisible="1"/>
+                  <!-- <field name=""/> -->
                 </group>
                 <footer>
                   <button name="confirm_link_to_lead" type="object" string="Confirm" class="btn-primary"/>

@@ -63,7 +63,8 @@
         'views/equation_coffee_sca_views.xml',
         'views/equation_coffee_macroprofile_views.xml',
         'views/equation_coffee_process_offering_views.xml',
-        'views/menus.xml'
+        'views/equation_coffee_origin_town_views.xml',
+        'views/menus.xml',
     ],
     'license': 'LGPL-3',
     'application': False,

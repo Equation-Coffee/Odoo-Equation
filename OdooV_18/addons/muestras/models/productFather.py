@@ -39,7 +39,8 @@ class SampleFather(models.Model):
     equation_varietal = fields.Many2one('equation.coffee_varietal',string="Equation Varietal",tracking=True)
     equation_drying_process = fields.Many2one('equation.coffee_drying_process',string="Drying Process Equation",tracking=True)
     equation_fermentation_process = fields.Many2one('equation.coffee_fermentation_process',string="Fermentation Process Equation",tracking=True)
-    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Origin",tracking=True)
+    equation_origin_town = fields.Many2one('equation.coffee_origin',string="Region",tracking=True)
+    equation_origin_municipality=fields.Many2one('equation.coffee_origin_town',string="Town",tracking=True)
     equation_sca_score = fields.Many2one('equation.coffee_sca',string="SCA Score",tracking=True)
     equation_macroprofile = fields.Many2one('equation.coffee_macroprofile',string="Equation Macroprofile",tracking=True)
     equation_process_offering = fields.Many2one('equation.coffee_process_offering',string="Equation Offering Process",tracking=True)
@@ -56,7 +57,7 @@ class SampleFather(models.Model):
     condicion = fields.Char(string="Condition")
     is_decaf = fields.Boolean(string="Is Decaffeinated?",tracking=True)
     is_premium = fields.Boolean(string="Is Premium?",tracking=True)
-    extra_charge_premium = fields.Float(String="Aditional Cost for Premium Coffees",required=True)
+    extra_charge_premium = fields.Float(string="Aditional Cost for Premium Coffees",required=True)
     packing_type = fields.Selection(
         selection = [
             ('bg','Bolsa'),

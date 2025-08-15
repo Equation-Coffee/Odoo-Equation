@@ -86,13 +86,10 @@ class Price(models.Model):
         from bs4 import BeautifulSoup
         url_trm = 'https://www.dolar-colombia.com/'
         print(url_trm)
-        response = requests.get(url_trm,10)
+        response = requests.get(url_trm,timeout=10)
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, 'html.parser')
-            # Buscar el elemento con la clase 'box-exchange-rate'
             exchange_rate = soup.find('h2', class_='box-exchange-rate')
-            
-            # Extraer el valor del span con la clase 'exchange-rate'
             if exchange_rate:
                 value = exchange_rate.find('span', class_='exchange-rate')
                 if value:
@@ -100,7 +97,7 @@ class Price(models.Model):
                     print(f"TRM: {trm}")
                     trm_register =self.env['muestras.price'].search([('name','=',"USD/COP Exchange Rate")],limit=1)
                     if trm_register:
-                        trm_register.write({'value':trm})
+                        trm_register.write({'value':trm,'date':date.today()})
                     return trm
                 else:
                     print("No se encontró el valor dentro del span 'exchange-rate'.")

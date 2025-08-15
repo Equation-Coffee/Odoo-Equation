@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="equation_coffee_macroprofile_view_search" model="ir.ui.view">
-        <field name="name">equation.coffee.macroprofile.view.search</field>
-        <field name="model">equation.coffee_macroprofile</field>
+    <record id="equation_coffee_origin_town_view_search" model="ir.ui.view">
+        <field name="name">equation.coffee.origin.town.view.search</field>
+        <field name="model">equation.coffee_origin_town</field>
         <field name="arch" type="xml">
-            <search string="Search macroprofile">
+            <search string="Search Origin Town">
                 <field name="name"/>
+                <field name="origin_id"/>
                 <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
                 <group expand="1" string="Group By">
                     <filter string="Company" name="company_id" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
@@ -14,17 +15,17 @@
         </field>
     </record>
 
-    <record id="equation_coffee_macroprofile_view_form" model="ir.ui.view">
-        <field name="name">equation.coffee.macroprofile.view.form</field>
-        <field name="model">equation.coffee_macroprofile</field>
+    <record id="equation_coffee_origin_town_view_form" model="ir.ui.view">
+        <field name="name">equation.coffee.origin.town.view.form</field>
+        <field name="model">equation.coffee_origin_town</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="Macroprofiles">
+            <form string="Origin Town">
                 <sheet>
                     <div name="button_box" class="oe_button_box"/>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
-                    <div class="oe_title" name="equation_coffee_macroprofile_title">
-                        <label for="name" id="equation_coffee_macroprofile_title"/>
+                    <div class="oe_title" name="equation_coffee_origin_town_title">
+                        <label for="name" id="equation_coffee_origin_town_title"/>
                         <h1>
                             <field name="name" placeholder="e.g. Roaster" class="d-block" required='1'/>
                             <field name="active" invisible='1'/>
@@ -33,6 +34,7 @@
                     <group>
                         <group name="info_left">
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                            <field name="origin_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -41,26 +43,26 @@
         </field>
     </record>
 
-    <record id="equation_coffee_macroprofile_view_list" model="ir.ui.view">
-        <field name="name">equation.coffee.macroprofile.view.list</field>
-        <field name="model">equation.coffee_macroprofile</field>
+    <record id="equation_coffee_origin_town_view_list" model="ir.ui.view">
+        <field name="name">equation.coffee.origin.town.view.list</field>
+        <field name="model">equation.coffee_origin_town</field>
         <field name="type">list</field>
         <field name="arch" type="xml">
-            <list string="macroprofiles">
+            <list string="Origin Town">
                 <field name="name"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </list>
         </field>
     </record>
 
-    <record id="equation_coffee_macroprofile_action" model="ir.actions.act_window">
-        <field name="name">Macroprofile</field>
+    <record id="equation_coffee_origin_town_action" model="ir.actions.act_window">
+        <field name="name">Origin Town</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">equation.coffee_macroprofile</field>
+        <field name="res_model">equation.coffee_origin_town</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your macroprofile Region
+                Create your Origin Town
             </p>
         </field>
     </record>
