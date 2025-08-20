@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_extend_due_date" model="ir.ui.view">
+      <field name="name">muestras.wizard_extend_order_due_date.form</field>
+      <field name="model">muestras.wizard_extend_order_due_date</field>
+      <field name="arch" type="xml">
+          <form string="Extend Order Due Date">
+            <group>
+                <separator string="Deadline Extension" colspan="2"/>
+                <div class="alert alert-info" colspan="2">
+                    <span>Select a new deadline date.</span><br/>
+                    <span>The new deadline must be later than the current date.</span>
+                </div>
+                <field name="order_id" invisible="1"/>
+                <field name="actual_deadline" readonly="1"/>
+                <field name="new_deadline"/>
+                <field name="date_difference"/>
+            </group>
+            <group>
+                <separator string="Extension Reason" colspan="2"/>
+                <div class="alert alert-warning" colspan="2">
+                    <span>You must select a reason for the extension.</span><br/>
+                    <span>If you wish to provide further details, please use the notes field next to it.</span>
+                </div>
+                <field name="order_extension_reason"/>
+                <field name="notes"/>
+            </group>
+              <footer>
+                  <button string="Confirm" type="object" name="confirm" class="btn-primary"/>
+                  <button string="Cancel" class="btn-secondary" special="cancel"/>
+              </footer>
+          </form>
+      </field>
+    </record>
+
+    <record id="muestras.wizard_extend_order_due_date_window" model="ir.actions.act_window">
+        <field name="name">Extend Order Due Date</field>
+        <field name="res_model">muestras.wizard_extend_order_due_date</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

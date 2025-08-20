@@ -121,7 +121,19 @@ partner_name
 
 ## 3. Metódos
 
+### 3.1 Overrides ORM - Initalization
 
+#### 3.1.1 create()
+
+En este método se sobreescribe la creación de registros en el modelo de la orden de muestra para añadir los valores de nombre y salesperson por defecto antes de guardar 
+
+EXAMINAR ESTRUCTURA
+
+Si el nombre del registro está en "New", se reemplaza por un número de secuencia (ir.sequence con código muestras.order).
+
+Si no se especifica un vendedor (salesperson), se pone automáticamente el usuario que está creando el registro.
+
+Finalmente se crea el registro normalmente.
 
 
 ## 4. Grupos y Permisos 

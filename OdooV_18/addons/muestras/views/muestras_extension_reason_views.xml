@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="equation_coffee_origin_view_search" model="ir.ui.view">
-        <field name="name">equation.coffee.origin.view.search</field>
-        <field name="model">equation.coffee_origin</field>
+    <record id="muestras_extension_reason_search" model="ir.ui.view">
+        <field name="name">muestras.extension_reason.view.search</field>
+        <field name="model">muestras.extension_reason</field>
         <field name="arch" type="xml">
-            <search string="Search Origin">
+            <search string="Search Extension Reason">
                 <field name="name"/>
                 <filter string="Archived" name="inactive" domain="[('active','=', False)]"/>
                 <group expand="1" string="Group By">
@@ -14,17 +14,17 @@
         </field>
     </record>
 
-    <record id="equation_coffee_origin_view_form" model="ir.ui.view">
-        <field name="name">equation.coffee.origin.view.form</field>
-        <field name="model">equation.coffee_origin</field>
+    <record id="muestras_extension_reason_view_form" model="ir.ui.view">
+        <field name="name">muestras.extension_reason.view.form</field>
+        <field name="model">muestras.extension_reason</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="Origin">
+            <form string="Extension Reason">
                 <sheet>
                     <div name="button_box" class="oe_button_box"/>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
-                    <div class="oe_title" name="equation_coffee_origin_title">
-                        <label for="name" id="equation_coffee_origin_title"/>
+                    <div class="oe_title" name="muestras_extension_reason_title">
+                        <label for="name" id="muestras_extension_reason_title"/>
                         <h1>
                             <field name="name" placeholder="e.g. Roaster" class="d-block" required='1'/>
                             <field name="active" invisible='1'/>
@@ -41,9 +41,9 @@
         </field>
     </record>
 
-    <record id="equation_coffee_origin_view_list" model="ir.ui.view">
-        <field name="name">equation.coffee.origin.view.list</field>
-        <field name="model">equation.coffee_origin</field>
+    <record id="muestras_extension_reason_view_list" model="ir.ui.view">
+        <field name="name">muestras.extension_reason.view.list</field>
+        <field name="model">muestras.extension_reason</field>
         <field name="type">list</field>
         <field name="arch" type="xml">
             <list string="Origins">
@@ -53,14 +53,14 @@
         </field>
     </record>
 
-    <record id="equation_coffee_origin_action" model="ir.actions.act_window">
-        <field name="name">Origin</field>
+    <record id="extension_reason_window" model="ir.actions.act_window">
+        <field name="name">Extension Reason</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">equation.coffee_origin</field>
+        <field name="res_model">muestras.extension_reason</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your Origin Region
+                Extension Reason
             </p>
         </field>
     </record>

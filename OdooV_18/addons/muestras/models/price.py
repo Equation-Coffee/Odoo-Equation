@@ -1,13 +1,18 @@
 from odoo import models, fields, api
-from datetime import date
+from datetime import date,datetime
 
 class Price(models.Model):
     _name = "muestras.price"
     _description = "Precios Productos Disponibles"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char(string="Nombre", required=True)
-    value = fields.Float(string="Valor")
-    date = fields.Date(string="Fecha")
+    name = fields.Char(string="Price Indicator", required=True,tracking=True)
+    value = fields.Float(string="Value",tracking=True)
+    date = fields.Date(string="Date",tracking=True)
+    active = fields.Boolean(string='Active', tracking=True, default=True)
+    company_id = fields.Many2one(
+        comodel_name='res.company', string='Company', default=lambda self: self.env.company.id)
+    price_history=fields.One2many('muestras.price_history',string="Price History",inverse_name='price_id',copy=True,auto_join=True)
 
     _sql_constraints = [
         ('unique_name', 'unique(name)', 'Price Type must be unique!'),
@@ -98,6 +103,13 @@ class Price(models.Model):
                     trm_register =self.env['muestras.price'].search([('name','=',"USD/COP Exchange Rate")],limit=1)
                     if trm_register:
                         trm_register.write({'value':trm,'date':date.today()})
+                        self.env['muestras.price_history'].create({
+                            'price_id':trm_register.id,
+                            'name':trm_register.name,
+                            'value':value,
+                            'execution_time':datetime.now()
+                        })
+
                     return trm
                 else:
                     print("No se encontró el valor dentro del span 'exchange-rate'.")
@@ -106,7 +118,32 @@ class Price(models.Model):
         else:
             print(f"Error al hacer la solicitud: {response.status_code}")
 
-
+    @api.model
+    def cron_price_c(self):
+        import requests
+        from bs4 import BeautifulSoup
+        url_price_c = 'https://es.investing.com/commodities/us-coffee-c'
+        response = requests.get(url_price_c,timeout=10)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.content,'html.parser')
+            price_div = soup.find("div", {"data-test": "instrument-price-last"})
+            if price_div:
+                valor = price_div.get_text(strip=True)
+                price_c = float(valor.replace('.', '').replace(',', '.'))/100
+                price_c_register = self.env['muestras.price'].search([('name','=','Coffee C Price')],limit=1)
+                if price_c_register:
+                    price_c_register.write({'value':price_c,'date':date.today()})
+                    self.env['muestras.price_history'].create({
+                            'price_id':price_c_register.id,
+                            'name':price_c_register.name,
+                            'value':price_c,
+                            'execution_time':datetime.now()
+                        })
+                return price_c
+            else:
+                print("No se econtro el elemento instrument-price-last")
+        else :
+            print(f"Error al hacer la solicitud: {response.status_code}")
 
 # zjXLSp_3Z5pDxzFkqiYf
     

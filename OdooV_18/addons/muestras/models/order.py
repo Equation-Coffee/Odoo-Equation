@@ -55,7 +55,7 @@ class Order(models.Model):
     region=fields.Char(string="Región Comercial",index=True,store=True,compute="region_order")
     location=fields.Char(string="Ubicación",index=True,store=True,compute="location_order")
     create_date=fields.Date(string= "Creation Date",index=True,readonly=True,default=None)
-    deadline=fields.Date(string="Deadline",index=True,readonly=True)
+    deadline=fields.Date(string="Deadline",index=True,readonly=True,tracking=True)
     country=fields.Char(string="Región Comercial",index=True)
     date=fields.Date(string="Date",index=True,default=None)
     days=fields.Integer(string="Days")
@@ -522,7 +522,19 @@ class Order(models.Model):
             'stage_id':stage.id
         })
 
+    def open_extend_due_date(self):
+        return {
+            'type':'ir.actions.act_window',
+            'res_model' : 'muestras.wizard_extend_order_due_date',
+            'view_mode':'form',
+            'name':'Extend Order Due Date',
+            'target':'new',
+            'context':{
+                'default_order_id':self.id,
+                'default_actual_deadline':self.deadline,
+            }
 
+        }
 
 class SaleWizard(models.TransientModel):
     _name = "muestras.wizard_sale"
@@ -752,11 +764,53 @@ class CRMConfirmation(models.TransientModel):
             if wizard.crm_option=="create":
                 wizard.order_id.send_sample()
                 wizard.order_id.create_crm_lead()
+            wizard.order_id.deadline = wizard.deadline
         return {'type':'ir.actions.act_window_close'}
+
+    @api.constrains('deadline')
+    def _check_expiration_date(self):
+        for rec in self:
+            max_deadline = date.today() + timedelta(days=21)
+            if rec.deadline>max_deadline:
+                raise ValidationError("The maximum allowed expiration time is 21 days after the creation date.")
+            elif rec.deadline<=date.today():
+                raise ValidationError("The expiration date cannot be in the past.")
+            
     
+class ExtendDueDateWizard(models.TransientModel):
+    _name = "muestras.wizard_extend_order_due_date"
+    _description = "Wizard to Extend Order Due Date"
+
+    order_id = fields.Many2one('muestras.order',string="Order ID")
+    actual_deadline = fields.Date(string="Actual Deadline")
+    new_deadline = fields.Date(string="New Deadline",required=True)
+    date_difference = fields.Integer(string="Days Difference",compute="_compute_days_diff",store=True)
+    notes = fields.Text(string="Notes")
+    order_extension_reason = fields.Many2one('muestras.extension_reason',string='Extension Reason',required=True)
 
 
+    @api.depends('new_deadline')
+    def _compute_days_diff(self):
+        for rec in self:
+            if rec.new_deadline:
+                diff = rec.new_deadline - rec.actual_deadline
+                rec.date_difference = diff.days
 
-
-
-    
+    @api.constrains('new_deadline')
+    def _check_new_expiration_date(self):
+        for rec in self:
+            if rec.new_deadline<rec.actual_deadline:
+                raise ValidationError("The new expiration date cannot be earlier than the current expiration date.")
+            
+    def confirm(self):
+        self.ensure_one()
+        self.env['muestras.order_extension'].create({
+            'order_id':self.order_id.id,
+            'previous_deadline':self.actual_deadline,
+            'new_deadline':self.new_deadline,
+            'date_difference':self.date_difference,
+            'order_extension_reason':self.order_extension_reason.id,
+            'notes':self.notes,
+            'user_id':self.env.user.id,
+            })
+        self.order_id.deadline = self.new_deadline

@@ -32,6 +32,7 @@
                 <!--TODO: Result from converting "states='draft'" attribute into an 'invisible' attribute
                     Manually combine states condition into any 'invisible' overrides in inheriting views as well-->
                 <button name="sale_order_without_shipment" string="Create Sales Order Without Sample Shipment" type="object" invisible="state not in ['draft']" class="btn-primary" context="{'validate_analytic': True}"/>
+                <button name="open_extend_due_date" type="object" string="Extend Due Date" class="btn-primary" invisible="state not in ['sent']" groups="muestras.muestras_admin"/>
                 <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
             </header>
             <sheet>

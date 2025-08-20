@@ -18,3 +18,6 @@ from . import reports
 from . import offering_history
 from . import offering_history_line
 from . import spot_eu
+from . import order_extension_reason
+from . import order_extension_history
+from . import price_history

@@ -886,17 +886,7 @@
     <!-- Modelo vista de order lines  -->
 
 
-    <record model="ir.ui.view" id="price_view">
-      <field name="name">muestras.price.list</field>
-      <field name="model">muestras.price</field>
-      <field name="arch" type="xml">
-        <list>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="date"/>
-        </list>
-      </field>
-    </record>
+
 
 
     <record id="view_offering_pdf_wizard_form" model="ir.ui.view">
@@ -1044,7 +1034,12 @@
                   <field name="lead_id" invisible="crm_option not in ['select']" domain="[('partner_id', '=', partner_id)]"/>
                   <field name="partner_id" invisible="1"/>
                   <field name="order_id"  invisible="1"/>
-                  <!-- <field name=""/> -->
+                </group>
+                <group name="deadline">
+                  <div colspan="2">
+                    <p class="o_form_label">Please select an expiration date. The default expiration period is 21 days from the sample’s creation. After 21 days, the sample will be automatically released. You will be notified 5 days before the expiration, and if you need to extend the due date, please contact the administrator.</p>
+                  </div>
+                  <field name="deadline"/>
                 </group>
                 <footer>
                   <button name="confirm_link_to_lead" type="object" string="Confirm" class="btn-primary"/>
@@ -1119,11 +1114,7 @@
       <field name="view_mode">list,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="muestras.price_action_window">
-      <field name="name">Price</field>
-      <field name="res_model">muestras.price</field>
-      <field name="view_mode">list,form</field>
-    </record>
+
 
     <record model="ir.actions.act_window" id="muestras.disponibles_price_action_window">
       <field name="name">Offering List Equation</field>

@@ -21,7 +21,7 @@
               action="muestras.prueba_action_window"
               groups="base.group_system"/>
     <menuitem name="Equation Products" id="muestras.tabla_menu_1_list" parent="muestras.tabla_menu_1"
-              action="muestras.disponible_action_window"/>
+              action="muestras.disponible_action_window" groups="muestras.muestras_admin"/>
     <menuitem name="Europe Inventory" id="muestras.tabla_menu_3_list" parent="muestras.tabla_menu_1"
               action="muestras.spoteu_action_window"/>
     <menuitem name="US Inventory" id="muestras.product_menu_1_listk" parent="muestras.tabla_menu_1"
@@ -41,5 +41,9 @@
     <menuitem name ="Offering List" id="muestras_price_2" parent="muestras.tabla_menu_1"
               action="muestras.disponibles_price_action_window"/>
     <menuitem name="Offering History" id="muestras_offering_history_view_list" parent="muestras.offering_menu"
-              action="muestras.offering_history_window"/> 
+              action="muestras.offering_history_window"/>
+    <menuitem name="Extension Reason" id="muestras_extension_reason_menu" parent="muestras.cat_menu_1"
+              action="muestras.extension_reason_window"/>
+    <menuitem name="Order Extension History" id="muestras_order_extension_menu" parent="muestras.order_menu_1"
+              action="muestras.order_extension_window" groups="muestras.muestras_admin"/>
 </odoo>
