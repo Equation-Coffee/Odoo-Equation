@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class ResPartner(models.Model):
@@ -33,3 +34,21 @@ class ResPartner(models.Model):
     )
     offering_history=fields.One2many(string="Offering History",comodel_name='muestras.offering_history',
         inverse_name='partner',copy=True,auto_join=True)
+    equation_coffee_sales_team=fields.Many2one('crm.team',string="Sales Team",default=lambda self:self._default_sales_team(),required=True)
+    last_sale = fields.Date(string="Last Sale")
+    last_interaction = fields.Date(string="Last Interaction")
+    last_samples_shipment = fields.Date(string="Last Sample Shipment")
+    potential = fields.Many2one( 'res.partner_potential',string="Potential")
+    account_priority =fields.Many2one('res.partner_account_priority',string="Account Priority")
+    potential_type = fields.Many2one('res.partner_potential_type',string="Potential Type")
+            
+    def _default_sales_team(self):
+        team = self.env['crm.team'].search([('member_ids','=',self.env.uid)],limit=1)
+        return team.id if team else False   
+    
+    @api.constrains('name')
+    def _constrains_name(self):
+        for rec in self:
+            if self.search_count([('name', '=ilike', rec.name)]) > 1:
+                raise ValidationError(
+                    _(f"An contact with this name {rec.name} already exists. Please contact your administrator."))

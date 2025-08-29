@@ -155,7 +155,7 @@
         <field name="model">muestras.order</field>
         <field name="arch" type="xml">
             <list>
-            <field name="name"/>
+            <field name="name" />
             <field name="create_date"/>
             <field name="partner_id"/>
             <field name="salesperson_header"/>
@@ -169,9 +169,10 @@
             <field name="lote_quantity"/> 
             <field name="days"/>   
             <field name="state" decoration-success="state == 'sale'" 
-                decoration-info="state == 'draft' or state == 'sent'"
-                decoration-danger="state == 'cancels'"
-                decoration-warning="state == 'cancelb' or state=='cancelba' or state=='expiring'"  widget="badge"/>
+                decoration-info="state == 'sent'"
+                decoration-danger="state == 'cancels' or state == 'cancelb' or state=='cancelba'"
+                decoration-muted = "state=='draft'"
+                decoration-warning="state=='expiring'"  widget="badge"/>
             </list>
         </field>
     </record>

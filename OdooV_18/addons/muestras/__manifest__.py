@@ -74,6 +74,7 @@
             '/muestras/static/src/xml/wizard_button_offering.xml',
             '/muestras/static/src/xml/atlas_update_button.xml',
             '/muestras/static/src/img/offering_background.png',
+            # '/muestras/static/src/js/autocomplete.js',
             # '/muestras/static/equationlogo.png',  # Asegúrate de que tenga la extensión .xml
             # '/muestras/static/src/css/offering.css',
             # '/muestras/static/src/css/css_report.xml',

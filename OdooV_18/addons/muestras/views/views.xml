@@ -165,7 +165,7 @@
                         <page string="Coffee Information" name="coffee_information">
                             <group name="codification" string="Codification">
                                 <field name="sku"/>
-                                <field name="lote"/>
+                                <field name="lote" widget="contact_autocomplete"/>
                                 <field name="available"/>
                                 <field name="date_create"/>
                             </group>

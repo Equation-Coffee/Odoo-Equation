@@ -19,11 +19,11 @@ class Order(models.Model):
     state = fields.Selection(
         selection=[
             ('draft',"Draft"),
-            ('sent',"Sample Shipment"),
-            ("cancels","Shipment Cancelled"),
+            ('sent',"Active"),
+            ("cancels","Declined"),
             ("cancelb","Declined"),
             ("expering","Reserve to Expire"),
-            ("partial_rejection","Partial Rejection"),
+            ("partial_rejection","Partial Declined"),
             ("partial_sale","Partial Sale"),
             ("cancelba","Booking Cancelled (Auto)"),
             ('sale',"Order Sale"),
@@ -181,7 +181,7 @@ class Order(models.Model):
                 template.send_mail(self.id, force_send=True)
                 self.email_sent = True
                 # self.email_content = self.generate_table_html()
-
+            self.partner_id.last_samples_shipment = date.today()
         except UserError as e:
             # Manejo de errores específicos
             raise e

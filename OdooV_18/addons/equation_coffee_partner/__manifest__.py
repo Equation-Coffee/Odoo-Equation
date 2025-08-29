@@ -12,15 +12,27 @@
         'equation_coffee_base',
         'contacts',
         'account',
-        'muestras'
+        'muestras',
     ],
     'data': [
         'report/report_invoice_template.xml',
         'views/res_partner_views.xml',
+        'views/res_partner_account_priority.xml',
         'security/ir.model.access.csv'
     ],
     'license': 'LGPL-3',
     'application': False,
-    'installable': True
+    'installable': True,
+
+    'assets': {
+        'web.assets_backend': [
+            'equation_coffee_partner/static/src/js/autocomplete.js',
+            # 'equation_coffee_partner/static/src/xml/simple_autocomplete_char.xml',
+
+        ],
+        'web.assets_qweb':[
+            'equation_coffee_partner/static/src/xml/simple_autocomplete_char.xml',
+        ],
+},
     
 }

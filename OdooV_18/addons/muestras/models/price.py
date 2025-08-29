@@ -1,5 +1,8 @@
 from odoo import models, fields, api
 from datetime import date,datetime
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Price(models.Model):
     _name = "muestras.price"
@@ -106,7 +109,7 @@ class Price(models.Model):
                         self.env['muestras.price_history'].create({
                             'price_id':trm_register.id,
                             'name':trm_register.name,
-                            'value':value,
+                            'value':trm,
                             'execution_time':datetime.now()
                         })
 
@@ -122,6 +125,8 @@ class Price(models.Model):
     def cron_price_c(self):
         import requests
         from bs4 import BeautifulSoup
+        _logger.info("Entrando a la funcion AAAAAA")
+        print("Entrando a la funcion AAAAAAAAA")
         url_price_c = 'https://es.investing.com/commodities/us-coffee-c'
         response = requests.get(url_price_c,timeout=10)
         if response.status_code == 200:
@@ -133,6 +138,8 @@ class Price(models.Model):
                 price_c_register = self.env['muestras.price'].search([('name','=','Coffee C Price')],limit=1)
                 if price_c_register:
                     price_c_register.write({'value':price_c,'date':date.today()})
+                    _logger.info("EEEEEEEEEEEEEEE")
+                    print("AAAAAAAAAAAAAAAAAAAA")
                     self.env['muestras.price_history'].create({
                             'price_id':price_c_register.id,
                             'name':price_c_register.name,

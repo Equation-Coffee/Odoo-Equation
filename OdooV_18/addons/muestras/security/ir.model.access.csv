@@ -28,6 +28,7 @@ access_muestras_wizard_sale,muestras.wizard_sale,model_muestras_wizard_sale,base
 access_muestras_wizard_sale_line,muestras.wizard_sale.line,model_muestras_wizard_sale_line,base.group_user,1,1,1,1
 access_muestras_feedback,muestras.feedback,model_muestras_feedback,base.group_user,1,1,1,1
 access_muestras_price,muestras.price,model_muestras_price,muestras.muestras_admin,1,1,1,1
+access_muestras_price_user,muestras.price,model_muestras_price,base.group_user,1,0,0,0
 access_muestras_price_history,muestras.price_history,model_muestras_price_history,muestras.muestras_admin,1,1,1,1
 access_muestras_offering_pdf_wizard,muestras.offering_pdf_wizard,model_muestras_offering_pdf_wizard,base.group_user,1,1,1,1
 access_muestras_offering_pdf_wizard_line,muestras.offering_pdf_wizard_line,model_muestras_offering_pdf_wizard_line,base.group_user,1,1,1,1

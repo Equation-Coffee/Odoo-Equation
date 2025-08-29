@@ -33,16 +33,45 @@
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="priority" eval="3"/>
         <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name'][@id='company']" position="attributes">
+                <attribute name="widget">simple_autocomplete_char</attribute>
+            </xpath>
         
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="equation_coffee_comercial_name" invisible="not is_company"/>
+                <field name="equation_coffee_account_type_id" string="Account Type"/>
+                <field name="last_sale"/>
+                <field name="last_interaction"/>
+                <field name="last_samples_shipment"/>
+            </xpath>
+
+            <xpath expr="//span[@name='address_name']" position="before">
+                <field name="last_sale"/>
+                <field name="last_interaction"/>
+                <field name="last_samples_shipment"/>
+            </xpath>
+
+            <xpath expr="//field[@name='lang']" position="after">
+                <field name="equation_coffee_sales_team"/>
+                <field name="potential"/>
+                <field name="account_priority"/>
+                <field name="potential_type"/>
             </xpath>
 
             <xpath expr="//page[last()]" position="after">
-                <page name="equation_coffe_customer_information" string="Equation Coffee Customer Information" invisible="customer_rank == 0">
+                <page name="equation_coffe_customer_information" string="Equation Coffee Customer Information">
                     <group name="main_group">
                         <group name="left_group">
                             <field name="customer_rank" invisible="1"/>
+                            <field name="create_date"/>
+                            <field name="equation_coffee_sales_team"/>
+                            <field name="last_sale"/>
+                            <field name="last_interaction"/>
+                            <field name="last_samples_shipment"/>
+                            <field name="potential"/>
+                            <field name="account_priority"/>
+                            <field name="potential_type"/>
                             <field name="equation_coffee_account_type_id" options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}" required="customer_rank == 1"/>
                             <field name="equation_coffee_customer_origin_id" options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}" required="customer_rank == 1"/>
                             <field name="equation_coffee_project_ids" widget="many2many_tags"/>
@@ -83,7 +112,7 @@
                         </list>
                     </field>
                 </page>
-            </xpath>
+            </xpath>    
         </field>
     </record>
 
@@ -97,4 +126,19 @@
             </xpath>
         </field>
     </record>
+
+    <record id="filter_my_team_contacts" model="ir.filters">
+        <field name="name">My Sales Team Contacts</field>
+        <field name="model_id">res.partner</field>
+        <field name="domain">[('equation_coffee_sales_team.member_ids', 'in', [uid])]</field>
+        <field name="context">{}</field>
+        <field name="is_default" eval="True"/>
+        <field name="user_id" eval="False"/>
+    </record>
+
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[('parent_id', '=', False)]</field>
+    </record>
+
+    
 </odoo>
