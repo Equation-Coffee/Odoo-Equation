@@ -3,3 +3,6 @@ access_res_partner_purchase_history,res.partner_purchase_history,model_res_partn
 access_res_partner_potential,res.partner_potential,model_res_partner_potential,base.group_system,1,1,1,1
 access_res_partner_potential_type,res.partner_potential_type,model_res_partner_potential_type,base.group_system,1,1,1,1
 access_res_partner_account_priority,res.partner_account_priority,model_res_partner_account_priority,base.group_system,1,1,1,1
+access_res_partner_potential_user,res.partner_potential,model_res_partner_potential,base.group_user,1,0,0,0
+access_res_partner_potential_type_user,res.partner_potential_type,model_res_partner_potential_type,base.group_user,1,0,0,0
+access_res_partner_account_priority_user,res.partner_account_priority,model_res_partner_account_priority,base.group_user,1,0,0,0

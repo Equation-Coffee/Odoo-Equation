@@ -9,6 +9,7 @@
     'maintainer': 'Firefly-e',
     'website': 'https://equationcoffee.com/',
     'depends': [
+        'web',
         'equation_coffee_base',
         'contacts',
         'account',
@@ -26,12 +27,10 @@
 
     'assets': {
         'web.assets_backend': [
-            'equation_coffee_partner/static/src/js/autocomplete.js',
-            # 'equation_coffee_partner/static/src/xml/simple_autocomplete_char.xml',
+            'equation_coffee_partner/static/src/js/*',
+            'equation_coffee_partner/static/src/xml/*',
+            'equation_coffee_partner/static/src/scss/*',
 
-        ],
-        'web.assets_qweb':[
-            'equation_coffee_partner/static/src/xml/simple_autocomplete_char.xml',
         ],
 },
     

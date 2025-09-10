@@ -35,12 +35,12 @@ class ResPartner(models.Model):
     offering_history=fields.One2many(string="Offering History",comodel_name='muestras.offering_history',
         inverse_name='partner',copy=True,auto_join=True)
     equation_coffee_sales_team=fields.Many2one('crm.team',string="Sales Team",default=lambda self:self._default_sales_team(),required=True)
-    last_sale = fields.Date(string="Last Sale")
-    last_interaction = fields.Date(string="Last Interaction")
-    last_samples_shipment = fields.Date(string="Last Sample Shipment")
-    potential = fields.Many2one( 'res.partner_potential',string="Potential")
-    account_priority =fields.Many2one('res.partner_account_priority',string="Account Priority")
-    potential_type = fields.Many2one('res.partner_potential_type',string="Potential Type")
+    last_sale = fields.Date(string="Last Sale",readonly=True)
+    last_interaction = fields.Date(string="Last Interaction",readonly=True)
+    last_samples_shipment = fields.Date(string="Last Sample Shipment",readonly=True)
+    potential = fields.Many2one( 'res.partner_potential',string="Potential",required=True)
+    account_priority =fields.Many2one('res.partner_account_priority',string="Account Priority",required=True)
+    potential_type = fields.Many2one('res.partner_potential_type',string="Potential Type",required=True)
             
     def _default_sales_team(self):
         team = self.env['crm.team'].search([('member_ids','=',self.env.uid)],limit=1)

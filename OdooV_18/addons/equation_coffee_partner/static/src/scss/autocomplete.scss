@@ -1,0 +1,33 @@
+/* Hace que el input parezca un título H1, sin romper su funcionalidad */
+.o_equation_contact_autocomplete .ec-title-input {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  min-width: 50ch;        /* al menos 50 caracteres visibles */
+  max-width: 100%;        /* no se pase del contenedor */
+  box-sizing: border-box; 
+
+  /* “look” de título */  
+  font-size: 1.75rem;   /* ~ H1/H2 según tu tema */
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--o-brand-odoo, #2c2c2c); /* usa tu color de marca si tienes var */
+
+  padding: 0;           /* quitar padding de caja */
+  margin: 0;            /* se alinea con el divisor H1 que ya tienes */
+}
+
+/* Opcional: subrayado sutil al enfocar para indicar que es editable */
+.o_equation_contact_autocomplete .ec-title-input:focus {
+  outline: none;
+  width: 100%;
+  min-width: 1000px;
+  border-bottom: 1px solid rgba(0,0,0,.15) !important;
+}
+
+/* Opcional: placeholder más discreto */
+.o_equation_contact_autocomplete .ec-title-input::placeholder {
+  color: #999;
+  opacity: .6;
+}

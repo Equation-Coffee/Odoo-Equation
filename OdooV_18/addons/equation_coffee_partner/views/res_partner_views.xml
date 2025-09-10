@@ -34,29 +34,33 @@
         <field name="priority" eval="3"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='name'][@id='company']" position="attributes">
-                <attribute name="widget">simple_autocomplete_char</attribute>
-            </xpath>
-        
             <xpath expr="//span[@name='address_name']" position="before">
                 <field name="equation_coffee_comercial_name" invisible="not is_company"/>
-                <field name="equation_coffee_account_type_id" string="Account Type"/>
-                <field name="last_sale"/>
-                <field name="last_interaction"/>
-                <field name="last_samples_shipment"/>
             </xpath>
 
-            <xpath expr="//span[@name='address_name']" position="before">
-                <field name="last_sale"/>
-                <field name="last_interaction"/>
-                <field name="last_samples_shipment"/>
+            <xpath expr="//field[@name='name'][@id='company']" position="attributes">
+                <attribute name="widget">equation_coffee_contact_autocomplete</attribute>
             </xpath>
 
-            <xpath expr="//field[@name='lang']" position="after">
-                <field name="equation_coffee_sales_team"/>
-                <field name="potential"/>
-                <field name="account_priority"/>
-                <field name="potential_type"/>
+            <xpath expr="//field[@name='name'][@id='individual']" position="attributes">
+                <attribute name="widget">equation_coffee_contact_autocomplete</attribute>
+            </xpath>
+
+            <xpath expr="//group[.//field[@name='email']]" position="after">
+                <group>
+                    <group string="Potential" name="potential">
+                        <field name="equation_coffee_sales_team"/>
+                        <field name="potential"/>
+                        <field name="account_priority"/>
+                        <field name="potential_type"/>
+                    </group>
+                    <group string="Customer Activity" name="customer_activity">
+                        <field name="last_sale"/>
+                        <field name="last_interaction"/>
+                        <field name="last_samples_shipment"/>
+                        <field name="equation_coffee_account_type_id" string="Account Type"/>
+                    </group>
+                </group>
             </xpath>
 
             <xpath expr="//page[last()]" position="after">
@@ -112,7 +116,7 @@
                         </list>
                     </field>
                 </page>
-            </xpath>    
+            </xpath>
         </field>
     </record>
 
@@ -139,6 +143,4 @@
     <record id="contacts.action_contacts" model="ir.actions.act_window">
         <field name="domain">[('parent_id', '=', False)]</field>
     </record>
-
-    
 </odoo>

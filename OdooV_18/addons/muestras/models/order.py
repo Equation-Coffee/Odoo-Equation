@@ -63,7 +63,7 @@ class Order(models.Model):
     sample_quantity=fields.Float(string="Cantidad Total de muestra",store=True,compute="")
     salesperson=fields.Many2one(string="Salesperson ",comodel_name="res.users",readonly=True,default=lambda self: self.env.user)
     salesperson_header=fields.Many2one(comodel_name='res.users',string="Main Salesperson",default=lambda self: self.env.user,tracking=True)
-    crm_team=fields.Char(string="Equipo de Ventas",store=True,compute="crm_team_compute")
+    crm_team=fields.Char(string="Equipo de Ventas",store=True,compute="crm_team_compute",required=True)
     email_sent=fields.Boolean(string="Email Send")
     email_content = fields.Html(string='Email Content', sanitize=False)
     email_to=fields.Char(string="Recipient")
@@ -110,7 +110,6 @@ class Order(models.Model):
     
 
     ### Validation
-
     
     @api.onchange('partner_id')
     def partner_info(self):
@@ -311,10 +310,17 @@ class Order(models.Model):
 
 
     def recipient(self,region):
-        sales_head_eamil=self.salesperson_header.login
+        team = self.env['crm.team'].sudo()
+        team_id = team.search([('name','=',self.crm_team)])
+        users = (team_id.member_ids | team_id.user_id).filtered(lambda u: u.active)
+        logins = []
+        for u in users:
+            if u.login:
+                logins.append(u.login)
+        sales_head_email=self.salesperson_header.login
         sales_email=self.salesperson.login
-        email_to="viviana@equationcoffee.com,operaciones@equationcoffee.com,laura@equationcoffee.com,analitica@thecoffeehub.co"
-        mails=["viviana@equationcoffee.com","operaciones@equationcoffee.com","laura@equationcoffee.com","analitica@thecoffeehub.co"]
+        email_to="viviana@equationcoffee.com,operaciones@equationcoffee.com,laura@equationcoffee.com,logistica@equationcoffee.com"
+        mails=["viviana@equationcoffee.com","operaciones@equationcoffee.com","laura@equationcoffee.com","analitica@thecoffeehub.co","logistica@equationcoffee.com"]
         panama=["admin@creativacoffeedistrict.com","calidad@creativacoffeedistrict.com","auxlaboratorio@equationcoffee.com","coo@flyingpumas.com","procesos@thecoffeehub.co","sales@flyingpumas.com"]
         ## Colombia y Europa comparten el mismo equipo de calidades.
         colombia=["produccion@equationcoffee.com","auxcalidad@equationcoffee.com","auxlaboratorio@equationcoffee.com"]
@@ -341,10 +347,17 @@ class Order(models.Model):
                     if mail not in mails:
                         mails.append(mail)
                         email_to+=f",{mail}"
-            if sales_email not in email_to:
+            if sales_email not in mails:
+                mails.append(sales_email)
                 email_to+=f",{sales_email}"
-            if sales_head_eamil not in email_to:
-                email_to+=f",{sales_head_eamil}"
+            if sales_head_email not in mails:
+                mails.append(sales_head_email)
+                email_to+=f",{sales_head_email}"
+            for sales_team_mail in logins:
+                _logger.info(sales_team_mail)
+                if sales_team_mail not in mails:
+                    mails.append(sales_team_mail)
+                    email_to+=f",{sales_team_mail}"
         elif self.custom_location=='col':
             for mail in colombia:
                 if mail not in mails:
@@ -356,7 +369,6 @@ class Order(models.Model):
                     mails.append(mail)
                     email_to+=f",{mail}"
         self.email_to=email_to
-
     def regions(self):
         regions_sample=[]
         for line in self.order_lines:
@@ -439,10 +451,9 @@ class Order(models.Model):
                 if line.booking==0:
                     raise ValidationError("El valor de la reserva tiene que ser mayor a 0")
 
-    @api.depends('salesperson')
+    @api.depends('salesperson_header')
     def crm_team_compute(self):
-        # self.crm_team="jP"
-        self.crm_team=self.salesperson.sale_team_id.name
+        self.crm_team=self.salesperson_header.sale_team_id.name
 
     def _get_order_lines_to_report(self):
         return self.order_lines
@@ -774,8 +785,7 @@ class CRMConfirmation(models.TransientModel):
             if rec.deadline>max_deadline:
                 raise ValidationError("The maximum allowed expiration time is 21 days after the creation date.")
             elif rec.deadline<=date.today():
-                raise ValidationError("The expiration date cannot be in the past.")
-            
+                raise ValidationError("The expiration date cannot be in the past.")            
     
 class ExtendDueDateWizard(models.TransientModel):
     _name = "muestras.wizard_extend_order_due_date"

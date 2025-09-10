@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Template de AUTOCOMPLETE -->
+<!-- Template de AUTOCOMPLETE -->
+    <t t-name="equation_coffee.ContactAutoComplete" owl="1">
+        <div class="o_equation_contact_autocomplete" t-ref="root" style="position: relative;">
+            <input type="text"
+                t-ref="input"
+                class="form-control ec-title-input"   
+                t-att-value="localValue"               
+                t-on-input="onInput"                    
+                t-on-keydown="onKeyDown"               
+                placeholder="Search contact..." />
+
+            <!-- Dropdown con resultados -->
+            <ul class="dropdown-menu"
+                t-if="state.open"
+                style="display:block; position:absolute; top:100%; left:0; right:0; max-height:220px; overflow:auto; z-index:1000;">
+            <t t-if="state.options.length">
+                <t t-foreach="state.options" t-as="option" t-key="option.id">
+                <li
+                    t-attf-class="dropdown-item {{ option.id === state.highlightedId ? 'active' : '' }}">
+                    <div class="fw-bold"><t t-esc="option.name"/></div>
+                    <div class="text-muted small"><t t-esc="option.description"/></div>
+                </li>
+                </t>
+            </t>
+            <t t-else="">
+                <li class="dropdown-item text-muted">Sin resultados</li>
+            </t>
+            </ul>
+        </div>
+    </t>
+
+
+    <t t-name="equation_coffee.ContactAutoCompleteCharField" t-inherit="web.CharField" t-inherit-mode="primary">
+        <xpath expr="//input" position="replace">
+            <EquationCoffeeContactAutoComplete
+                value="props.record.data[props.name] || ''"
+                sources="sources"
+                input="inputRef"
+                placeholder="placeholder || ''"
+            />
+        </xpath>
+    </t>
+
+
+    <!-- Template para cada opción del dropdown (se puede usar en optionTemplate) -->
+    <t t-name="equation_coffee.ContactOption">
+        <div style="display:flex; flex-direction:column;">
+            <span><t t-esc="option.name"/></span>
+            <span class="text-muted small"><t t-esc="option.description"/></span>
+        </div>
+    </t>
+
+</templates>
